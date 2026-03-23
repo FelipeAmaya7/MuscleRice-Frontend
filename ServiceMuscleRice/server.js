@@ -1,10 +1,20 @@
 import express from "express";
 import mysql from "mysql2";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const frontendDir = path.resolve(__dirname, "../frontend");
+app.use(express.static(frontendDir));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(frontendDir, "index.html"));
+});
 
 // -------------------------------------------
 // 1. CONEXIÓN A LA BASE DE DATOS
