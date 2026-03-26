@@ -1,0 +1,1097 @@
+/* ===== MEJORAS RESPONSIVAS Y MODERNAS PARA MUSCLERICE ===== */
+
+/* Corrección de errores de sintaxis existentes */
+a {
+    text-decoration: none; /* Corrección de sintaxis: eliminado !important y ':' extra */
+}
+
+/* Base moderna para tipografía responsiva */
+html {
+    font-size: 16px;
+}
+
+/* Sistema de tipografía fluida usando clamp() */
+h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.8rem); }
+p { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
+
+/* Contenedor responsivo - eliminando el ancho fijo problemático */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* ===== MEJORAS PARA IMÁGENES DE PRODUCTOS ===== */
+
+/* Sistema de imágenes responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Mejora específica para imágenes de productos en grid */
+.teams img {
+    width: 100%;
+    height: 250px; /* Altura consistente para todas las imágenes */
+    object-fit: cover; /* Mantiene proporción sin deformar */
+    object-position: center; /* Centra la imagen */
+    border-radius: 12px 12px 0 0; /* Bordes superiores redondeados */
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.teams:hover img {
+    transform: scale(1.08); /* Zoom sutil y elegante */
+    filter: brightness(1.1); /* Aumenta brillo en hover */
+}
+
+/* Contenedor de productos mejorado */
+.team .teams {
+    padding: 0;
+    margin: 0 0 30px 0;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #f0f0f0;
+}
+
+.team .teams:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* ===== MEJORAS DE ALINEACIÓN Y ESPACIADO ===== */
+
+/* Grid de productos con Flexbox para mejor control */
+.team .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    margin: 0 -10px;
+}
+
+.team .col-md-3 {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(25% - 25px);
+    max-width: calc(25% - 25px);
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+/* Mejora de texto de productos con altura consistente */
+.team h3 {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 15px 0 8px 0;
+    padding: 0 15px;
+    min-height: 3.2em; /* Altura consistente para títulos de 2 líneas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.4;
+}
+
+.team p {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f39c12;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+/* ===== MEJORAS PARA EL HEADER - STICKY Y MODERNO ===== */
+
+/* Header sticky con sombra elegante */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+    margin-top: 0;
+    height: auto;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Mejora de navegación con mejor espaciado */
+.nav.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav.navbar-nav li {
+    margin: 0 20px;
+}
+
+.nav.navbar-nav a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav.navbar-nav a:hover {
+    background: #f39c12;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.nav.navbar-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #f39c12;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav.navbar-nav a:hover::after {
+    width: 80%;
+}
+
+/* ===== MEJORAS PARA EL SLIDER HERO ===== */
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 20px 20px;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.9);
+}
+
+/* ===== MEJORAS RESPONSIVAS MÓVILES ===== */
+
+/* Tablets y pantallas medianas - 2 columnas */
+@media (max-width: 992px) {
+    .team .col-md-3 {
+        flex: 0 0 calc(50% - 25px);
+        max-width: calc(50% - 25px);
+    }
+    
+    .teams img {
+        height: 220px;
+    }
+    
+    .team h3 {
+        font-size: 1rem;
+        min-height: 2.8em;
+    }
+    
+    .header {
+        padding: 12px 0;
+    }
+    
+    .nav.navbar-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav.navbar-nav li {
+        margin: 8px 15px;
+    }
+}
+
+/* Móviles - 1 columna */
+@media (max-width: 576px) {
+    .team .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .teams img {
+        height: 200px;
+    }
+    
+    .team h3 {
+        font-size: 0.95rem;
+        min-height: auto;
+        padding: 0 10px;
+    }
+    
+    .team p {
+        font-size: 1.1rem;
+    }
+    
+    .header {
+        padding: 8px 0;
+    }
+    
+    .logo img {
+        height: 50px !important;
+        max-width: 120px !important;
+    }
+    
+    .nav.navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+    
+    .nav.navbar-nav li {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav.navbar-nav a {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+        display: block;
+        width: 100%;
+    }
+    
+    .slider img {
+        max-height: 40vh;
+    }
+}
+
+/* ===== MEJORAS DE ACCESIBILIDAD UX ===== */
+
+/* Focus visible para navegación por teclado */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #f39c12;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.3);
+}
+
+/* Animaciones suaves para mejor experiencia */
+* {
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* ===== CORRECCIÓN DE PROBLEMAS EXISTENTES ===== */
+
+/* Eliminar !important innecesarios y mejorar especificidad */
+.btn-edit, .btn-add {
+    background-color: #2ECC71;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-edit:hover, .btn-add:hover {
+    background-color: #27ae60;
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Mejorar la sección de características */
+.features .text-img {
+    text-align: center;
+    padding: 25px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.features .text-img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.features .text-img img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.features .text-img h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.features .text-img p {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Optimización para dispositivos muy pequeños */
+@media (max-width: 375px) {
+    .teams img {
+        height: 180px;
+    }
+    
+    .team h3 {
+        font-size: 0.9rem;
+    }
+    
+    .team p {
+        font-size: 1rem;
+    }
+    
+    .nav.navbar-nav a {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Animación de carga suave */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.team .col-md-3 {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ===== NUEVA ESTRUCTURA DE PRODUCTOS MODERNA ===== */
+
+/* Contenedor principal de productos */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 0 -10px;
+}
+
+/* Tarjeta de producto moderna */
+.product-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f0f0f0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Wrapper de imagen con overlay */
+.product-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.product-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+/* Overlay con redes sociales */
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.product-social {
+  display: flex;
+  gap: 15px;
+}
+
+.social-link {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #f39c12;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+}
+
+.product-card:hover .social-link {
+  transform: translateY(0);
+}
+
+.social-link:nth-child(1) { transition-delay: 0.1s; }
+.social-link:nth-child(2) { transition-delay: 0.2s; }
+.social-link:nth-child(3) { transition-delay: 0.3s; }
+
+.social-link:hover {
+  background: #e67e22;
+  transform: translateY(-3px) scale(1.1);
+}
+
+.social-link i {
+  font-size: 1.2rem;
+}
+
+/* Información del producto */
+.product-info {
+  padding: 20px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+  min-height: 2.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f39c12;
+  margin: 10px 0 15px 0;
+}
+
+/* Botón de agregar al carrito */
+.btn-add-cart {
+  background: linear-gradient(135deg, #2ECC71, #27ae60);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.btn-add-cart:hover {
+  background: linear-gradient(135deg, #27ae60, #219a52);
+  box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-add-cart:active {
+  transform: translateY(0);
+}
+
+/* Responsive para tablets */
+@media (max-width: 992px) {
+  .product-grid {
+    gap: 20px;
+  }
+  
+  .product-image {
+    height: 220px;
+  }
+  
+  .product-title {
+    font-size: 1rem;
+    min-height: 2.6em;
+  }
+  
+  .product-price {
+    font-size: 1.2rem;
+  }
+  
+  .btn-add-cart {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 576px) {
+  .product-grid {
+    gap: 15px;
+    margin: 0 -5px;
+  }
+  
+  .product-image {
+    height: 180px;
+  }
+  
+  .product-info {
+    padding: 15px;
+  }
+  
+  .product-title {
+    font-size: 0.95rem;
+    min-height: auto;
+  }
+  
+  .product-price {
+    font-size: 1.1rem;
+  }
+  
+  .btn-add-cart {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .social-link i {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive para pantallas muy pequeñas */
+@media (max-width: 375px) {
+  .product-image {
+    height: 160px;
+  }
+  
+  .product-title {
+    font-size: 0.9rem;
+  }
+  
+  .product-price {
+    font-size: 1rem;
+  }
+}
+
+/* ===== MEJORAS PARA SECCIÓN DE CARACTERÍSTICAS ===== */
+
+/* Título de sección mejorado */
+.section-title {
+  text-align: center;
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+/* Grid de características */
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 0 -15px;
+}
+
+/* Tarjeta de característica moderna */
+.feature-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f0f0f0;
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Icono de característica */
+.feature-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 25px;
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, #e67e22, #d35400);
+}
+
+.feature-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* Contenido de característica */
+.feature-content {
+  position: relative;
+  z-index: 1;
+}
+
+.feature-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.feature-description {
+  color: #7f8c8d;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  min-height: 4.8em;
+  display: flex;
+  align-items: center;
+}
+
+.feature-link {
+  color: #f39c12;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 25px;
+  background: rgba(243, 156, 18, 0.1);
+}
+
+.feature-link:hover {
+  background: #f39c12;
+  color: white;
+  transform: translateX(5px);
+  gap: 12px;
+}
+
+/* Responsive para tablets */
+@media (max-width: 992px) {
+  .features-grid {
+    gap: 20px;
+  }
+  
+  .feature-card {
+    min-width: 250px;
+    padding: 25px 20px;
+  }
+  
+  .feature-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .feature-image {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .feature-title {
+    font-size: 1.2rem;
+  }
+  
+  .feature-description {
+    font-size: 0.95rem;
+    min-height: 4.5em;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 576px) {
+  .features-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .feature-card {
+    min-width: auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 15px;
+  }
+  
+  .feature-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-image {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .feature-title {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  
+  .feature-description {
+    font-size: 0.9rem;
+    min-height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .feature-link {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
+
+/* ===== MEJORAS FINALES Y ANIMACIONES ===== */
+
+/* Animación de entrada suave */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }
+.product-card:nth-child(5) { animation-delay: 0.5s; }
+.product-card:nth-child(6) { animation-delay: 0.6s; }
+.product-card:nth-child(7) { animation-delay: 0.7s; }
+.product-card:nth-child(8) { animation-delay: 0.8s; }
+
+/* Mejoras para el header */
+.header-top {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  padding: 8px 0;
+  font-size: 0.9rem;
+}
+
+.header-top a {
+  color: #ecf0f1;
+  transition: color 0.3s ease;
+}
+
+.header-top a:hover {
+  color: #f39c12;
+}
+
+/* Mejoras para el logo */
+.logo img {
+  max-height: 70px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+/* Mejoras para el carrito */
+.cart {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  border-radius: 25px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(243, 156, 18, 0.4);
+}
+
+.cart a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cart sup {
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Mejoras para el slider */
+.slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.slider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.3));
+  z-index: 1;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.9);
+  transition: transform 0.5s ease;
+}
+
+.slider:hover img {
+  transform: scale(1.02);
+}
+
+/* Mejoras para secciones */
+section {
+  padding: 60px 0;
+  position: relative;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f39c12, transparent);
+}
+
+/* Mejoras para títulos de sección */
+.team h2,
+.features h2 {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.team h2::after,
+.features h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+  border-radius: 2px;
+}
+
+/* Mejoras para móviles */
+@media (max-width: 576px) {
+  section {
+    padding: 40px 0;
+  }
+  
+  .team h2,
+  .features h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .team h2::after,
+  .features h2::after {
+    width: 40px;
+    height: 2px;
+  }
+  
+  .slider img {
+    max-height: 40vh;
+  }
+  
+  .logo img {
+    max-height: 50px;
+  }
+  
+  .cart {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mejoras para tablets */
+@media (max-width: 992px) and (min-width: 577px) {
+  section {
+    padding: 50px 0;
+  }
+  
+  .team h2,
+  .features h2 {
+    font-size: 2.2rem;
+    margin-bottom: 35px;
+  }
+  
+  .slider img {
+    max-height: 50vh;
+  }
+}
+
+/* Animación de carga de página */
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  animation: pageLoad 0.6s ease-out;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible mejorado */
+:focus-visible {
+  outline: 2px solid #f39c12;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.3);
+}
