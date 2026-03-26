@@ -1,0 +1,52 @@
+/**
+ * Lógica de Usuario - MuscleRice
+ * Maneja la protección de rutas y la gestión de sesión.
+ */
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. OBTENER DATOS DEL LOCALSTORAGE
+    // Intentamos recuperar el nombre o token del usuario guardado
+    const usuarioLogueado = localStorage.getItem("usuarioActual"); 
+
+    // 2. PROTECCIÓN DE RUTA (Lógica de Acceso)
+    if (!usuarioLogueado) {
+        // Si no hay rastro del usuario, redirigimos inmediatamente al registro
+        console.warn("Acceso denegado: No hay sesión activa. Redirigiendo...");
+        window.location.href = "registro.html";
+        return; // Detenemos la ejecución del resto del script
+    } 
+
+    // 3. CARGA DE DATOS EN LA INTERFAZ
+    console.log("Acceso concedido a MuscleRice para:", usuarioLogueado);
+    
+    // Buscamos el elemento donde va el nombre (el <h2> que definimos en el HTML)
+    const userDisplay = document.getElementById("nombreUsuario");
+    if (userDisplay) {
+        userDisplay.innerText = usuarioLogueado;
+    }
+
+    // 4. LÓGICA DE CIERRE DE SESIÓN
+    // Buscamos el botón por su ID 'btnCerrar'
+    const btnCerrar = document.getElementById("btnCerrar");
+    
+    if (btnCerrar) {
+        btnCerrar.addEventListener("click", (e) => {
+            e.preventDefault(); // Evitamos cualquier comportamiento por defecto
+
+            // Confirmación opcional para el usuario
+            const confirmar = confirm("¿Estás seguro de que deseas cerrar sesión?");
+            
+            if (confirmar) {
+                // Borramos los datos de sesión
+                localStorage.removeItem("usuarioActual"); 
+                
+                alert("Sesión cerrada correctamente. ¡Vuelve pronto!");
+                
+                // Redirigimos al inicio
+                window.location.href = "index.html";
+            }
+        });
+    }
+});
+<script src="usuario.js"></script> 
+</body>
