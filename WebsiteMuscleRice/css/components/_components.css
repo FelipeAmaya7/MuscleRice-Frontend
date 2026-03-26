@@ -1,0 +1,87 @@
+/**
+ * _components.css
+ * 
+ * Arquitectura y Reutilización:
+ * Agrupar los estilos de los componentes (botones, cards, inputs) de forma modular
+ * ayuda a no mezclar lógica de estructura (layout) con el diseño de las piezas del UI.
+ * Además, evitamos "!important" usando las clases correctamente y siempre utilizamos las 
+ * variables globales para garantizar consistencia visual en toda la plataforma.
+ */
+
+/* ==========================================================================
+   ENLACES GLOBALES
+   ========================================================================== */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) var(--transition-ease);
+}
+
+a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
+
+/* Componente base: Botón Primario */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--bg-dark); /* Texto oscuro para generar alto contraste y legibilidad con el verde vibrante */
+    padding: 12px 28px;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px; /* Un radio sutil para suavizar las esquinas */
+    font-size: 1rem;
+    font-weight: 700; /* Texto audaz (bold) para CTAs energéticos */
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-speed) var(--transition-ease);
+}
+
+/* Estado: Hover (cuando el usuario pasa el mouse) */
+.btn-primary:hover {
+    background-color: var(--primary-color-hover);
+    border-color: var(--primary-color-hover);
+    /* Glow effect sutil para aportar energía extra alineada con la marca "MuscleRice" */
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.4); 
+    color: var(--bg-dark); /* Mantener la legibilidad */
+    text-decoration: none;
+}
+
+/* Estado: Active (cuando el usuario hace clic) */
+.btn-primary:active {
+    background-color: var(--primary-color-active);
+    border-color: var(--primary-color-active);
+    box-shadow: none; /* Quitamos el resplandor en el click */
+    transform: translateY(2px); /* Sensación táctil de presionado, excelente práctica UX */
+}
+
+/* Botón Outline / Secundario (Opcional para complementar) */
+.btn-outline-primary {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 12px 28px;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-speed) var(--transition-ease);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+}
+
+.btn-outline-primary:active {
+    background-color: var(--primary-color-active);
+    border-color: var(--primary-color-active);
+    transform: translateY(2px);
+}

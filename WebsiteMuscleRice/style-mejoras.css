@@ -661,8 +661,10 @@ textarea:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   margin: 0 -15px;
+  text-align: center;
 }
 
 /* Tarjeta de característica moderna */
@@ -679,6 +681,7 @@ textarea:focus {
   max-width: 350px;
   position: relative;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .feature-card::before {
@@ -688,7 +691,7 @@ textarea:focus {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #f39c12, #e67e22);
+  background: linear-gradient(90deg, #7fbaa6, #5a9080);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -707,7 +710,7 @@ textarea:focus {
   width: 90px;
   height: 90px;
   margin: 0 auto 25px;
-  background: linear-gradient(135deg, #f39c12, #e67e22);
+  background: linear-gradient(135deg, #7fbaa6, #5a9080);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -718,7 +721,7 @@ textarea:focus {
 
 .feature-card:hover .feature-icon {
   transform: scale(1.1) rotate(5deg);
-  background: linear-gradient(135deg, #e67e22, #d35400);
+  background: linear-gradient(135deg, #6ba592, #4a8070);
 }
 
 .feature-image {
