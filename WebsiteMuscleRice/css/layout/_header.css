@@ -1,8 +1,8 @@
-/**
+﻿﻿﻿﻿﻿﻿﻿/**
  * _header.css
  *
- * Arquitectura (Patrón Layout):
- * Los estilos de un layout (estructura de sección) deben limitarse a posicionar y
+ * Arquitectura (PatrÃ³n Layout):
+ * Los estilos de un layout (estructura de secciÃ³n) deben limitarse a posicionar y
  * dimensionar elementos. Los colores y efectos vienen exclusivamente de :root.
  * Esto permite cambiar la identidad visual de toda la web editando UN SOLO ARCHIVO (_variables.css).
  *
@@ -150,7 +150,7 @@
 }
 
 /* ==========================================================================
-   BOTONES DE AUTENTICACIÓN (Iniciar Sesión / Crear Cuenta)
+   BOTONES DE AUTENTICACIÃ“N (Iniciar SesiÃ³n / Crear Cuenta)
    ========================================================================== */
 
 .btn-auth {
@@ -194,7 +194,7 @@
 }
 
 /* ==========================================================================
-   HEADER PRINCIPAL - Barra de navegación principal (fondo oscuro)
+   HEADER PRINCIPAL - Barra de navegaciÃ³n principal (fondo oscuro)
    ========================================================================== */
 
 .header {
@@ -229,7 +229,7 @@
 }
 
 /* ==========================================================================
-   NAVEGACIÓN PRINCIPAL
+   NAVEGACIÃ“N PRINCIPAL
    ========================================================================== */
 
 .header .nav.navbar-nav {
@@ -348,3 +348,4 @@
 .header .cart a:hover sup {
     color: var(--bg-dark);
 }
+

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="./img/logo-musclerice..png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MuscleRice</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
@@ -14,66 +15,71 @@
     <link rel="stylesheet" href="style-profesional.css">
 </head>
 <body>
-<header>
+<header class="site-header">
     <section class="header-top">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <ul>
-                        <li><a href="#">servicio al cliente </a></li>
-                        <li><a href="#">buzon de mensajes </a></li>
+                <div class="col-md-5">
+                    <ul class="top-links">
+                        <li><a href="#"><i class="fa fa-headphones"></i> Servicio al cliente</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-open"></i> Buzón de mensajes</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <div class="icon">
-                       <a href="#"><i class="fa fa-facebook"></i></a>
-                       <a href="#"><i class="fa fa-twitter"></i></a>
-                       <a href="#"><i class="fa fa-google-plus"></i></a>
-                       <a href="#"><i class="fa fa-linkedin"></i></a>
-                       <a href="#"><i class="fa fa-wifi"></i></a>
+                <div class="col-md-3">
+                    <div class="icon social-list">
+                        <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" aria-label="Google Plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" aria-label="Linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a href="#" aria-label="Blog"><i class="fa fa-rss"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4">
-                   <div class="a-right">
-                        <a href="usuario.html" class="btn-auth">
-                            <span><i class="fa fa-sign-in"></i></span> INICIAR SESIÓN
+                    <div class="a-right account-actions">
+                        <a href="usuario.html" class="btn-auth" aria-label="Iniciar sesión">
+                            <i class="fa fa-user-circle-o"></i>
+                            <span>Iniciar sesión</span>
                         </a>
-                        <a href="registro.html" class="btn-auth btn-auth-register">
-                            <span><i class="fa fa-user-plus"></i></span> CREAR CUENTA
+                        <a href="registro.html" class="btn-auth btn-auth-register" aria-label="Crear cuenta">
+                            <i class="fa fa-user-plus"></i>
+                            <span>Crear cuenta</span>
                         </a>
-                   </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <div class="clear"></div>
-    <section class="header">
+    <section class="header header-main">
         <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                   <div class="logo">
-                    <a href="index.html">
-                            <img src="img/logo-musclerice..png" alt="MuscleRice" style="height: 120px; max-width: 100%; object-fit: contain;">
-                            </a>
-                   </div>
+            <div class="row header-main-row">
+                <div class="col-md-3 col-sm-12">
+                    <div class="logo">
+                        <a href="index.html" class="site-logo">
+                            <img src="img/logo-musclerice..png" alt="MuscleRice" class="site-logo-img">
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-7">
-                    <ul class="nav navbar-nav">
-                      <li class="active"><a href="#">INICIO</a></li>
-                      <li><a href="categorias.html">CATEGORIAS</a></li>
-                      <li><a href="marcas.html">MARCAS</a></li>
-                      <li><a href="ofertas.html">OFERTAS</a></li>
-                      <li><a href="#">SALE</a></li>
+                <div class="col-md-6 col-sm-12">
+                    <ul class="nav navbar-nav main-nav">
+                        <li class="active"><a href="#">Inicio</a></li>
+                        <li><a href="categorias.html">Categorías</a></li>
+                        <li><a href="marcas.html">Marcas</a></li>
+                        <li><a href="ofertas.html">Ofertas</a></li>
+                        <li><a href="#" class="sale-link">Sale</a></li>
                     </ul>
                 </div>
-                <div class="col-md-2">
-                     <div class="cart">
-        <a href="carrito.html">
-            <p><i class="fa fa-cart-arrow-down"></i><sup>0</sup> &#36;&nbsp;&nbsp;0.00</p>
-        </a>
+                <div class="col-md-3 col-sm-12">
+                    <div class="cart header-cart">
+                        <a href="carrito.html" aria-label="Carrito de compras">
+                            <span class="cart-icon-wrap">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span class="cart-count">0</span>
+                            </span>
+                            <span class="cart-price">$0.00</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
 </header>

@@ -1,11 +1,11 @@
 /**
  * _hero.css
  *
- * Arquitectura (Patrón Layout):
- * Los estilos de un layout (la estructura de una sección) deben limitarse a posicionar y
+ * Arquitectura (PatrÃ³n Layout):
+ * Los estilos de un layout (la estructura de una secciÃ³n) deben limitarse a posicionar y
  * dimensionar elementos (padding, flex, grid, min-height). Los colores vienen de :root.
  * Al usar variables en el background y en el texto logramos que el contraste sea perfecto
- * sin tener que agregar !important o clases complejas.
+ * sin tener que agregar sobreescrituras forzadas o clases complejas.
  *
  * Estructura Bootstrap: container > row > col-md-4 (3 columnas iguales)
  */
@@ -116,3 +116,4 @@
     transform: translateY(0);
     box-shadow: none;
 }
+

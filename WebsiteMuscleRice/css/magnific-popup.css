@@ -1,4 +1,4 @@
-/* Magnific Popup CSS */
+﻿/* Magnific Popup CSS */
 .mfp-bg {
   top: 0;
   left: 0;
@@ -17,7 +17,7 @@
   height: 100%;
   z-index: 1043;
   position: fixed;
-  outline: none !important;
+  outline: none;
   -webkit-backface-visibility: hidden; }
 
 .mfp-container {
@@ -81,7 +81,7 @@
   display: none; }
 
 .mfp-hide {
-  display: none !important; }
+  display: none; }
 
 .mfp-preloader {
   color: #CCC;
@@ -349,3 +349,4 @@ img.mfp-img {
   .mfp-container {
     padding-left: 6px;
     padding-right: 6px; } }
+

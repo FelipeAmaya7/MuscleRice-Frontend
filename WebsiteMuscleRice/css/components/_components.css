@@ -4,7 +4,7 @@
  * Arquitectura y Reutilización:
  * Agrupar los estilos de los componentes (botones, cards, inputs) de forma modular
  * ayuda a no mezclar lógica de estructura (layout) con el diseño de las piezas del UI.
- * Además, evitamos "!important" usando las clases correctamente y siempre utilizamos las 
+ * Además, evitamos sobreescrituras forzadas usando las clases correctamente y siempre utilizamos las 
  * variables globales para garantizar consistencia visual en toda la plataforma.
  */
 

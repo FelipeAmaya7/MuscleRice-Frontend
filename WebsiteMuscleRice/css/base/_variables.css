@@ -1,27 +1,27 @@
-/**
+﻿﻿﻿﻿﻿﻿﻿/**
  * _variables.css
  * 
  * Arquitectura y Escalabilidad:
- * Centralizar los colores, tipografías y espaciados en :root (Variables CSS Nativas) 
- * nos permite mantener una "Única Fuente de Verdad" (Single Source of Truth).
+ * Centralizar los colores, tipografÃ­as y espaciados en :root (Variables CSS Nativas) 
+ * nos permite mantener una "Ãšnica Fuente de Verdad" (Single Source of Truth).
  * Si la marca decide hacer un re-branding en el futuro (ej. cambiar a otro tono de verde),
- * solo modificamos este archivo y el cambio se propagará instantáneamente por todos los 
- * componentes de la aplicación, sin necesidad de buscar y reemplazar colores "hard-codeados".
+ * solo modificamos este archivo y el cambio se propagarÃ¡ instantÃ¡neamente por todos los 
+ * componentes de la aplicaciÃ³n, sin necesidad de buscar y reemplazar colores "hard-codeados".
  */
 
 :root {
     /* Identidad Visual - MuscleRice (Verde salvia premium) */
-    --primary-color: #7fbaa6;
+    --primary-color: #70b8a7;
     --primary-color-hover: #6ba592;
     --primary-color-active: #5a9080;
 
     /* Alias para compatibilidad */
-    --primary-green: #7fbaa6;
+    --primary-green: #70b8a7;
 
     /* Fondos */
     --bg-dark: #121212;
     
-    /* Tipografía y Textos */
+    /* TipografÃ­a y Textos */
     --text-light: #ffffff;
     --text-muted: #a0a0a0;
 
@@ -29,3 +29,4 @@
     --transition-speed: 0.3s;
     --transition-ease: ease-in-out;
 }
+

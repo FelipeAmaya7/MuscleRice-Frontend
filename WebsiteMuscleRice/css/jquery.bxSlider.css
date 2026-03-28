@@ -1,4 +1,4 @@
-/* 
+﻿/* 
 	jQuery Logo Slider Ticker 
 	by http://webdesignandsuch.com
 	build with code from http://bxslider.com
@@ -23,7 +23,7 @@
   position: absolute;
   top: 47px;
   font-size: 34px;
-  color: #f39c12;
+  color: #70b8a7;
   left: -20px;
 }
 .slider-container::after {
@@ -31,7 +31,7 @@
   position: absolute;
   top: 47px;
   font-size: 34px;
-  color: #f39c12;
+  color: #70b8a7;
   right: -20px;
 }
 #slider img { 
@@ -48,10 +48,12 @@
   margin: 0;
 }
 .bx-wrapper {
-  width: 100%!important;
+  width: 100%;
 }
 .bx-window{
-    width: 100%!important;
+    width: 100%;
 }
+
+
 
 
