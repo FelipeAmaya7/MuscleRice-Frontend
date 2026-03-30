@@ -1,22 +1,22 @@
-/* ===== MEJORAS RESPONSIVAS Y MODERNAS PARA MUSCLERICE ===== */
+﻿﻿﻿﻿﻿﻿﻿﻿/* ===== MEJORAS RESPONSIVAS Y MODERNAS PARA MUSCLERICE ===== */
 
-/* Corrección de errores de sintaxis existentes */
+/* CorrecciÃ³n de errores de sintaxis existentes */
 a {
-    text-decoration: none; /* Corrección de sintaxis: eliminado !important y ':' extra */
+    text-decoration: none; /* CorrecciÃ³n de sintaxis: eliminado ':' extra */
 }
 
-/* Base moderna para tipografía responsiva */
+/* Base moderna para tipografÃ­a responsiva */
 html {
     font-size: 16px;
 }
 
-/* Sistema de tipografía fluida usando clamp() */
+/* Sistema de tipografÃ­a fluida usando clamp() */
 h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
 h2 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
 h3 { font-size: clamp(1.2rem, 2.5vw, 1.8rem); }
 p { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
 
-/* Contenedor responsivo - eliminando el ancho fijo problemático */
+/* Contenedor responsivo - eliminando el ancho fijo problemÃ¡tico */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -25,20 +25,20 @@ p { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
     padding-right: 15px;
 }
 
-/* ===== MEJORAS PARA IMÁGENES DE PRODUCTOS ===== */
+/* ===== MEJORAS PARA IMÃGENES DE PRODUCTOS ===== */
 
-/* Sistema de imágenes responsivas */
+/* Sistema de imÃ¡genes responsivas */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* Mejora específica para imágenes de productos en grid */
+/* Mejora especÃ­fica para imÃ¡genes de productos en grid */
 .teams img {
     width: 100%;
-    height: 250px; /* Altura consistente para todas las imágenes */
-    object-fit: cover; /* Mantiene proporción sin deformar */
+    height: 250px; /* Altura consistente para todas las imÃ¡genes */
+    object-fit: cover; /* Mantiene proporciÃ³n sin deformar */
     object-position: center; /* Centra la imagen */
     border-radius: 12px 12px 0 0; /* Bordes superiores redondeados */
     transition: transform 0.4s ease, filter 0.4s ease;
@@ -66,7 +66,7 @@ img {
     transform: translateY(-8px) scale(1.02);
 }
 
-/* ===== MEJORAS DE ALINEACIÓN Y ESPACIADO ===== */
+/* ===== MEJORAS DE ALINEACIÃ“N Y ESPACIADO ===== */
 
 /* Grid de productos con Flexbox para mejor control */
 .team .row {
@@ -95,7 +95,7 @@ img {
     color: #2c3e50;
     margin: 15px 0 8px 0;
     padding: 0 15px;
-    min-height: 3.2em; /* Altura consistente para títulos de 2 líneas */
+    min-height: 3.2em; /* Altura consistente para tÃ­tulos de 2 lÃ­neas */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,7 +106,7 @@ img {
     text-align: center;
     font-size: 1.25rem;
     font-weight: 700;
-    color: #f39c12;
+    color: #70b8a7;
     margin-bottom: 20px;
     padding: 0 10px;
 }
@@ -127,7 +127,7 @@ img {
     border-bottom: 1px solid #f0f0f0;
 }
 
-/* Mejora de navegación con mejor espaciado */
+/* Mejora de navegaciÃ³n con mejor espaciado */
 .nav.navbar-nav {
     display: flex;
     align-items: center;
@@ -153,7 +153,7 @@ img {
 }
 
 .nav.navbar-nav a:hover {
-    background: #f39c12;
+    background: #70b8a7;
     color: #ffffff;
     transform: translateY(-2px);
 }
@@ -165,7 +165,7 @@ img {
     left: 50%;
     width: 0;
     height: 2px;
-    background: #f39c12;
+    background: #70b8a7;
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -191,7 +191,7 @@ img {
     filter: brightness(0.9);
 }
 
-/* ===== MEJORAS RESPONSIVAS MÓVILES ===== */
+/* ===== MEJORAS RESPONSIVAS MÃ“VILES ===== */
 
 /* Tablets y pantallas medianas - 2 columnas */
 @media (max-width: 992px) {
@@ -223,7 +223,7 @@ img {
     }
 }
 
-/* Móviles - 1 columna */
+/* MÃ³viles - 1 columna */
 @media (max-width: 576px) {
     .team .col-md-3 {
         flex: 0 0 100%;
@@ -250,8 +250,8 @@ img {
     }
     
     .logo img {
-        height: 50px !important;
-        max-width: 120px !important;
+        height: 50px;
+        max-width: 120px;
     }
     
     .nav.navbar-nav {
@@ -280,13 +280,13 @@ img {
 
 /* ===== MEJORAS DE ACCESIBILIDAD UX ===== */
 
-/* Focus visible para navegación por teclado */
+/* Focus visible para navegaciÃ³n por teclado */
 a:focus,
 button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-    outline: 2px solid #f39c12;
+    outline: 2px solid #70b8a7;
     outline-offset: 2px;
     box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.3);
 }
@@ -300,9 +300,9 @@ textarea:focus {
                 box-shadow 0.3s ease;
 }
 
-/* ===== CORRECCIÓN DE PROBLEMAS EXISTENTES ===== */
+/* ===== CORRECCIÃ“N DE PROBLEMAS EXISTENTES ===== */
 
-/* Eliminar !important innecesarios y mejorar especificidad */
+/* Eliminar reglas innecesarias y mejorar especificidad */
 .btn-edit, .btn-add {
     background-color: #2ECC71;
     color: white;
@@ -322,7 +322,7 @@ textarea:focus {
     transform: translateY(-2px);
 }
 
-/* Mejorar la sección de características */
+/* Mejorar la secciÃ³n de caracterÃ­sticas */
 .features .text-img {
     text-align: center;
     padding: 25px;
@@ -361,7 +361,7 @@ textarea:focus {
     margin-bottom: 0;
 }
 
-/* Optimización para dispositivos muy pequeños */
+/* OptimizaciÃ³n para dispositivos muy pequeÃ±os */
 @media (max-width: 375px) {
     .teams img {
         height: 180px;
@@ -381,7 +381,7 @@ textarea:focus {
     }
 }
 
-/* Animación de carga suave */
+/* AnimaciÃ³n de carga suave */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -474,7 +474,7 @@ textarea:focus {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: #f39c12;
+  background: #70b8a7;
   color: white;
   display: flex;
   align-items: center;
@@ -493,7 +493,7 @@ textarea:focus {
 .social-link:nth-child(3) { transition-delay: 0.3s; }
 
 .social-link:hover {
-  background: #e67e22;
+  background: #70b8a7;
   transform: translateY(-3px) scale(1.1);
 }
 
@@ -501,7 +501,7 @@ textarea:focus {
   font-size: 1.2rem;
 }
 
-/* Información del producto */
+/* InformaciÃ³n del producto */
 .product-info {
   padding: 20px;
   text-align: center;
@@ -526,11 +526,11 @@ textarea:focus {
 .product-price {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #f39c12;
+  color: #70b8a7;
   margin: 10px 0 15px 0;
 }
 
-/* Botón de agregar al carrito */
+/* BotÃ³n de agregar al carrito */
 .btn-add-cart {
   background: linear-gradient(135deg, #2ECC71, #27ae60);
   color: white;
@@ -583,7 +583,7 @@ textarea:focus {
   }
 }
 
-/* Responsive para móviles */
+/* Responsive para mÃ³viles */
 @media (max-width: 576px) {
   .product-grid {
     gap: 15px;
@@ -622,7 +622,7 @@ textarea:focus {
   }
 }
 
-/* Responsive para pantallas muy pequeñas */
+/* Responsive para pantallas muy pequeÃ±as */
 @media (max-width: 375px) {
   .product-image {
     height: 160px;
@@ -637,9 +637,9 @@ textarea:focus {
   }
 }
 
-/* ===== MEJORAS PARA SECCIÓN DE CARACTERÍSTICAS ===== */
+/* ===== MEJORAS PARA SECCIÃ“N DE CARACTERÃSTICAS ===== */
 
-/* Título de sección mejorado */
+/* TÃ­tulo de secciÃ³n mejorado */
 .section-title {
   text-align: center;
   color: #2c3e50;
@@ -656,16 +656,18 @@ textarea:focus {
   font-weight: 400;
 }
 
-/* Grid de características */
+/* Grid de caracterÃ­sticas */
 .features-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   margin: 0 -15px;
+  text-align: center;
 }
 
-/* Tarjeta de característica moderna */
+/* Tarjeta de caracterÃ­stica moderna */
 .feature-card {
   background: #ffffff;
   border-radius: 20px;
@@ -679,6 +681,7 @@ textarea:focus {
   max-width: 350px;
   position: relative;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .feature-card::before {
@@ -688,7 +691,7 @@ textarea:focus {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #f39c12, #e67e22);
+  background: linear-gradient(90deg, #70b8a7, #5a9080);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -702,12 +705,12 @@ textarea:focus {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Icono de característica */
+/* Icono de caracterÃ­stica */
 .feature-icon {
   width: 90px;
   height: 90px;
   margin: 0 auto 25px;
-  background: linear-gradient(135deg, #f39c12, #e67e22);
+  background: linear-gradient(135deg, #70b8a7, #5a9080);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -718,7 +721,7 @@ textarea:focus {
 
 .feature-card:hover .feature-icon {
   transform: scale(1.1) rotate(5deg);
-  background: linear-gradient(135deg, #e67e22, #d35400);
+  background: linear-gradient(135deg, #6ba592, #4a8070);
 }
 
 .feature-image {
@@ -728,7 +731,7 @@ textarea:focus {
   filter: brightness(0) invert(1);
 }
 
-/* Contenido de característica */
+/* Contenido de caracterÃ­stica */
 .feature-content {
   position: relative;
   z-index: 1;
@@ -753,7 +756,7 @@ textarea:focus {
 }
 
 .feature-link {
-  color: #f39c12;
+  color: #70b8a7;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
@@ -767,7 +770,7 @@ textarea:focus {
 }
 
 .feature-link:hover {
-  background: #f39c12;
+  background: #70b8a7;
   color: white;
   transform: translateX(5px);
   gap: 12px;
@@ -804,7 +807,7 @@ textarea:focus {
   }
 }
 
-/* Responsive para móviles */
+/* Responsive para mÃ³viles */
 @media (max-width: 576px) {
   .features-grid {
     flex-direction: column;
@@ -849,7 +852,7 @@ textarea:focus {
 
 /* ===== MEJORAS FINALES Y ANIMACIONES ===== */
 
-/* Animación de entrada suave */
+/* AnimaciÃ³n de entrada suave */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -899,7 +902,7 @@ textarea:focus {
 }
 
 .header-top a:hover {
-  color: #f39c12;
+  color: #70b8a7;
 }
 
 /* Mejoras para el logo */
@@ -915,7 +918,7 @@ textarea:focus {
 
 /* Mejoras para el carrito */
 .cart {
-  background: linear-gradient(135deg, #f39c12, #e67e22);
+  background: linear-gradient(135deg, #70b8a7, #70b8a7);
   border-radius: 25px;
   padding: 8px 16px;
   transition: all 0.3s ease;
@@ -987,10 +990,10 @@ section::before {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #f39c12, transparent);
+  background: linear-gradient(90deg, transparent, #70b8a7, transparent);
 }
 
-/* Mejoras para títulos de sección */
+/* Mejoras para tÃ­tulos de secciÃ³n */
 .team h2,
 .features h2 {
   position: relative;
@@ -1006,11 +1009,11 @@ section::before {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #f39c12, #e67e22);
+  background: linear-gradient(90deg, #70b8a7, #70b8a7);
   border-radius: 2px;
 }
 
-/* Mejoras para móviles */
+/* Mejoras para mÃ³viles */
 @media (max-width: 576px) {
   section {
     padding: 40px 0;
@@ -1059,7 +1062,7 @@ section::before {
   }
 }
 
-/* Animación de carga de página */
+/* AnimaciÃ³n de carga de pÃ¡gina */
 @keyframes pageLoad {
   from {
     opacity: 0;
@@ -1083,15 +1086,15 @@ html {
 /* Mejoras de accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
   }
 }
 
 /* Focus visible mejorado */
 :focus-visible {
-  outline: 2px solid #f39c12;
+  outline: 2px solid #70b8a7;
   outline-offset: 2px;
   box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.3);
 }
