@@ -1,0 +1,119 @@
+/**
+ * _hero.css
+ *
+ * Arquitectura (PatrÃ³n Layout):
+ * Los estilos de un layout (la estructura de una secciÃ³n) deben limitarse a posicionar y
+ * dimensionar elementos (padding, flex, grid, min-height). Los colores vienen de :root.
+ * Al usar variables en el background y en el texto logramos que el contraste sea perfecto
+ * sin tener que agregar sobreescrituras forzadas o clases complejas.
+ *
+ * Estructura Bootstrap: container > row > col-md-4 (3 columnas iguales)
+ */
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+
+.hero-section {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    padding: 80px 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section .row {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.hero-title {
+    color: var(--text-light);
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-description {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.hero-img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 10px 30px rgba(127, 186, 166, 0.15));
+}
+
+.hero-img:hover {
+    transform: translateY(-15px) rotate(2deg);
+}
+
+.value-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.value-item {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: color var(--transition-speed) var(--transition-ease);
+}
+
+.value-item:last-child {
+    border-bottom: none;
+}
+
+.value-item:hover {
+    color: var(--primary-color);
+}
+
+.btn-muscle-primary {
+    display: inline-block;
+    background-color: var(--primary-green);
+    color: var(--bg-dark);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-speed) var(--transition-ease);
+    text-decoration: none;
+}
+
+.btn-muscle-primary:hover {
+    background-color: var(--primary-color-hover);
+    box-shadow: 0 0 20px rgba(127, 186, 166, 0.5);
+    color: var(--bg-dark);
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.btn-muscle-primary:active {
+    background-color: var(--primary-color-active);
+    transform: translateY(0);
+    box-shadow: none;
+}
+
