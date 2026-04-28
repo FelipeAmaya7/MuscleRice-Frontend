@@ -6,6 +6,8 @@
  *
  * Variables de botones disponibles:
  * --mr-btn-bg, --mr-btn-text, --mr-btn-radius, --mr-btn-hover-shadow, --mr-btn-transition
+ *
+ * @version 2.0.0
  */
 
 /* ==========================================================================
@@ -153,4 +155,84 @@ a.btn-round {
 .btn-group .btn,
 .button-group .btn {
     margin: 0;
+}
+
+
+/* ==========================================================================
+   BOTÓN DARK (PARA FONDO CLARO)
+   ========================================================================== */
+
+.btn-dark,
+button.btn-dark,
+a.btn-dark {
+    display: inline-block;
+    background-color: var(--mr-bg-dark);
+    color: var(--mr-text-light);
+    padding: var(--mr-btn-padding-y) var(--mr-btn-padding-x);
+    border: 2px solid var(--mr-bg-dark);
+    border-radius: var(--mr-btn-radius);
+    font-size: var(--mr-btn-font-size);
+    font-weight: var(--mr-btn-font-weight);
+    text-transform: var(--mr-btn-text-transform);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--mr-btn-transition);
+}
+
+.btn-dark:hover,
+button.btn-dark:hover,
+a.btn-dark:hover {
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+    color: var(--mr-text-light);
+    text-decoration: none;
+}
+
+.btn-dark:active,
+button.btn-dark:active,
+a.btn-dark:active {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+    transform: translateY(2px);
+}
+
+/* ==========================================================================
+   BOTÓN ACCENT (LLAMADA A LA ACCIÓN)
+   ========================================================================== */
+
+.btn-accent,
+button.btn-accent,
+a.btn-accent {
+    display: inline-block;
+    background-color: var(--mr-color-accent);
+    color: var(--mr-bg-dark);
+    padding: var(--mr-btn-padding-y) var(--mr-btn-padding-x);
+    border: 2px solid var(--mr-color-accent);
+    border-radius: var(--mr-btn-radius);
+    font-size: var(--mr-btn-font-size);
+    font-weight: var(--mr-btn-font-bold);
+    text-transform: var(--mr-btn-text-transform);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--mr-btn-transition);
+}
+
+.btn-accent:hover,
+button.btn-accent:hover,
+a.btn-accent:hover {
+    background-color: var(--mr-color-accent-hover);
+    border-color: var(--mr-color-accent-hover);
+    box-shadow: 0 0 15px rgba(218, 154, 50, 0.5);
+    color: var(--mr-bg-dark);
+    text-decoration: none;
+}
+
+.btn-accent:active,
+button.btn-accent:active,
+a.btn-accent:active {
+    background-color: #b37820;
+    border-color: #b37820;
+    transform: translateY(2px);
 }

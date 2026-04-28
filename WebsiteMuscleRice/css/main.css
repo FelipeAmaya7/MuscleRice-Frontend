@@ -53,14 +53,20 @@ body {
     overflow-x: hidden;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* ==========================================================================
-   4. COMPONENTES
+   4. COMPONENTES (Botones, Cards, Inputs, Badges, Progress)
    ========================================================================== */
 
 @import url('components/_components.css');
 
 /* ==========================================================================
-   5. LAYOUTS
+   5. LAYOUTS (Header, Hero, Products, Footer)
    ========================================================================== */
 
 @import url('layout/_header.css');
@@ -80,7 +86,7 @@ body {
 }
 
 /* ==========================================================================
-   7. UTILITIES
+   7. UTILITIES (Clases auxiliares)
    ========================================================================== */
 
 /* Tipografía responsiva fluida */
@@ -89,30 +95,99 @@ h2 { font-size: clamp(var(--mr-text-2xl), 3vw, var(--mr-text-4xl)); }
 h3 { font-size: clamp(var(--mr-text-xl), 2.5vw, var(--mr-text-3xl)); }
 p { font-size: clamp(var(--mr-text-sm), 1.5vw, var(--mr-text-base)); }
 
-/* utilities de texto */
+/* Utilities de texto */
 .text-primary { color: var(--mr-color-primary); }
 .text-accent { color: var(--mr-color-accent); }
 .text-muted { color: var(--mr-text-muted); }
+.text-light { color: var(--mr-text-light); }
+.text-dark { color: var(--mr-bg-dark); }
 
-/* utilities de fondo */
+/* Utilities de fondo */
 .bg-dark { background-color: var(--mr-bg-dark); }
 .bg-light { background-color: var(--mr-bg-light); }
+.bg-muted { background-color: var(--mr-bg-muted); }
 .bg-primary { background-color: var(--mr-color-primary); }
+.bg-card { background-color: var(--mr-bg-card); }
 
-/* utilities de espaciado */
+/* Utilities de espaciado */
+.mt-0 { margin-top: 0; }
 .mt-1 { margin-top: var(--mr-space-2); }
 .mt-2 { margin-top: var(--mr-space-4); }
 .mt-3 { margin-top: var(--mr-space-6); }
+.mt-4 { margin-top: var(--mr-space-8); }
+.mb-0 { margin-bottom: 0; }
 .mb-1 { margin-bottom: var(--mr-space-2); }
 .mb-2 { margin-bottom: var(--mr-space-4); }
 .mb-3 { margin-bottom: var(--mr-space-6); }
+.mb-4 { margin-bottom: var(--mr-space-8); }
+.pt-0 { padding-top: 0; }
+.pt-1 { padding-top: var(--mr-space-2); }
+.pt-2 { padding-top: var(--mr-space-4); }
+.pt-3 { padding-top: var(--mr-space-6); }
+.pt-4 { padding-top: var(--mr-space-8); }
+.pb-0 { padding-bottom: 0; }
+.pb-1 { padding-bottom: var(--mr-space-2); }
+.pb-2 { padding-bottom: var(--mr-space-4); }
+.pb-3 { padding-bottom: var(--mr-space-6); }
+.pb-4 { padding-bottom: var(--mr-space-8); }
 
-/* utilities de display */
+/* Utilities de display */
+.d-none { display: none; }
+.d-block { display: block; }
 .d-flex { display: flex; }
-.align-center { align-items: center; }
-.justify-center { justify-content: center; }
+.d-inline-flex { display: inline-flex; }
+.d-grid { display: grid; }
+.align-items-center { align-items: center; }
+.align-items-start { align-items: flex-start; }
+.align-items-end { align-items: flex-end; }
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-around { justify-content: space-around; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-column { flex-direction: column; }
 .gap-1 { gap: var(--mr-space-2); }
 .gap-2 { gap: var(--mr-space-4); }
+.gap-3 { gap: var(--mr-space-6); }
+
+/* Utilities de texto */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+.font-light { font-weight: var(--mr-font-light); }
+.font-normal { font-weight: var(--mr-font-normal); }
+.font-medium { font-weight: var(--mr-font-medium); }
+.font-semibold { font-weight: var(--mr-font-semibold); }
+.font-bold { font-weight: var(--mr-font-bold); }
+
+/* Utilities de bordes */
+.rounded { border-radius: var(--mr-radius-md); }
+.rounded-sm { border-radius: var(--mr-radius-sm); }
+.rounded-lg { border-radius: var(--mr-radius-lg); }
+.rounded-full { border-radius: var(--mr-radius-full); }
+.border { border: 1px solid #dee2e6; }
+.border-0 { border: 0; }
+
+/* Utilities de sombras */
+.shadow { box-shadow: var(--mr-shadow); }
+.shadow-sm { box-shadow: var(--mr-shadow-sm); }
+.shadow-md { box-shadow: var(--mr-shadow-md); }
+.shadow-lg { box-shadow: var(--mr-shadow-lg); }
+.shadow-none { box-shadow: none; }
+
+/* Utilities de posición */
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-fixed { position: fixed; }
+.position-sticky { position: sticky; }
+.top-0 { top: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+.right-0 { right: 0; }
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
 
 /* ==========================================================================
    8. ANIMACIONES GLOBALES
@@ -123,15 +198,78 @@ p { font-size: clamp(var(--mr-text-sm), 1.5vw, var(--mr-text-base)); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
 }
 
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 .animate-fade-in {
     animation: fadeIn 0.5s ease-out forwards;
 }
 
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
 .animate-pulse {
     animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* ==========================================================================
+   9. UTILITIES RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: var(--mr-bp-md)) {
+    .d-md-none { display: none; }
+    .d-md-block { display: block; }
+    .d-md-flex { display: flex; }
+    .flex-md-column { flex-direction: column; }
+    .text-md-center { text-align: center; }
+    .align-items-md-center { align-items: center; }
+}
+
+@media (max-width: var(--mr-bp-sm)) {
+    .d-sm-none { display: none; }
+    .d-sm-block { display: block; }
+    .d-sm-flex { display: flex; }
+    .flex-sm-column { flex-direction: column; }
+    .text-sm-center { text-align: center; }
+    .align-items-sm-center { align-items: center; }
+}
+
+/* ==========================================================================
+   10. OVERRIDES PARA COMPATIBILIDAD CON BOOTSTRAP
+   ========================================================================== */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(var(--mr-container-padding) * -1);
+    margin-right: calc(var(--mr-container-padding) * -1);
+}
+
+.col-md-3 {
+    position: relative;
+    width: 100%;
+    padding-left: var(--mr-container-padding);
+    padding-right: var(--mr-container-padding);
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
 }
