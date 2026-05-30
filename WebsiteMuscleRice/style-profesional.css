@@ -555,7 +555,6 @@ body {
 }
 
 /* ===== SECCIÓN FAVORITOS - CARDS PREMIUM TIENDA ONLINE ===== */
-=======
 /* ===== SECCIÃ“N DE HABILIDADES - ICONOS PROFESIONALES ===== */
 .our_skill {
   padding: var(--spacing-xl) 0;
@@ -609,7 +608,6 @@ body {
 }
 
 /* ===== SECCIÃ“N FAVORITOS - IMÃGENES REALES ===== */
->>>>>>> 533ddd7c53cf6084849f4ecac7219e0c648a7206
 .features {
   padding: 5rem 0 4rem;
   background: linear-gradient(180deg, #f8faf9 0%, #ffffff 100%);
@@ -674,7 +672,6 @@ body {
   display: flex;
 }
 
-<<<<<<< HEAD
 /* ── CARD BASE ── */
 .card {
   background: #ffffff;
@@ -837,8 +834,6 @@ body {
 }
 
 /* Legacy — mantener por si otras páginas los usan */
-=======
->>>>>>> 533ddd7c53cf6084849f4ecac7219e0c648a7206
 .feature-card {
   background: var(--color-white);
   border-radius: var(--border-radius-xl);
@@ -847,8 +842,6 @@ body {
   transition: all 0.3s ease;
   text-align: center;
   border: 1px solid #f0f0f0;
-<<<<<<< HEAD
-=======
   width: 100%;
   min-height: 100%;
   display: flex;
@@ -877,23 +870,13 @@ body {
 }
 
 .feature-image {
->>>>>>> 533ddd7c53cf6084849f4ecac7219e0c648a7206
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
-.feature-icon { width:120px;height:120px;margin:0 auto 1.5rem;border-radius:50%;overflow:hidden;box-shadow:var(--shadow-md); }
-.feature-image { width:100%;height:100%;object-fit:cover; }
-.feature-title { font-size:1.4rem;font-weight:700;color:var(--color-dark);margin-bottom:1rem; }
-.feature-description { font-size:1rem;color:var(--color-text-light);line-height:1.6;margin-bottom:1.5rem; }
-.feature-link { display:inline-block;background:var(--color-primary);color:var(--color-dark);padding:0.75rem 1.5rem;border-radius:var(--border-radius);text-decoration:none;font-weight:600;transition:all 0.3s ease; }
-.feature-link:hover { transform:translateY(-2px);box-shadow:var(--shadow-md);color:var(--color-dark); }
 
-<<<<<<< HEAD
 /* ===== CATÃ LOGO DE PRODUCTOS - DISEÃ‘O LIMPIO ===== */
-=======
 .feature-title {
   font-size: clamp(1.3rem, 3vw, 1.5rem);
   font-weight: 700;
@@ -931,7 +914,6 @@ body {
 }
 
 /* ===== CATÃLOGO DE PRODUCTOS - DISEÃ‘O LIMPIO ===== */
->>>>>>> 533ddd7c53cf6084849f4ecac7219e0c648a7206
 .team {
   padding: var(--spacing-xl) 0;
   background: var(--color-light);
@@ -1569,7 +1551,6 @@ body {
     justify-content: center;
   }
 }
-<<<<<<< HEAD
 
 /* ============================================================
    HERO SECTION — MuscleRice Premium Redesign
