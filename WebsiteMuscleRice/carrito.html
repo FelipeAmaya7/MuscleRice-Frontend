@@ -172,36 +172,34 @@
 
         <h2>🛒 Tu Carrito</h2>
 
-        <!-- PRODUCTO -->
-        <div class="item">
-            <img src="img/whey protein.jpg" class="product-img" alt="Proteína">
-
-            <div class="item-info">
-                <h3>Whey Protein 1KG</h3>
-
-                <div class="cantidad-controls">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
-                </div>
+        <!-- Contenido del carrito (se muestra si hay items) -->
+        <div id="cart-content-wrapper">
+            <div id="cart-items-list">
+                <!-- Se renderiza dinámicamente con JS -->
             </div>
 
-            <div class="precio">$95.000</div>
-            <button class="btn-eliminar">Eliminar</button>
+            <!-- RESUMEN -->
+            <div class="resumen" id="cart-summary">
+                <h3>Resumen del pedido</h3>
+                <p>Subtotal: <strong id="cart-subtotal">$0</strong></p>
+                <p>Envío: <strong id="cart-shipping">$5.000</strong></p>
+                <p>Total: <strong id="cart-total">$0</strong></p>
+
+                <button class="btn-pagar">Proceder al pago</button>
+            </div>
         </div>
 
-        <!-- RESUMEN -->
-        <div class="resumen">
-            <h3>Resumen del pedido</h3>
-            <p>Subtotal: <strong>$95.000</strong></p>
-            <p>Envío: <strong>$5.000</strong></p>
-            <p>Total: <strong>$100.000</strong></p>
-
-            <button class="btn-pagar">Proceder al pago</button>
+        <!-- Estado vacío (oculto por defecto) -->
+        <div id="cart-empty-state" style="display: none; text-align: center; padding: 50px 20px;">
+            <div style="font-size: 64px; margin-bottom: 20px;">🏋️</div>
+            <h3 style="font-size: 24px; color: #00a854; font-family: Montserrat, sans-serif; font-weight: 800; margin-bottom: 15px;">TU CARRITO ESTÁ VACÍO</h3>
+            <p style="font-size: 16px; color: #6c757d; font-family: Roboto, sans-serif; margin-bottom: 30px;">¡Empieza a entrenar tu mutación! 🏋️</p>
+            <a href="prodact-display.html" class="btn-regresar" style="display: inline-block;">Ver productos</a>
         </div>
 
     </div>
 
+    <script src="js/cart.js"></script>
 </body>
 
 </html>

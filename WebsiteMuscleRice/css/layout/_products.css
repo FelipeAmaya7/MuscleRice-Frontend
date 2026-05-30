@@ -1,0 +1,115 @@
+/**
+ * _products.css
+ *
+ * Estilos para grid de productos y cards de producto.
+ * Usa Design Tokens para consistencia.
+ */
+
+/* ==========================================================================
+   GRID DE PRODUCTOS
+   ========================================================================== */
+
+.team .teams {
+    padding: 0;
+    margin: 0 0 var(--mr-space-6) 0;
+    background: var(--mr-bg-card);
+    border-radius: var(--mr-product-radius);
+    box-shadow: var(--mr-shadow-card);
+    overflow: hidden;
+    transition: box-shadow var(--mr-transition-speed) var(--mr-transition-bounce),
+                transform var(--mr-transition-speed) var(--mr-transition-bounce);
+    border: 1px solid #f0f0f0;
+}
+
+.team .teams:hover {
+    box-shadow: var(--mr-shadow-card-hover);
+    transform: translateY(-8px) scale(1.02);
+}
+
+.teams img {
+    width: 100%;
+    height: var(--mr-product-img-height);
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--mr-product-radius) var(--mr-product-radius) 0 0;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.team .teams:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+.team .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: var(--mr-space-5);
+    margin: 0 -10px;
+}
+
+.team .col-md-3 {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(25% - var(--mr-space-5));
+    max-width: calc(25% - var(--mr-space-5));
+    margin-bottom: var(--mr-space-5);
+    padding: 0 var(--mr-space-3);
+}
+
+.team h3 {
+    text-align: center;
+    font-size: var(--mr-text-base);
+    font-weight: var(--mr-font-semibold);
+    color: var(--mr-product-title-color);
+    margin: var(--mr-space-4) 0 var(--mr-space-2) 0;
+    padding: 0 var(--mr-space-4);
+    min-height: 3.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.4;
+}
+
+.team p {
+    text-align: center;
+    font-size: var(--mr-text-xl);
+    font-weight: var(--mr-font-bold);
+    color: var(--mr-product-price-color);
+    margin-bottom: var(--mr-space-5);
+    padding: 0 var(--mr-space-3);
+}
+
+/* ==========================================================================
+   PRODUCTOS RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: var(--mr-bp-lg)) {
+    .team .col-md-3 {
+        flex: 0 0 calc(33.333% - var(--mr-space-5));
+        max-width: calc(33.333% - var(--mr-space-5));
+    }
+}
+
+@media (max-width: var(--mr-bp-md)) {
+    .team .col-md-3 {
+        flex: 0 0 calc(50% - var(--mr-space-4));
+        max-width: calc(50% - var(--mr-space-4));
+    }
+
+    .teams img {
+        height: 200px;
+    }
+}
+
+@media (max-width: var(--mr-bp-sm)) {
+    .team .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .teams img {
+        height: 180px;
+    }
+}

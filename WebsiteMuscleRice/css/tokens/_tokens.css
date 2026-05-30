@@ -1,0 +1,202 @@
+/**
+ * _tokens.css
+ *
+ * SINGLE SOURCE OF TRUTH - MuscleRice Design Tokens
+ * =================================================
+ *
+ * Este archivo define TODAS las variables CSS del sistema de diseño.
+ * Debe ser importado UNA SOLA VEZ al inicio de la cadena de estilos.
+ *
+ * IMPORTANTE: No usar @import dentro de este archivo.
+ * Solo contiene definiciones de variables en :root.
+ *
+ * @version 2.0.0
+ */
+
+:root {
+    /* ==========================================================================
+       IDENTIDAD VISUAL - COLORES PRINCIPALES
+       ========================================================================== */
+
+    --mr-color-primary: #70b8a7;
+    --mr-color-primary-hover: #6ba592;
+    --mr-color-primary-active: #5a9080;
+    --mr-color-primary-rgb: 112, 184, 167;
+
+    --mr-green-primary: #70b8a7;
+    --mr-green-cta: #28a745;
+
+    --mr-color-accent: #da9a32;
+    --mr-color-accent-hover: #c48a28;
+    --mr-color-accent-rgb: 218, 154, 50;
+
+    /* ==========================================================================
+       PALETA FITNESS - COLORES SEMÁNTICOS
+       ========================================================================== */
+
+    --mr-energy: #ff6b35;
+    --mr-strength: #44e7a8;
+    --mr-protein: #70b8a7;
+
+    --mr-success: #28a745;
+    --mr-warning: #ffc107;
+    --mr-danger: #dc3545;
+    --mr-info: #17a2b8;
+
+    /* ==========================================================================
+       FONDOS Y SUPERFICIES
+       ========================================================================== */
+
+    --mr-bg-dark: #121212;
+    --mr-bg-dark-secondary: #1a1a1a;
+    --mr-bg-light: #ffffff;
+    --mr-bg-muted: #f8f9fa;
+    --mr-bg-card: #ffffff;
+
+    /* ==========================================================================
+       TIPOGRAFÍA
+       ========================================================================== */
+
+    --mr-font-primary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mr-font-secondary: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+    --mr-font-base: var(--mr-font-primary);
+
+    --mr-text-xs: 0.75rem;
+    --mr-text-sm: 0.875rem;
+    --mr-text-base: 1rem;
+    --mr-text-lg: 1.125rem;
+    --mr-text-xl: 1.25rem;
+    --mr-text-2xl: 1.5rem;
+    --mr-text-3xl: 1.875rem;
+    --mr-text-4xl: 2.25rem;
+    --mr-text-5xl: 3rem;
+
+    --mr-font-light: 300;
+    --mr-font-normal: 400;
+    --mr-font-medium: 500;
+    --mr-font-semibold: 600;
+    --mr-font-bold: 700;
+    --mr-font-extrabold: 900;
+
+    /* ==========================================================================
+       BOTONES - SISTEMA DE COMPONENTES
+       ========================================================================== */
+
+    --mr-btn-bg: var(--mr-color-primary);
+    --mr-btn-bg-hover: var(--mr-color-primary-hover);
+    --mr-btn-bg-active: var(--mr-color-primary-active);
+    --mr-btn-text: var(--mr-bg-dark);
+    --mr-btn-text-light: #ffffff;
+    --mr-btn-radius: 4px;
+    --mr-btn-radius-lg: 8px;
+    --mr-btn-radius-xl: 12px;
+    --mr-btn-padding-x: 1.75rem;
+    --mr-btn-padding-y: 0.75rem;
+    --mr-btn-font-size: var(--mr-text-base);
+    --mr-btn-font-weight: var(--mr-font-bold);
+    --mr-btn-text-transform: uppercase;
+    --mr-btn-hover-shadow: 0 0 12px rgba(57, 255, 20, 0.4);
+    --mr-btn-active-shadow: none;
+    --mr-btn-transition: all 0.3s ease-in-out;
+
+    --mr-btn-outline-bg: transparent;
+    --mr-btn-outline-border: var(--mr-color-primary);
+    --mr-btn-outline-text: var(--mr-color-primary);
+
+    /* ==========================================================================
+       ESPACIADOS - SISTEMA DE 8px
+       ========================================================================== */
+
+    --mr-space-1: 0.25rem;
+    --mr-space-2: 0.5rem;
+    --mr-space-3: 0.75rem;
+    --mr-space-4: 1rem;
+    --mr-space-5: 1.5rem;
+    --mr-space-6: 2rem;
+    --mr-space-8: 3rem;
+    --mr-space-10: 4rem;
+    --mr-space-12: 6rem;
+    --mr-space-16: 8rem;
+
+    /* ==========================================================================
+       BORDES Y RADIOS
+       ========================================================================== */
+
+    --mr-radius-sm: 4px;
+    --mr-radius-md: 8px;
+    --mr-radius-lg: 12px;
+    --mr-radius-xl: 16px;
+    --mr-radius-2xl: 20px;
+    --mr-radius-full: 9999px;
+
+    /* ==========================================================================
+       SOMBRAS
+       ========================================================================== */
+
+    --mr-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --mr-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --mr-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --mr-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+    --mr-shadow-xl: 0 12px 30px rgba(0, 0, 0, 0.25);
+    --mr-shadow-card: 0 6px 20px rgba(0, 0, 0, 0.08);
+    --mr-shadow-card-hover: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+    /* ==========================================================================
+       ANIMACIONES Y TRANSICIONES
+       ========================================================================== */
+
+    --mr-transition-speed: 0.3s;
+    --mr-transition-ease: ease-in-out;
+    --mr-transition-bounce: cubic-bezier(0.4, 0, 0.2, 1);
+    --mr-transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* ==========================================================================
+       Z-INDEX - JERARQUÍA DE CAPAS
+       ========================================================================== */
+
+    --mr-z-dropdown: 100;
+    --mr-z-sticky: 200;
+    --mr-z-fixed: 300;
+    --mr-z-modal-backdrop: 400;
+    --mr-z-modal: 500;
+    --mr-z-popover: 600;
+    --mr-z-tooltip: 700;
+
+    /* ==========================================================================
+       CONTAINER Y LAYOUT
+       ========================================================================== */
+
+    --mr-container-max: 1200px;
+    --mr-container-padding: var(--mr-space-4);
+
+    /* ==========================================================================
+       HEADER SPECÍFICO
+       ========================================================================== */
+
+    --mr-header-height: 140px;
+    --mr-header-top-height: 35px;
+    --mr-header-bg: #555554df;
+    --mr-header-text: #ffffff;
+    --mr-nav-color: #665f5f;
+    --mr-nav-hover-bg: #e1e3e3;
+    --mr-nav-hover-color: #44e7a8;
+
+    /* ==========================================================================
+       PRODUCTOS
+       ========================================================================== */
+
+    --mr-product-img-height: 250px;
+    --mr-product-radius: 12px;
+    --mr-product-title-color: #2c3e50;
+    --mr-product-price-color: var(--mr-color-primary);
+
+    /* ==========================================================================
+       BREAKPOINTS
+       ========================================================================== */
+
+    --mr-bp-sm: 576px;
+    --mr-bp-md: 768px;
+    --mr-bp-lg: 992px;
+    --mr-bp-xl: 1200px;
+    --mr-bp-xxl: 1400px;
+}

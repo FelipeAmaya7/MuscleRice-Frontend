@@ -1,0 +1,238 @@
+/**
+ * _buttons.css
+ *
+ * Sistema de botones MuscleRice.
+ * Todos los botones usan Design Tokens para garantizar consistencia.
+ *
+ * Variables de botones disponibles:
+ * --mr-btn-bg, --mr-btn-text, --mr-btn-radius, --mr-btn-hover-shadow, --mr-btn-transition
+ *
+ * @version 2.0.0
+ */
+
+/* ==========================================================================
+   BOTÓN PRIMARIO
+   ========================================================================== */
+
+.btn-primary,
+button.btn-primary,
+a.btn-primary {
+    display: inline-block;
+    background-color: var(--mr-btn-bg);
+    color: var(--mr-btn-text);
+    padding: var(--mr-btn-padding-y) var(--mr-btn-padding-x);
+    border: 2px solid var(--mr-btn-bg);
+    border-radius: var(--mr-btn-radius);
+    font-size: var(--mr-btn-font-size);
+    font-weight: var(--mr-btn-font-weight);
+    text-transform: var(--mr-btn-text-transform);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--mr-btn-transition);
+    line-height: 1.5;
+}
+
+.btn-primary:hover,
+button.btn-primary:hover,
+a.btn-primary:hover {
+    background-color: var(--mr-btn-bg-hover);
+    border-color: var(--mr-btn-bg-hover);
+    box-shadow: var(--mr-btn-hover-shadow);
+    color: var(--mr-btn-text);
+    text-decoration: none;
+}
+
+.btn-primary:active,
+button.btn-primary:active,
+a.btn-primary:active {
+    background-color: var(--mr-btn-bg-active);
+    border-color: var(--mr-btn-bg-active);
+    box-shadow: var(--mr-btn-active-shadow);
+    transform: translateY(2px);
+}
+
+.btn-primary:focus,
+button.btn-primary:focus,
+a.btn-primary:focus {
+    outline: 2px solid var(--mr-color-primary);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   BOTÓN OUTLINE / SECUNDARIO
+   ========================================================================== */
+
+.btn-outline-primary,
+button.btn-outline-primary,
+a.btn-outline-primary {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--mr-btn-outline-text);
+    padding: var(--mr-btn-padding-y) var(--mr-btn-padding-x);
+    border: 2px solid var(--mr-btn-outline-border);
+    border-radius: var(--mr-btn-radius);
+    font-size: var(--mr-btn-font-size);
+    font-weight: var(--mr-btn-font-weight);
+    text-transform: var(--mr-btn-text-transform);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--mr-btn-transition);
+}
+
+.btn-outline-primary:hover,
+button.btn-outline-primary:hover,
+a.btn-outline-primary:hover {
+    background-color: var(--mr-btn-bg);
+    color: var(--mr-btn-text);
+    text-decoration: none;
+}
+
+.btn-outline-primary:active,
+button.btn-outline-primary:active,
+a.btn-outline-primary:active {
+    background-color: var(--mr-btn-bg-active);
+    border-color: var(--mr-btn-bg-active);
+    color: var(--mr-btn-text);
+    transform: translateY(2px);
+}
+
+/* ==========================================================================
+   BOTÓN PEQUEÑO
+   ========================================================================== */
+
+.btn-sm,
+button.btn-sm,
+a.btn-sm {
+    padding: calc(var(--mr-btn-padding-y) * 0.75) calc(var(--mr-btn-padding-x) * 0.75);
+    font-size: calc(var(--mr-btn-font-size) * 0.875);
+}
+
+/* ==========================================================================
+   BOTÓN GRANDE
+   ========================================================================== */
+
+.btn-lg,
+button.btn-lg,
+a.btn-lg {
+    padding: calc(var(--mr-btn-padding-y) * 1.25) calc(var(--mr-btn-padding-x) * 1.25);
+    font-size: calc(var(--mr-btn-font-size) * 1.125);
+    border-radius: var(--mr-btn-radius-lg);
+}
+
+/* ==========================================================================
+   BOTÓN BLOQUE (ANCHO COMPLETO)
+   ========================================================================== */
+
+.btn-block,
+button.btn-block,
+a.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* ==========================================================================
+   BOTÓN ROUND (REDONDEADO COMPLETO)
+   ========================================================================== */
+
+.btn-round,
+button.btn-round,
+a.btn-round {
+    border-radius: var(--mr-radius-full);
+}
+
+/* ==========================================================================
+   GRUPO DE BOTONES
+   ========================================================================== */
+
+.btn-group,
+.button-group {
+    display: inline-flex;
+    gap: var(--mr-space-2);
+}
+
+.btn-group .btn,
+.button-group .btn {
+    margin: 0;
+}
+
+
+/* ==========================================================================
+   BOTÓN DARK (PARA FONDO CLARO)
+   ========================================================================== */
+
+.btn-dark,
+button.btn-dark,
+a.btn-dark {
+    display: inline-block;
+    background-color: var(--mr-bg-dark);
+    color: var(--mr-text-light);
+    padding: var(--mr-btn-padding-y) var(--mr-btn-padding-x);
+    border: 2px solid var(--mr-bg-dark);
+    border-radius: var(--mr-btn-radius);
+    font-size: var(--mr-btn-font-size);
+    font-weight: var(--mr-btn-font-weight);
+    text-transform: var(--mr-btn-text-transform);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--mr-btn-transition);
+}
+
+.btn-dark:hover,
+button.btn-dark:hover,
+a.btn-dark:hover {
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+    color: var(--mr-text-light);
+    text-decoration: none;
+}
+
+.btn-dark:active,
+button.btn-dark:active,
+a.btn-dark:active {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+    transform: translateY(2px);
+}
+
+/* ==========================================================================
+   BOTÓN ACCENT (LLAMADA A LA ACCIÓN)
+   ========================================================================== */
+
+.btn-accent,
+button.btn-accent,
+a.btn-accent {
+    display: inline-block;
+    background-color: var(--mr-color-accent);
+    color: var(--mr-bg-dark);
+    padding: var(--mr-btn-padding-y) var(--mr-btn-padding-x);
+    border: 2px solid var(--mr-color-accent);
+    border-radius: var(--mr-btn-radius);
+    font-size: var(--mr-btn-font-size);
+    font-weight: var(--mr-btn-font-bold);
+    text-transform: var(--mr-btn-text-transform);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--mr-btn-transition);
+}
+
+.btn-accent:hover,
+button.btn-accent:hover,
+a.btn-accent:hover {
+    background-color: var(--mr-color-accent-hover);
+    border-color: var(--mr-color-accent-hover);
+    box-shadow: 0 0 15px rgba(218, 154, 50, 0.5);
+    color: var(--mr-bg-dark);
+    text-decoration: none;
+}
+
+.btn-accent:active,
+button.btn-accent:active,
+a.btn-accent:active {
+    background-color: #b37820;
+    border-color: #b37820;
+    transform: translateY(2px);
+}

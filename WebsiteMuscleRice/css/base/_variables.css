@@ -1,32 +1,42 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿/**
+/**
  * _variables.css
- * 
- * Arquitectura y Escalabilidad:
- * Centralizar los colores, tipografÃ­as y espaciados en :root (Variables CSS Nativas) 
- * nos permite mantener una "Ãšnica Fuente de Verdad" (Single Source of Truth).
- * Si la marca decide hacer un re-branding en el futuro (ej. cambiar a otro tono de verde),
- * solo modificamos este archivo y el cambio se propagarÃ¡ instantÃ¡neamente por todos los 
- * componentes de la aplicaciÃ³n, sin necesidad de buscar y reemplazar colores "hard-codeados".
+ *
+ * ARQUITECTURA Y ESCALABILIDAD:
+ * ===============================
+ * Este archivo ahora sirve como capa de ALIAS para compatibilidad.
+ * Los Design Tokens reales están en ../tokens/_tokens.css (importado por main.css)
+ *
+ * SINGLE SOURCE OF TRUTH: ../tokens/_tokens.css
+ *
+ * HISTÓRICO: Antes este archivo definía las variables directamente.
+ * Ahora delegamos a los tokens y mantenemos aliases para no romper código existente.
+ *
+ * @deprecated Usar directamente --mr-* tokens
+ * @since 2.0.0
  */
 
 :root {
-    /* Identidad Visual - MuscleRice (Verde salvia premium) */
-    --primary-color: #70b8a7;
-    --primary-color-hover: #6ba592;
-    --primary-color-active: #5a9080;
+    /* Alias para compatibilidad con código legacy - Colores primarios */
+    --primary-color: var(--mr-color-primary);
+    --primary-color-hover: var(--mr-color-primary-hover);
+    --primary-color-active: var(--mr-color-primary-active);
+    --primary-green: var(--mr-green-primary);
 
-    /* Alias para compatibilidad */
-    --primary-green: #70b8a7;
+    /* Alias para fondos */
+    --bg-dark: var(--mr-bg-dark);
 
-    /* Fondos */
-    --bg-dark: #121212;
-    
-    /* TipografÃ­a y Textos */
+    /* Alias para tipografía legacy */
     --text-light: #ffffff;
     --text-muted: #a0a0a0;
 
-    /* Transiciones Globales */
-    --transition-speed: 0.3s;
-    --transition-ease: ease-in-out;
-}
+    /* Alias para transiciones legacy */
+    --transition-speed: var(--mr-transition-speed);
+    --transition-ease: var(--mr-transition-ease);
 
+    /* Alias para botones legacy (compatibilidad con código existente) */
+    --btn-primary-bg: var(--mr-btn-bg);
+    --btn-primary-text: var(--mr-btn-text);
+    --btn-radius: var(--mr-btn-radius);
+    --btn-hover-shadow: var(--mr-btn-hover-shadow);
+    --btn-transition: var(--mr-btn-transition);
+}

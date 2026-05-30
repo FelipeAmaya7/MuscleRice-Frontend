@@ -1,0 +1,40 @@
+# WebsiteMuscleRice - Git Ignore
+# ============================
+
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build y dist
+dist/
+build/
+*.min.css
+*.min.js
+
+# Logs
+*.log
+*.tmp
+
+# Configuración local
+.env
+.env.local
+config.local.js
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Backup
+*.bak
+*.backup

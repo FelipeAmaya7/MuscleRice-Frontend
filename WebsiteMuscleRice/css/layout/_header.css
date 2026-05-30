@@ -1,351 +1,184 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿/**
+/**
  * _header.css
  *
- * Arquitectura (PatrÃ³n Layout):
- * Los estilos de un layout (estructura de secciÃ³n) deben limitarse a posicionar y
- * dimensionar elementos. Los colores y efectos vienen exclusivamente de :root.
- * Esto permite cambiar la identidad visual de toda la web editando UN SOLO ARCHIVO (_variables.css).
- *
- * Beneficio WPO (Web Performance Optimization):
- * Al centralizar transiciones y sombras en variables, el navegador recalcula menos
- * propiedades durante el parsing, reduciendo el "render blocking time".
+ * Estilos para el header de MuscleRice.
+ * Usa Design Tokens para consistencia.
  */
 
 /* ==========================================================================
-   HEADER TOP - Barra superior con fondo verde de marca
+   HEADER TOP - BARRA SUPERIOR
    ========================================================================== */
 
 .header-top {
-    background-color: var(--primary-color);
-    padding: 10px 0;
-}
-
-.header-top .row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.header-top .col-md-4 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    flex: 1;
+    background: var(--mr-header-bg);
+    height: var(--mr-header-top-height);
+    line-height: var(--mr-header-top-height);
 }
 
 .header-top ul {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
 }
 
 .header-top ul li {
-    display: flex;
-    align-items: center;
+    display: inline;
 }
 
 .header-top ul li a {
-    color: var(--bg-dark);
-    font-weight: 500;
-    font-size: 0.85rem;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: all var(--transition-speed) var(--transition-ease);
+    padding-right: var(--mr-space-5);
+    font-size: var(--mr-text-sm);
+    font-weight: var(--mr-font-normal);
+    color: var(--mr-header-text);
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-family: var(--mr-font-primary);
+    transition: color var(--mr-transition-speed) var(--mr-transition-ease);
 }
 
 .header-top ul li a:hover {
-    background-color: rgba(18, 18, 18, 0.15);
-    color: var(--bg-dark);
+    color: var(--mr-color-primary);
     text-decoration: none;
 }
 
-.header-top ul li a:active {
-    background-color: rgba(18, 18, 18, 0.25);
-    transform: translateY(1px);
+.header-top i {
+    color: var(--mr-header-text);
+    font-size: 15px;
+    padding-left: var(--mr-space-5);
 }
 
-/* ==========================================================================
-   ICONOS DE REDES SOCIALES
-   ========================================================================== */
-
-.header-top .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
+.header-top p {
+    display: inline;
+    width: 50%;
+    font-size: var(--mr-text-sm);
+    font-weight: var(--mr-font-normal);
+    color: var(--mr-header-text);
+    font-family: var(--mr-font-primary);
 }
 
-.header-top .icon a {
-    color: var(--bg-dark);
-    font-size: 1rem;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all var(--transition-speed) var(--transition-ease);
-    text-decoration: none;
+.header-top p a {
+    font-size: var(--mr-text-sm);
+    font-weight: var(--mr-font-normal);
+    color: var(--mr-header-text);
 }
 
-.header-top .icon a:hover {
-    background-color: rgba(18, 18, 18, 0.15);
-    transform: translateY(-2px);
-    color: var(--bg-dark);
-    text-decoration: none;
+.header-top span {
+    padding-right: var(--mr-space-2);
 }
-
-.header-top .icon a:active {
-    transform: translateY(0);
-}
-
-/* ==========================================================================
-   ENLACES DE USUARIO Y REGISTRO (lado derecho)
-   ========================================================================== */
 
 .header-top .a-right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
+    text-align: right;
 }
 
-.header-top .a-right a {
-    color: var(--bg-dark);
-    font-weight: 600;
-    font-size: 0.85rem;
-    padding: 6px 12px;
-    border-radius: 4px;
-    transition: all var(--transition-speed) var(--transition-ease);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.header-top .a-right a:hover {
-    background-color: rgba(18, 18, 18, 0.15);
-    color: var(--bg-dark);
-    text-decoration: none;
-}
-
-.header-top .a-right a:active {
-    background-color: rgba(18, 18, 18, 0.25);
-    transform: translateY(1px);
-}
-
-.header-top .a-right a .fa {
-    font-size: 0.9rem;
+.header-top .icon {
+    text-align: center;
 }
 
 /* ==========================================================================
-   BOTONES DE AUTENTICACIÃ“N (Iniciar SesiÃ³n / Crear Cuenta)
-   ========================================================================== */
-
-.btn-auth {
-    color: var(--bg-dark);
-    font-weight: 600;
-    font-size: 0.8rem;
-    padding: 8px 16px;
-    border-radius: 4px;
-    border: 2px solid var(--bg-dark);
-    transition: all var(--transition-speed) var(--transition-ease);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background-color: transparent;
-}
-
-.btn-auth:hover {
-    background-color: var(--bg-dark);
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.btn-auth:active {
-    transform: translateY(1px);
-    opacity: 0.9;
-}
-
-.btn-auth-register {
-    background-color: var(--bg-dark);
-    color: var(--primary-color);
-    border-color: var(--bg-dark);
-}
-
-.btn-auth-register:hover {
-    background-color: rgba(18, 18, 18, 0.85);
-    color: var(--primary-color-hover);
-    border-color: rgba(18, 18, 18, 0.85);
-}
-
-/* ==========================================================================
-   HEADER PRINCIPAL - Barra de navegaciÃ³n principal (fondo oscuro)
+   HEADER PRINCIPAL
    ========================================================================== */
 
 .header {
-    background-color: var(--bg-dark);
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(127, 186, 166, 0.2);
+    height: var(--mr-header-height);
+    margin-bottom: -33px;
+    margin-top: var(--mr-space-5);
+    background: var(--mr-bg-light);
 }
 
-.header .row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.logo h2 {
+    color: #4f4f4f;
+    font-family: var(--mr-font-primary);
+    font-size: 61px;
+    font-weight: var(--mr-font-bold);
 }
 
-.header .col-md-3 {
-    display: flex;
-    align-items: center;
+.logo > a {
+    text-decoration: none;
 }
 
-.header .logo a {
-    display: flex;
-    align-items: center;
-    transition: opacity var(--transition-speed) var(--transition-ease);
+.nav.navbar-nav {
+    margin-top: var(--mr-space-6);
 }
 
-.header .logo a:hover {
-    opacity: 0.85;
+.navbar-nav > li > a {
+    color: var(--mr-nav-color);
+    font-size: var(--mr-text-xl);
+    font-family: var(--mr-font-primary);
+    transition: background-color var(--mr-transition-speed) var(--mr-transition-ease),
+                color var(--mr-transition-speed) var(--mr-transition-ease);
 }
 
-.header .logo a:active {
-    opacity: 0.7;
+.nav.navbar-nav a:hover {
+    background: var(--mr-nav-hover-bg);
+    color: var(--mr-nav-hover-color);
 }
 
 /* ==========================================================================
-   NAVEGACIÃ“N PRINCIPAL
+   CART (CARRITO)
    ========================================================================== */
 
-.header .nav.navbar-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.cart {
+    text-align: right;
 }
 
-.header .nav.navbar-nav li {
-    display: flex;
-    align-items: center;
+.cart > p {
+    font-size: var(--mr-text-xl);
+    margin-top: var(--mr-space-8);
 }
 
-.header .nav.navbar-nav li a {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 10px 16px;
-    border-radius: 4px;
-    transition: all var(--transition-speed) var(--transition-ease);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
+.cart i {
+    color: var(--mr-color-primary);
+    font-size: 30px;
 }
 
-.header .nav.navbar-nav li a:hover {
-    color: var(--primary-color);
-    background-color: rgba(127, 186, 166, 0.1);
-    text-decoration: none;
-}
-
-.header .nav.navbar-nav li a:active {
-    background-color: rgba(127, 186, 166, 0.2);
-    transform: translateY(1px);
-}
-
-.header .nav.navbar-nav li.active a {
-    color: var(--primary-color);
-    background-color: rgba(127, 186, 166, 0.15);
-}
-
-.header .nav.navbar-nav li.active a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 2px;
-    background-color: var(--primary-color);
-    border-radius: 1px;
+.cart sup {
+    background: #e6e4e4;
+    margin-left: -4px;
+    padding: 0 5px;
+    border-radius: 20px;
 }
 
 /* ==========================================================================
-   CARRITO DE COMPRAS
+   HEADER PART
    ========================================================================== */
 
-.header .cart {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+.header-part {
+    margin-top: var(--mr-space-8);
 }
 
-.header .cart a {
-    color: var(--text-light);
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 10px 16px;
-    border-radius: 4px;
-    border: 2px solid var(--primary-color);
-    transition: all var(--transition-speed) var(--transition-ease);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: transparent;
+.header-part > p {
+    color: #3b3131;
+    font-size: var(--mr-text-sm);
+    font-weight: var(--mr-font-normal);
 }
 
-.header .cart a:hover {
-    color: var(--bg-dark);
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    text-decoration: none;
-    box-shadow: 0 0 15px rgba(127, 186, 166, 0.4);
+.header-part span {
+    color: var(--mr-color-accent);
 }
 
-.header .cart a:active {
-    background-color: var(--primary-color-hover);
-    border-color: var(--primary-color-hover);
-    transform: translateY(1px);
-    box-shadow: none;
-}
+/* ==========================================================================
+   HEADER STICKY (MEJORA RESPONSIVE)
+   ========================================================================== */
 
-.header .cart a .fa {
-    color: var(--primary-color);
-    font-size: 1.1rem;
-    transition: color var(--transition-speed) var(--transition-ease);
-}
+@media (max-width: var(--mr-bp-md)) {
+    .header {
+        height: auto;
+        position: sticky;
+        top: 0;
+        z-index: var(--mr-z-sticky);
+    }
 
-.header .cart a:hover .fa {
-    color: var(--bg-dark);
-}
+    .header-top {
+        height: auto;
+        line-height: normal;
+        padding: var(--mr-space-3) 0;
+    }
 
-.header .cart a sup {
-    color: var(--primary-color);
-    font-weight: 700;
-    font-size: 0.75rem;
-    transition: color var(--transition-speed) var(--transition-ease);
-}
+    .header-top ul li {
+        display: block;
+        margin-bottom: var(--mr-space-2);
+    }
 
-.header .cart a:hover sup {
-    color: var(--bg-dark);
+    .cart > p {
+        margin-top: var(--mr-space-4);
+    }
 }
-

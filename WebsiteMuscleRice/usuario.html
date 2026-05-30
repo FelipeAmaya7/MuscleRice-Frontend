@@ -1,52 +1,50 @@
-/**
- * Lógica de Usuario - MuscleRice
- * Maneja la protección de rutas y la gestión de sesión.
- */
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Cuenta | MuscleRice</title>
 
-document.addEventListener("DOMContentLoaded", function() {
-    // 1. OBTENER DATOS DEL LOCALSTORAGE
-    // Intentamos recuperar el nombre o token del usuario guardado
-    const usuarioLogueado = localStorage.getItem("usuarioActual"); 
+  <!-- CSS de usuario (Ruta correcta) -->
+  <link rel="stylesheet" href="usuario.css">
 
-    // 2. PROTECCIÓN DE RUTA (Lógica de Acceso)
-    if (!usuarioLogueado) {
-        // Si no hay rastro del usuario, redirigimos inmediatamente al registro
-        console.warn("Acceso denegado: No hay sesión activa. Redirigiendo...");
-        window.location.href = "registro.html";
-        return; // Detenemos la ejecución del resto del script
-    } 
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
 
-    // 3. CARGA DE DATOS EN LA INTERFAZ
-    console.log("Acceso concedido a MuscleRice para:", usuarioLogueado);
-    
-    // Buscamos el elemento donde va el nombre (el <h2> que definimos en el HTML)
-    const userDisplay = document.getElementById("nombreUsuario");
-    if (userDisplay) {
-        userDisplay.innerText = usuarioLogueado;
-    }
+<body>
 
-    // 4. LÓGICA DE CIERRE DE SESIÓN
-    // Buscamos el botón por su ID 'btnCerrar'
-    const btnCerrar = document.getElementById("btnCerrar");
-    
-    if (btnCerrar) {
-        btnCerrar.addEventListener("click", (e) => {
-            e.preventDefault(); // Evitamos cualquier comportamiento por defecto
+  <div class="perfil-container">
 
-            // Confirmación opcional para el usuario
-            const confirmar = confirm("¿Estás seguro de que deseas cerrar sesión?");
-            
-            if (confirmar) {
-                // Borramos los datos de sesión
-                localStorage.removeItem("usuarioActual"); 
-                
-                alert("Sesión cerrada correctamente. ¡Vuelve pronto!");
-                
-                // Redirigimos al inicio
-                window.location.href = "index.html";
-            }
-        });
-    }
-});
-<script src="usuario.js"></script> 
+    <div class="perfil-card">
+
+      <div class="perfil-header">
+        <div class="avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <h2 id="nombreUsuario">Usuario MuscleRice</h2>
+        <p id="emailUsuario">correo@musclerice.com</p>
+      </div>
+
+      <div class="perfil-opciones">
+        <button class="btn verde">
+          <i class="fa-solid fa-box"></i> Mis pedidos
+        </button>
+
+        <button class="btn azul">
+          <i class="fa-solid fa-gear"></i> Configuración
+        </button>
+
+        <button class="btn rojo" id="btnCerrar">
+          <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Lógica de sesión y protección de ruta -->
+  <script src="usuario.js"></script>
 </body>
+</html>

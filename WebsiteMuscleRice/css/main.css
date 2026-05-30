@@ -1,30 +1,275 @@
 /**
  * main.css
- * 
- * Orquestador principal de estilos.
- * Aquí importamos todos los módulos CSS siguiendo una arquitectura lógica.
- * El orden es crítico (La Cascada CSS):
- * 1. Variables Globales (Para que estén disponibles antes de que se lean las demás hojas)
- * 2. Componentes (Estilos base de piezas independientes)
- * 3. Layouts (Estructura visual de las páginas)
+ *
+ * ORQUESTADOR PRINCIPAL DE ESTILOS - MuscleRice
+ * =============================================
+ *
+ * Arquitectura CSS Modular basada en Design Tokens.
+ *
+ * CADENA DE IMPORTACIÓN (orden CRÍTICO):
+ *
+ * 1. tokens/_tokens.css     → Define TODAS las variables en :root (Single Source of Truth)
+ * 2. base/_variables.css   → Alias de compatibilidad legacy
+ * 3. components/*         → Componentes UI (botones, cards, inputs)
+ * 4. layout/*             → Estructura de páginas (header, hero, products)
+ *
+ * @version 2.0.0
  */
 
-/* 1. Base / Variables */
+/* ==========================================================================
+   1. DESIGN TOKENS - SINGLE SOURCE OF TRUTH
+   ========================================================================== */
+
+@import url('tokens/_tokens.css');
+
+/* ==========================================================================
+   2. BASE / VARIABLES (Alias de compatibilidad)
+   ========================================================================== */
+
 @import url('base/_variables.css');
 
-/* 2. Componentes (Botones, Enlaces, Cards, Inputs, etc.) */
-@import url('components/_components.css');
+/* ==========================================================================
+   3. RESET GLOBAL
+   ========================================================================== */
 
-/* 3. Layouts (Header, Hero, Footer, Grid de productos) */
-@import url('layout/_header.css');
-@import url('layout/_hero.css');
-
-/* Opcional: Aquí puedes poner estilos menores (utilities) que apliquen a toda la página */
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Fallback estándar */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--mr-bg-dark);
+    color: var(--mr-text-light);
+    font-family: var(--mr-font-primary);
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   4. COMPONENTES (Botones, Cards, Inputs, Badges, Progress)
+   ========================================================================== */
+
+@import url('components/_components.css');
+
+/* ==========================================================================
+   5. LAYOUTS (Header, Hero, Products, Footer)
+   ========================================================================== */
+
+@import url('layout/_header.css');
+@import url('layout/_hero.css');
+@import url('layout/_products.css');
+
+/* ==========================================================================
+   6. CONTAINER
+   ========================================================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--mr-container-max);
+    margin: 0 auto;
+    padding-left: var(--mr-container-padding);
+    padding-right: var(--mr-container-padding);
+}
+
+/* ==========================================================================
+   7. UTILITIES (Clases auxiliares)
+   ========================================================================== */
+
+/* Tipografía responsiva fluida */
+h1 { font-size: clamp(var(--mr-text-3xl), 4vw, var(--mr-text-5xl)); }
+h2 { font-size: clamp(var(--mr-text-2xl), 3vw, var(--mr-text-4xl)); }
+h3 { font-size: clamp(var(--mr-text-xl), 2.5vw, var(--mr-text-3xl)); }
+p { font-size: clamp(var(--mr-text-sm), 1.5vw, var(--mr-text-base)); }
+
+/* Utilities de texto */
+.text-primary { color: var(--mr-color-primary); }
+.text-accent { color: var(--mr-color-accent); }
+.text-muted { color: var(--mr-text-muted); }
+.text-light { color: var(--mr-text-light); }
+.text-dark { color: var(--mr-bg-dark); }
+
+/* Utilities de fondo */
+.bg-dark { background-color: var(--mr-bg-dark); }
+.bg-light { background-color: var(--mr-bg-light); }
+.bg-muted { background-color: var(--mr-bg-muted); }
+.bg-primary { background-color: var(--mr-color-primary); }
+.bg-card { background-color: var(--mr-bg-card); }
+
+/* Utilities de espaciado */
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--mr-space-2); }
+.mt-2 { margin-top: var(--mr-space-4); }
+.mt-3 { margin-top: var(--mr-space-6); }
+.mt-4 { margin-top: var(--mr-space-8); }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--mr-space-2); }
+.mb-2 { margin-bottom: var(--mr-space-4); }
+.mb-3 { margin-bottom: var(--mr-space-6); }
+.mb-4 { margin-bottom: var(--mr-space-8); }
+.pt-0 { padding-top: 0; }
+.pt-1 { padding-top: var(--mr-space-2); }
+.pt-2 { padding-top: var(--mr-space-4); }
+.pt-3 { padding-top: var(--mr-space-6); }
+.pt-4 { padding-top: var(--mr-space-8); }
+.pb-0 { padding-bottom: 0; }
+.pb-1 { padding-bottom: var(--mr-space-2); }
+.pb-2 { padding-bottom: var(--mr-space-4); }
+.pb-3 { padding-bottom: var(--mr-space-6); }
+.pb-4 { padding-bottom: var(--mr-space-8); }
+
+/* Utilities de display */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.d-inline-flex { display: inline-flex; }
+.d-grid { display: grid; }
+.align-items-center { align-items: center; }
+.align-items-start { align-items: flex-start; }
+.align-items-end { align-items: flex-end; }
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-around { justify-content: space-around; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-column { flex-direction: column; }
+.gap-1 { gap: var(--mr-space-2); }
+.gap-2 { gap: var(--mr-space-4); }
+.gap-3 { gap: var(--mr-space-6); }
+
+/* Utilities de texto */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+.font-light { font-weight: var(--mr-font-light); }
+.font-normal { font-weight: var(--mr-font-normal); }
+.font-medium { font-weight: var(--mr-font-medium); }
+.font-semibold { font-weight: var(--mr-font-semibold); }
+.font-bold { font-weight: var(--mr-font-bold); }
+
+/* Utilities de bordes */
+.rounded { border-radius: var(--mr-radius-md); }
+.rounded-sm { border-radius: var(--mr-radius-sm); }
+.rounded-lg { border-radius: var(--mr-radius-lg); }
+.rounded-full { border-radius: var(--mr-radius-full); }
+.border { border: 1px solid #dee2e6; }
+.border-0 { border: 0; }
+
+/* Utilities de sombras */
+.shadow { box-shadow: var(--mr-shadow); }
+.shadow-sm { box-shadow: var(--mr-shadow-sm); }
+.shadow-md { box-shadow: var(--mr-shadow-md); }
+.shadow-lg { box-shadow: var(--mr-shadow-lg); }
+.shadow-none { box-shadow: none; }
+
+/* Utilities de posición */
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-fixed { position: fixed; }
+.position-sticky { position: sticky; }
+.top-0 { top: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+.right-0 { right: 0; }
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+
+/* ==========================================================================
+   8. ANIMACIONES GLOBALES
+   ========================================================================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* ==========================================================================
+   9. UTILITIES RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: var(--mr-bp-md)) {
+    .d-md-none { display: none; }
+    .d-md-block { display: block; }
+    .d-md-flex { display: flex; }
+    .flex-md-column { flex-direction: column; }
+    .text-md-center { text-align: center; }
+    .align-items-md-center { align-items: center; }
+}
+
+@media (max-width: var(--mr-bp-sm)) {
+    .d-sm-none { display: none; }
+    .d-sm-block { display: block; }
+    .d-sm-flex { display: flex; }
+    .flex-sm-column { flex-direction: column; }
+    .text-sm-center { text-align: center; }
+    .align-items-sm-center { align-items: center; }
+}
+
+/* ==========================================================================
+   10. OVERRIDES PARA COMPATIBILIDAD CON BOOTSTRAP
+   ========================================================================== */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(var(--mr-container-padding) * -1);
+    margin-right: calc(var(--mr-container-padding) * -1);
+}
+
+.col-md-3 {
+    position: relative;
+    width: 100%;
+    padding-left: var(--mr-container-padding);
+    padding-right: var(--mr-container-padding);
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
 }

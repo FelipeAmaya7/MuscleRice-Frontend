@@ -1,87 +1,119 @@
 /**
  * _components.css
- * 
- * Arquitectura y Reutilización:
- * Agrupar los estilos de los componentes (botones, cards, inputs) de forma modular
- * ayuda a no mezclar lógica de estructura (layout) con el diseño de las piezas del UI.
- * Además, evitamos sobreescrituras forzadas usando las clases correctamente y siempre utilizamos las 
- * variables globales para garantizar consistencia visual en toda la plataforma.
+ *
+ * ARQUITECTURA MODULAR:
+ * Este archivo contiene estilos base de componentes del UI.
+ * Los estilos de botones específicos ahora viven en _buttons.css
+ *
+ * Los tokens ya están disponibles porque main.css los importa primero.
  */
+
+@import url('_buttons.css');
 
 /* ==========================================================================
    ENLACES GLOBALES
    ========================================================================== */
+
 a {
-    color: var(--primary-color);
+    color: var(--mr-color-primary);
     text-decoration: none;
-    transition: color var(--transition-speed) var(--transition-ease);
+    transition: color var(--mr-transition-speed) var(--mr-transition-ease);
 }
 
 a:hover {
-    color: var(--primary-color-hover);
+    color: var(--mr-color-primary-hover);
     text-decoration: underline;
 }
 
+a:focus {
+    outline: 2px solid var(--mr-color-primary);
+    outline-offset: 2px;
+}
+
 /* ==========================================================================
-   BOTONES
+   CARDS
    ========================================================================== */
 
-/* Componente base: Botón Primario */
-.btn-primary {
+.card {
+    background: var(--mr-bg-card);
+    border-radius: var(--mr-radius-lg);
+    box-shadow: var(--mr-shadow-card);
+    transition: box-shadow var(--mr-transition-speed) var(--mr-transition-ease),
+                transform var(--mr-transition-speed) var(--mr-transition-ease);
+}
+
+.card:hover {
+    box-shadow: var(--mr-shadow-card-hover);
+    transform: translateY(-4px);
+}
+
+.card-img {
+    border-radius: var(--mr-radius-lg) var(--mr-radius-lg) 0 0;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   INPUTS Y FORMULARIOS
+   ========================================================================== */
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: var(--mr-space-3) var(--mr-space-4);
+    font-size: var(--mr-text-base);
+    font-family: var(--mr-font-primary);
+    color: var(--mr-bg-dark);
+    background-color: var(--mr-bg-light);
+    border: 1px solid #dee2e6;
+    border-radius: var(--mr-radius-md);
+    transition: border-color var(--mr-transition-speed) var(--mr-transition-ease),
+                box-shadow var(--mr-transition-speed) var(--mr-transition-ease);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--mr-color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--mr-color-primary-rgb), 0.25);
+}
+
+.form-control::placeholder {
+    color: var(--mr-text-muted);
+}
+
+/* ==========================================================================
+   BADGES Y TAGS
+   ========================================================================== */
+
+.badge {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--bg-dark); /* Texto oscuro para generar alto contraste y legibilidad con el verde vibrante */
-    padding: 12px 28px;
-    border: 2px solid var(--primary-color);
-    border-radius: 4px; /* Un radio sutil para suavizar las esquinas */
-    font-size: 1rem;
-    font-weight: 700; /* Texto audaz (bold) para CTAs energéticos */
-    text-transform: uppercase;
-    text-align: center;
-    cursor: pointer;
-    transition: all var(--transition-speed) var(--transition-ease);
+    padding: var(--mr-space-1) var(--mr-space-3);
+    font-size: var(--mr-text-xs);
+    font-weight: var(--mr-font-semibold);
+    border-radius: var(--mr-radius-full);
 }
 
-/* Estado: Hover (cuando el usuario pasa el mouse) */
-.btn-primary:hover {
-    background-color: var(--primary-color-hover);
-    border-color: var(--primary-color-hover);
-    /* Glow effect sutil para aportar energía extra alineada con la marca "MuscleRice" */
-    box-shadow: 0 0 12px rgba(57, 255, 20, 0.4); 
-    color: var(--bg-dark); /* Mantener la legibilidad */
-    text-decoration: none;
+.badge-primary {
+    background-color: var(--mr-color-primary);
+    color: var(--mr-bg-dark);
 }
 
-/* Estado: Active (cuando el usuario hace clic) */
-.btn-primary:active {
-    background-color: var(--primary-color-active);
-    border-color: var(--primary-color-active);
-    box-shadow: none; /* Quitamos el resplandor en el click */
-    transform: translateY(2px); /* Sensación táctil de presionado, excelente práctica UX */
+.badge-accent {
+    background-color: var(--mr-color-accent);
+    color: var(--mr-bg-dark);
 }
 
-/* Botón Outline / Secundario (Opcional para complementar) */
-.btn-outline-primary {
-    display: inline-block;
-    background-color: transparent;
-    color: var(--primary-color);
-    padding: 12px 28px;
-    border: 2px solid var(--primary-color);
-    border-radius: 4px;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    cursor: pointer;
-    transition: all var(--transition-speed) var(--transition-ease);
+/* ==========================================================================
+   PROGRESS BARS
+   ========================================================================== */
+
+.progress {
+    height: var(--mr-space-2);
+    background-color: #e9ecef;
+    border-radius: var(--mr-radius-full);
+    overflow: hidden;
 }
 
-.btn-outline-primary:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-dark);
-}
-
-.btn-outline-primary:active {
-    background-color: var(--primary-color-active);
-    border-color: var(--primary-color-active);
-    transform: translateY(2px);
+.progress-bar {
+    background-color: var(--mr-color-primary);
+    transition: width var(--mr-transition-speed) var(--mr-transition-ease);
 }

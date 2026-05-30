@@ -1,119 +1,150 @@
 /**
  * _hero.css
  *
- * Arquitectura (PatrÃ³n Layout):
- * Los estilos de un layout (la estructura de una secciÃ³n) deben limitarse a posicionar y
- * dimensionar elementos (padding, flex, grid, min-height). Los colores vienen de :root.
- * Al usar variables en el background y en el texto logramos que el contraste sea perfecto
- * sin tener que agregar sobreescrituras forzadas o clases complejas.
- *
- * Estructura Bootstrap: container > row > col-md-4 (3 columnas iguales)
+ * Estilos para la sección hero de MuscleRice.
+ * Usa Design Tokens para consistencia.
  */
 
 /* ==========================================================================
-   HERO SECTION
+   SLIDER / HERO
    ========================================================================== */
 
-.hero-section {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    padding: 80px 0;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
+.slider {
+    position: relative;
 }
 
-.hero-section .row {
+.slider img {
+    height: var(--mr-product-img-height);
     width: 100%;
+    object-fit: cover;
+}
+
+.slider h3 {
+    color: var(--mr-header-text);
+    font-family: var(--mr-font-primary);
+    font-size: 61px;
+    font-weight: var(--mr-font-bold);
+    left: 30%;
+    position: absolute;
+    top: 45%;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   FEATURES / CARACTERÍSTICAS
+   ========================================================================== */
+
+.features h2 {
+    color: #4f4f4f;
+    font-size: var(--mr-text-4xl);
+    margin: var(--mr-space-10) 0;
+    text-align: center;
+    font-family: var(--mr-font-primary);
+    font-weight: var(--mr-font-normal);
+}
+
+.features .text-img {
+    width: 315px;
+}
+
+.text-img.left {
+    float: left;
+}
+
+.text-img.center {
     margin: 0 auto;
 }
 
-.hero-title {
-    color: var(--text-light);
-    font-size: 2.8rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 16px;
-    letter-spacing: -1px;
+.text-img.right {
+    float: right;
 }
 
-.hero-subtitle {
-    color: var(--primary-color);
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.features h3 {
+    color: #4f4f4f;
+    font-size: var(--mr-text-2xl);
+    padding: var(--mr-space-5) 0;
+    font-family: var(--mr-font-primary);
 }
 
-.hero-description {
-    color: var(--text-muted);
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom: 0;
+.features p {
+    color: var(--mr-text-muted);
+    font-family: var(--mr-font-secondary);
+    font-size: var(--mr-text-sm);
+    font-weight: var(--mr-font-normal);
 }
 
-.hero-img {
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.4s ease;
-    filter: drop-shadow(0 10px 30px rgba(127, 186, 166, 0.15));
+/* ==========================================================================
+   OUR SKILL (HABILIDADES/PROGRESO)
+   ========================================================================== */
+
+.our_skill h2 {
+    color: #4f4f4f;
+    font-family: var(--mr-font-primary);
+    font-size: var(--mr-text-4xl);
+    font-weight: var(--mr-font-normal);
+    margin: var(--mr-space-10) 0 var(--mr-space-8);
 }
 
-.hero-img:hover {
-    transform: translateY(-15px) rotate(2deg);
+.our_skill .text {
+    padding-right: 105px;
 }
 
-.value-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 30px 0;
+.our_skill .text p {
+    font-size: var(--mr-text-lg);
+    color: var(--mr-text-muted);
+    line-height: 35px;
+    font-weight: var(--mr-font-normal);
 }
 
-.value-item {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: color var(--transition-speed) var(--transition-ease);
+.progress_bar {
+    padding-left: 105px;
 }
 
-.value-item:last-child {
-    border-bottom: none;
+.progress_bar p {
+    color: #564f4f;
+    margin: 0 0 var(--mr-space-3);
+    font-size: var(--mr-text-lg);
 }
 
-.value-item:hover {
-    color: var(--primary-color);
+/* ==========================================================================
+   HERO RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: var(--mr-bp-lg)) {
+    .slider h3 {
+        font-size: var(--mr-text-4xl);
+        left: 15%;
+    }
+
+    .slider img {
+        height: 350px;
+    }
+
+    .features .text-img {
+        width: 100%;
+        float: none;
+        margin-bottom: var(--mr-space-5);
+    }
+
+    .text-img.center {
+        margin: 0 auto var(--mr-space-5);
+    }
+
+    .our_skill .text,
+    .progress_bar {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
-.btn-muscle-primary {
-    display: inline-block;
-    background-color: var(--primary-green);
-    color: var(--bg-dark);
-    padding: 14px 32px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    cursor: pointer;
-    transition: all var(--transition-speed) var(--transition-ease);
-    text-decoration: none;
-}
+@media (max-width: var(--mr-bp-md)) {
+    .slider h3 {
+        font-size: var(--mr-text-2xl);
+        left: 10%;
+        top: 30%;
+    }
 
-.btn-muscle-primary:hover {
-    background-color: var(--primary-color-hover);
-    box-shadow: 0 0 20px rgba(127, 186, 166, 0.5);
-    color: var(--bg-dark);
-    text-decoration: none;
-    transform: translateY(-2px);
+    .slider img {
+        height: 250px;
+    }
 }
-
-.btn-muscle-primary:active {
-    background-color: var(--primary-color-active);
-    transform: translateY(0);
-    box-shadow: none;
-}
-
