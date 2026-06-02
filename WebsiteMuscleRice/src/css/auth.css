@@ -1,0 +1,586 @@
+/* =================================================================
+   auth.css — Estilos Premium para Login & Registro
+   
+   Arquitectura:
+   - Mobile-first (diseñado para atletas que compran desde el celular)
+   - Variables CSS para consistencia con el brand MuscleRice
+   - Micro-animaciones: shake, fade-in, pulse, spinner
+   - Floating labels para inputs modernos
+   ================================================================= */
+
+/* --- 1. TOKENS DE DISEÑO (Variables CSS) --- */
+:root {
+  /* Brand */
+  --mr-primary: #2ecc71;
+  --mr-primary-dark: #27ae60;
+  --mr-primary-light: #1fa85c;
+  --mr-primary-glow: rgba(46, 204, 113, 0.18);
+  
+  /* Fondos — Tema claro/blanco */
+  --mr-bg-page: #ffffff;
+  --mr-bg-card: #ffffff;
+  --mr-bg-input: #f5f7fa;
+  
+  /* Textos — Oscuros para contraste sobre fondo blanco */
+  --mr-text-primary: #1a1a2e;
+  --mr-text-secondary: #6b7280;
+  --mr-text-placeholder: #9ca3af;
+  
+  /* Estados */
+  --mr-error: #ef4444;
+  --mr-error-bg: rgba(239, 68, 68, 0.08);
+  --mr-success: #2ecc71;
+  --mr-success-bg: rgba(46, 204, 113, 0.08);
+  
+  /* Bordes y sombras — Sutiles para tema claro */
+  --mr-border: #e5e7eb;
+  --mr-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  --mr-shadow-glow: 0 0 30px rgba(46, 204, 113, 0.1);
+  
+  /* Transiciones */
+  --mr-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --mr-transition-fast: 0.15s ease;
+  
+  /* Radios */
+  --mr-radius-sm: 8px;
+  --mr-radius-md: 12px;
+  --mr-radius-lg: 20px;
+}
+
+/* --- 2. RESET & BASE --- */
+.auth-page {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--mr-bg-page);
+  font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--mr-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Fondo con patrón sutil de puntos */
+.auth-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(46, 204, 113, 0.06) 1px, transparent 0);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glow decorativo superior */
+.auth-page::after {
+  content: '';
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(46, 204, 113, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- 3. BOTÓN REGRESAR --- */
+.auth-back-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50px;
+  color: var(--mr-text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--mr-transition);
+  z-index: 10;
+}
+
+.auth-back-btn:hover {
+  background: rgba(46, 204, 113, 0.08);
+  color: var(--mr-primary-dark);
+  border-color: rgba(46, 204, 113, 0.3);
+  transform: translateX(-3px);
+}
+
+.auth-back-btn i {
+  font-size: 12px;
+  transition: transform var(--mr-transition);
+}
+
+.auth-back-btn:hover i {
+  transform: translateX(-3px);
+}
+
+/* --- 4. TARJETA PRINCIPAL (CARD) --- */
+.auth-card {
+  position: relative;
+  z-index: 1;
+  width: 92%;
+  max-width: 440px;
+  background: var(--mr-bg-card);
+  border: 1px solid var(--mr-border);
+  border-radius: var(--mr-radius-lg);  
+  padding: 40px 32px;
+  box-shadow: var(--mr-shadow);
+  animation: authFadeIn 0.6s ease-out;
+}
+
+/* Línea decorativa superior con gradiente del brand */
+.auth-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 32px;
+  right: 32px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--mr-primary), transparent);
+  border-radius: 0 0 4px 4px;
+}
+
+/* --- 5. HEADER DE LA TARJETA --- */
+.auth-logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--mr-radius-md);
+  background: transparent;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.auth-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--mr-text-primary);
+  margin: 0 0 6px 0;
+  letter-spacing: -0.5px;
+}
+
+.auth-subtitle {
+  font-size: 15px;
+  color: var(--mr-text-secondary);
+  margin: 0 0 28px 0;
+  line-height: 1.5;
+}
+
+/* --- 6. FLOATING LABEL INPUT GROUP --- */
+.auth-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.auth-field input {
+  width: 100%;
+  padding: 16px 16px 16px 44px;
+  background: var(--mr-bg-input);
+  border: 1.5px solid var(--mr-border);
+  border-radius: var(--mr-radius-md);
+  color: var(--mr-text-primary);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: var(--mr-transition);
+  box-sizing: border-box;
+}
+
+.auth-field input::placeholder {
+  color: var(--mr-text-placeholder);
+  transition: var(--mr-transition);
+}
+
+/* Icono a la izquierda */
+.auth-field .field-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mr-text-placeholder);
+  font-size: 16px;
+  transition: color var(--mr-transition);
+  pointer-events: none;
+}
+
+/* Estado: focus */
+.auth-field input:focus {
+  border-color: var(--mr-primary);  
+  box-shadow: 0 0 0 3px var(--mr-primary-glow);
+  background: #fff;
+}
+
+.auth-field input:focus + .field-icon,
+.auth-field input:focus ~ .field-icon {
+  color: var(--mr-primary);
+}
+
+/* Estado: error */
+.auth-field.has-error input {
+  border-color: var(--mr-error);
+  box-shadow: 0 0 0 3px var(--mr-error-bg);
+}
+
+.auth-field.has-error .field-icon {
+  color: var(--mr-error);
+}
+
+/* Estado: válido */
+.auth-field.is-valid input {
+  border-color: var(--mr-success);
+  box-shadow: 0 0 0 3px var(--mr-success-bg);
+}
+
+.auth-field.is-valid .field-icon {
+  color: var(--mr-success);
+}
+
+/* --- 7. TOGGLE DE CONTRASEÑA (OJO) --- */
+.auth-field .toggle-password {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--mr-text-placeholder);
+  cursor: pointer;
+  padding: 4px;
+  font-size: 16px;
+  transition: color var(--mr-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-field .toggle-password:hover {
+  color: var(--mr-primary);
+}
+
+.auth-field input[type="password"] ~ .toggle-password .fa-eye {
+  display: inline-block;
+}
+
+.auth-field input[type="password"] ~ .toggle-password .fa-eye-slash {
+  display: none;
+}
+
+.auth-field input[type="text"] ~ .toggle-password .fa-eye {
+  display: none;
+}
+
+.auth-field input[type="text"] ~ .toggle-password .fa-eye-slash {
+  display: inline-block;
+}
+
+/* --- 8. MENSAJES DE ERROR POR CAMPO --- */
+.field-error {
+  display: block;
+  font-size: 13px;
+  color: var(--mr-error);
+  margin-top: 6px;
+  padding-left: 4px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: var(--mr-transition);
+  height: 0;
+  overflow: hidden;
+}
+
+.auth-field.has-error .field-error {
+  opacity: 1;
+  transform: translateY(0);
+  height: auto;
+  margin-bottom: 4px;
+}
+
+/* --- 9. INDICADOR DE FUERZA DE CONTRASEÑA --- */
+.password-strength {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.password-strength .strength-bar {
+  flex: 1;
+  height: 3px;
+  background: var(--mr-border);
+  border-radius: 2px;
+  transition: background var(--mr-transition);
+}
+
+.password-strength.strength-1 .strength-bar:nth-child(1) {
+  background: var(--mr-error);
+}
+
+.password-strength.strength-2 .strength-bar:nth-child(-n+2) {
+  background: #f39c12;
+}
+
+.password-strength.strength-3 .strength-bar:nth-child(-n+3) {
+  background: #f1c40f;
+}
+
+.password-strength.strength-4 .strength-bar {
+  background: var(--mr-success);
+}
+
+.strength-text {
+  font-size: 12px;
+  color: var(--mr-text-secondary);
+  margin-top: 4px;
+  transition: color var(--mr-transition);
+}
+
+/* --- 10. BOTÓN PRINCIPAL (SUBMIT) --- */
+.auth-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, var(--mr-primary), var(--mr-primary-dark));
+  color: #fff;  
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  border-radius: var(--mr-radius-md);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--mr-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.auth-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(46, 204, 113, 0.35);
+}
+
+.auth-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Estado: loading (botón deshabilitado con spinner) */
+.auth-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-btn .btn-text {
+  transition: var(--mr-transition);
+}
+
+.auth-btn .btn-spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spinRotate 0.7s linear infinite;
+}
+
+.auth-btn.is-loading .btn-text {
+  opacity: 0;
+  position: absolute;
+}
+
+.auth-btn.is-loading .btn-spinner {
+  display: block;
+}
+
+.auth-btn.is-loading .btn-loading-text {
+  display: inline;
+  font-size: 14px;
+}
+
+.btn-loading-text {
+  display: none;
+}
+
+/* --- 11. DIVIDER --- */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+  color: var(--mr-text-secondary);
+  font-size: 13px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--mr-border);
+}
+
+/* --- 12. ENLACE ALTERNATIVO (¿Ya tienes cuenta? / ¿No tienes?) --- */
+.auth-switch {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--mr-text-secondary);
+}
+
+.auth-switch a {
+  color: var(--mr-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--mr-transition);
+}
+
+.auth-switch a:hover {
+  color: var(--mr-primary-light);
+  text-decoration: underline;
+}
+
+/* --- 13. MENSAJE GLOBAL (Toast de éxito/error) --- */
+.auth-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  padding: 14px 20px;
+  border-radius: var(--mr-radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 100;
+  transform: translateX(120%);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.auth-toast.is-visible {
+  transform: translateX(0);
+}
+
+.auth-toast.toast-success {
+  background: var(--mr-success-bg);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  color: var(--mr-success);
+}
+
+.auth-toast.toast-error {
+  background: var(--mr-error-bg);
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  color: var(--mr-error);
+}
+
+/* --- 14. ANIMACIONES KEYFRAMES --- */
+
+/* Entrada de la tarjeta */
+@keyframes authFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Sacudida de error en los inputs */
+@keyframes authShake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-8px); }
+  30% { transform: translateX(6px); }
+  45% { transform: translateX(-4px); }
+  60% { transform: translateX(3px); }
+  75% { transform: translateX(-1px); }
+}
+
+.shake {
+  animation: authShake 0.5s ease;
+}
+
+/* Spinner del botón */
+@keyframes spinRotate {
+  to { transform: rotate(360deg); }
+}
+
+/* Pulso suave para el glow */
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* --- 15. RESPONSIVE --- */
+
+/* Tablets (< 768px) */
+@media (max-width: 768px) {
+  .auth-card {
+    padding: 32px 24px;
+    max-width: 100%;
+    border-radius: var(--mr-radius-md);
+  }
+  
+  .auth-title {
+    font-size: 24px;
+  }
+  
+  .auth-back-btn {
+    top: 16px;
+    left: 16px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Móviles (< 480px) */
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 16px;
+    align-items: flex-start;
+    padding-top: 70px;
+  }
+  
+  .auth-card {
+    padding: 28px 20px;
+    border-radius: var(--mr-radius-md);
+  }
+  
+  .auth-title {
+    font-size: 22px;
+  }
+  
+  .auth-subtitle {
+    font-size: 14px;
+  }
+  
+  .auth-field input {
+    padding: 14px 14px 14px 40px;
+    font-size: 16px; /* Evita zoom en iOS */
+  }
+  
+  .auth-btn {
+    padding: 14px 20px;
+  }
+  
+  .auth-toast {
+    left: 16px;
+    right: 16px;
+    top: auto;
+    bottom: 24px;
+  }
+}
