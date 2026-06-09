@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inicia sesión en MuscleRice — Accede a tu cuenta y gestiona tus pedidos de suplementos deportivos.">
+    <title>Iniciar Sesión | MuscleRice</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/img/logo-musclerice..png">
+    <!-- Google Fonts: Inter para UI moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome: Iconos (ojo, candado, sobre, flecha) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- CSS Modular de Autenticación -->
+    <link rel="stylesheet" href="/src/styles/pages/_auth.css">
+</head>
+<body class="auth-page">
+
+<!-- ============================================================
+     BOTÓN REGRESAR — Posición fija, estilo glassmorphism
+     ============================================================ -->
+<a href="/index.html" class="auth-back-btn" id="btn-back">
+    <i class="fa-solid fa-arrow-left"></i>
+    Regresar
+</a>
+
+<!-- ============================================================
+     TARJETA DE LOGIN
+     Diseño: Dark card con línea gradiente superior
+     ============================================================ -->
+<div class="auth-card" id="login-card">
+    <!-- Logo -->
+    <img 
+        src="/img/logo-musclerice..png" 
+        alt="MuscleRice Logo" 
+        class="auth-logo"
+        id="auth-logo"
+    >
+
+    <!-- Header -->
+    <h1 class="auth-title">Bienvenido de vuelta</h1>
+    <p class="auth-subtitle">
+        Inicia sesión para acceder a tu cuenta y gestionar tus pedidos.
+    </p>
+
+    <!-- Formulario -->
+    <form id="loginForm" novalidate>
+        <!-- Campo: Correo Electrónico -->
+        <div class="auth-field" id="field-email">
+            <input 
+                type="email" 
+                id="login-email" 
+                name="email" 
+                placeholder="tucorreo@ejemplo.com"
+                autocomplete="email"
+                required
+            >
+            <i class="fa-solid fa-envelope field-icon"></i>
+            <span class="field-error" id="error-email">Ingresa un correo electrónico válido</span>
+        </div>
+
+        <!-- Campo: Contraseña -->
+        <div class="auth-field" id="field-password">
+            <input 
+                type="password" 
+                id="login-password" 
+                name="password" 
+                placeholder="Tu contraseña"
+                autocomplete="current-password"
+                required
+            >
+            <i class="fa-solid fa-lock field-icon"></i>
+            <!-- Botón toggle: mostrar/ocultar contraseña -->
+            <button type="button" class="toggle-password" id="toggle-login-pw" aria-label="Mostrar contraseña">
+                <i class="fa-solid fa-eye"></i>
+                <i class="fa-solid fa-eye-slash"></i>
+            </button>
+            <span class="field-error" id="error-password">La contraseña debe tener al menos 6 caracteres</span>
+        </div>
+
+        <!-- Botón Submit con estado de carga -->
+        <button type="submit" class="auth-btn" id="btn-login">
+            <span class="btn-text">Iniciar Sesión</span>
+            <span class="btn-spinner"></span>
+            <span class="btn-loading-text">Verificando credenciales...</span>
+        </button>
+    </form>
+
+    <!-- Divider -->
+    <div class="auth-divider">o</div>
+
+    <!-- Link alternativo -->
+    <p class="auth-switch">
+        ¿No tienes cuenta? <a href="/registro.html">Regístrate gratis</a>
+    </p>
+</div>
+
+<!-- ============================================================
+     TOAST DE NOTIFICACIÓN
+     Aparece desde la derecha con animación spring al login exitoso
+     ============================================================ -->
+<div class="auth-toast" id="auth-toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-message">Sesión iniciada correctamente</span>
+</div>
+
+<!-- JavaScript modular de autenticación -->
+<script type="module" src="/src/scripts/pages/auth.ts"></script>
+</body>
+</html>
