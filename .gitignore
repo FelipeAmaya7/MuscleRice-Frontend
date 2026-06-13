@@ -1,1 +1,13 @@
-node_modules
+# MuscleRice - Root Git Ignore
+# ============================
+
+# Ignore the nested backend repository since it is tracked separately
+ServiceMuscleRice/
+
+# Standard ignores
+node_modules/
+dist/
+.env
+.env.local
+.DS_Store
+Thumbs.db
