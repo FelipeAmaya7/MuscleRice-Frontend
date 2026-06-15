@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
+    "jsx": "react-jsx",
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
@@ -12,6 +13,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
 
     /* Linting */
     "strict": true,
@@ -19,7 +23,7 @@
     "noUnusedParameters": false,
     "noImplicitReturns": true,
     "allowJs": true,
-    "types": ["node"]
+    "types": ["node", "react", "react-dom"]
   },
   "include": [
     "src",

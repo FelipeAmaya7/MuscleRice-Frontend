@@ -210,68 +210,40 @@ function renderCartPage(): void {
 // ── DOM LIFECYCLE ──
 document.addEventListener('DOMContentLoaded', () => {
   updateCartTotals();
+});
 
-  // 1. Delegación e Event Listeners de "Añadir al carrito" (.btn-add-cart o .elite-add-cart)
-  // Nota: Algunos productos en index.html usan .btn-add-cart y otros usan .elite-add-cart.
-  // Vamos a soportar ambos selectores.
-  
-  // Para .elite-add-cart
-  const eliteAddBtns = document.querySelectorAll('.elite-add-cart');
-  eliteAddBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const card = btn.closest('.elite-product-card') as HTMLElement | null;
-      if (!card) return;
+// Event delegation for Add to Cart and Cart interactions across all React pages
+document.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement;
 
+  // 1. Añadir al carrito (.elite-add-cart o .btn-add-cart)
+  const addBtn = target.closest('.elite-add-cart, .btn-add-cart') as HTMLButtonElement;
+  if (addBtn) {
+    e.preventDefault();
+    const isElite = addBtn.classList.contains('elite-add-cart');
+    const card = addBtn.closest(isElite ? '.elite-product-card' : '.product-card') as HTMLElement;
+    if (card) {
       const id = card.id || card.getAttribute('data-id') || 'product-' + Math.random().toString(36).substring(2, 11);
-      const nameEl = card.querySelector('.elite-product-name');
-      const priceEl = card.querySelector('.elite-product-price');
-      const imgEl = card.querySelector('.elite-product-img');
+      const nameEl = card.querySelector(isElite ? '.elite-product-name' : '.product-title');
+      const priceEl = card.querySelector(isElite ? '.elite-product-price' : '.product-price');
+      const imgEl = card.querySelector(isElite ? '.elite-product-img' : '.product-image');
 
-      if (!nameEl || !priceEl) return;
+      if (nameEl && priceEl) {
+        const name = nameEl.textContent?.trim() || '';
+        const price = parseInt(priceEl.textContent?.replace(/\D/g, '') || '0') || 0;
+        const image = imgEl ? imgEl.getAttribute('src') || 'img/default.jpg' : 'img/default.jpg';
 
-      const name = nameEl.textContent?.trim() || '';
-      const price = parseInt(priceEl.textContent?.replace(/\D/g, '') || '0') || 0;
-      const image = imgEl ? imgEl.getAttribute('src') || 'img/default.jpg' : 'img/default.jpg';
+        addToCart({ id, name, price, image }, addBtn);
+      }
+    }
+  }
 
-      addToCart({ id, name, price, image }, btn as HTMLButtonElement);
-    });
-  });
-
-  // Para .btn-add-cart (como los de index.html: Whey Protein, Creatina, etc.)
-  const addCartBtns = document.querySelectorAll('.btn-add-cart');
-  addCartBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const card = btn.closest('.product-card') as HTMLElement | null;
-      if (!card) return;
-
-      const nameEl = card.querySelector('.product-title');
-      const priceEl = card.querySelector('.product-price');
-      const imgEl = card.querySelector('.product-image');
-
-      if (!nameEl || !priceEl) return;
-
-      const name = nameEl.textContent?.trim() || '';
-      const price = parseInt(priceEl.textContent?.replace(/\D/g, '') || '0') || 0;
-      const image = imgEl ? imgEl.getAttribute('src') || 'img/default.jpg' : 'img/default.jpg';
-      const id = 'product-' + name.replace(/\s+/g, '-').toLowerCase();
-
-      addToCart({ id, name, price, image }, btn as HTMLButtonElement);
-    });
-  });
-
-  // 2. Delegación en la lista de items del carrito (carrito.html)
+  // 2. Interacciones dentro del carrito
   const itemsList = document.getElementById('cart-items-list');
-  if (itemsList) {
-    itemsList.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
-      const itemEl = target.closest('.item') as HTMLElement | null;
-      if (!itemEl) return;
-
+  if (itemsList && itemsList.contains(target)) {
+    const itemEl = target.closest('.item') as HTMLElement | null;
+    if (itemEl && itemEl.dataset.id) {
       const id = itemEl.dataset.id;
-      if (!id) return;
-
       if (target.classList.contains('btn-qty-plus')) {
         changeQuantity(id, 1);
       } else if (target.classList.contains('btn-qty-minus')) {
@@ -279,10 +251,19 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (target.classList.contains('btn-eliminar')) {
         removeCartItem(id, itemEl);
       }
-    });
-
-    renderCartPage();
+    }
   }
 });
+
+// Listen to route changes (if triggered) to re-render cart and update totals
+window.addEventListener('popstate', () => {
+    updateCartTotals();
+    const wrapper = document.getElementById('cart-content-wrapper');
+    if (wrapper) renderCartPage();
+});
+
+// Expose renderCartPage to window so React can trigger it on mount
+(window as any).renderCartPage = renderCartPage;
+(window as any).updateCartTotals = updateCartTotals;
 
 export {};

@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito - MuscleRice</title>
+function CarritoPage() {
+  useEffect(() => {
+    // Cuando la página del carrito carga, le decimos a cart.ts que se renderice
+    if (typeof (window as any).renderCartPage === 'function') {
+      (window as any).renderCartPage();
+    }
+  }, []);
 
-    <style>
-        body {
+  return (
+    <>
+      <style>{`
+        .carrito-page-wrapper {
             margin: 0;
             padding: 0;
             background-color: #ffffff;
@@ -16,7 +21,7 @@
         }
 
         /* Logo y encabezado */
-        header {
+        .carrito-page-wrapper header {
             background-color: white;
             padding: 15px 25px;
             display: flex;
@@ -25,11 +30,11 @@
             border-bottom: 3px solid #2ecc71;
         }
 
-        .logo {
+        .carrito-page-wrapper .logo {
             width: 140px;
         }
 
-        .btn-regresar {
+        .carrito-page-wrapper .btn-regresar {
             background-color: #2ecc71;
             padding: 10px 18px;
             border-radius: 8px;
@@ -39,7 +44,7 @@
         }
 
         /* Contenedor principal */
-        .carrito-container {
+        .carrito-page-wrapper .carrito-container {
             width: 90%;
             margin: 30px auto;
             background: #f8f8f8;
@@ -48,13 +53,13 @@
             border: 2px solid #2ecc71;
         }
 
-        h2 {
+        .carrito-page-wrapper h2 {
             color: #2ecc71;
             margin-bottom: 20px;
         }
 
         /* Producto */
-        .item {
+        .carrito-page-wrapper .item {
             display: flex;
             align-items: center;
             background: white;
@@ -64,7 +69,7 @@
             margin-bottom: 20px;
         }
 
-        .product-img {
+        .carrito-page-wrapper .product-img {
             width: 160px;
             height: 160px;
             object-fit: cover;
@@ -72,30 +77,30 @@
             border: 2px solid #2ecc71;
         }
 
-        .item-info {
+        .carrito-page-wrapper .item-info {
             flex: 1;
             margin-left: 20px;
         }
 
-        .item-info h3 {
+        .carrito-page-wrapper .item-info h3 {
             margin: 0;
             font-size: 20px;
         }
 
-        .precio {
+        .carrito-page-wrapper .precio {
             font-size: 20px;
             font-weight: bold;
             color: #2ecc71;
         }
 
         /* Cantidad */
-        .cantidad-controls {
+        .carrito-page-wrapper .cantidad-controls {
             display: flex;
             align-items: center;
             margin-top: 10px;
         }
 
-        .cantidad-controls button {
+        .carrito-page-wrapper .cantidad-controls button {
             width: 32px;
             height: 32px;
             background: #2ecc71;
@@ -106,12 +111,12 @@
             cursor: pointer;
         }
 
-        .cantidad-controls span {
+        .carrito-page-wrapper .cantidad-controls span {
             padding: 0 10px;
             font-size: 18px;
         }
 
-        .btn-eliminar {
+        .carrito-page-wrapper .btn-eliminar {
             background-color: #e74c3c;
             padding: 10px 15px;
             border: none;
@@ -121,14 +126,14 @@
         }
 
         /* Resumen */
-        .resumen {
+        .carrito-page-wrapper .resumen {
             background: white;
             padding: 20px;
             border-radius: 12px;
             border: 1px solid #2ecc71;
         }
 
-        .btn-pagar {
+        .carrito-page-wrapper .btn-pagar {
             width: 100%;
             background: #2ecc71;
             padding: 14px;
@@ -140,66 +145,63 @@
             cursor: pointer;
         }
 
-        .btn-pagar:hover {
+        .carrito-page-wrapper .btn-pagar:hover {
             background: #27ae60;
         }
+        
         @media (max-width: 600px) {
-            .item {
+            .carrito-page-wrapper .item {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .product-img {
+            .carrito-page-wrapper .product-img {
                 width: 100%;
                 height: auto;
                 max-height: 260px;
             }
-            .item-info {
+            .carrito-page-wrapper .item-info {
                 margin-left: 0;
                 margin-top: 10px;
             }
         }
-    </style>
-</head>
+      `}</style>
+      
+      <div className="carrito-page-wrapper">
+        
 
-<body>
+        <div className="carrito-container">
 
-    <header>
-        <img src="/src/assets/images/ui/logo-musclerice..png" class="logo" alt="Logo">
-        <a href="index.html" class="btn-regresar">Regresar al inicio</a>
-    </header>
+            <h2>🛒 Tu Carrito</h2>
 
-    <div class="carrito-container">
+            {/* Contenido del carrito (se muestra si hay items mediante cart.ts) */}
+            <div id="cart-content-wrapper">
+                <div id="cart-items-list">
+                    {/* Se renderiza dinámicamente con JS (cart.ts) */}
+                </div>
 
-        <h2>🛒 Tu Carrito</h2>
+                {/* RESUMEN */}
+                <div className="resumen" id="cart-summary">
+                    <h3>Resumen del pedido</h3>
+                    <p>Subtotal: <strong id="cart-subtotal">$0</strong></p>
+                    <p>Envío: <strong id="cart-shipping">$5.000</strong></p>
+                    <p>Total: <strong id="cart-total">$0</strong></p>
 
-        <!-- Contenido del carrito (se muestra si hay items) -->
-        <div id="cart-content-wrapper">
-            <div id="cart-items-list">
-                <!-- Se renderiza dinámicamente con JS -->
+                    <button className="btn-pagar">Proceder al pago</button>
+                </div>
             </div>
 
-            <!-- RESUMEN -->
-            <div class="resumen" id="cart-summary">
-                <h3>Resumen del pedido</h3>
-                <p>Subtotal: <strong id="cart-subtotal">$0</strong></p>
-                <p>Envío: <strong id="cart-shipping">$5.000</strong></p>
-                <p>Total: <strong id="cart-total">$0</strong></p>
-
-                <button class="btn-pagar">Proceder al pago</button>
+            {/* Estado vacío (oculto por defecto) */}
+            <div id="cart-empty-state" style={{ display: 'none', textAlign: 'center', padding: '50px 20px' }}>
+                <div style={{ fontSize: '64px', marginBottom: '20px' }}>🏋️</div>
+                <h3 style={{ fontSize: '24px', color: '#00a854', fontFamily: 'Montserrat, sans-serif', fontWeight: 800, marginBottom: '15px' }}>TU CARRITO ESTÁ VACÍO</h3>
+                <p style={{ fontSize: '16px', color: '#6c757d', fontFamily: 'Roboto, sans-serif', marginBottom: '30px' }}>¡Empieza a entrenar tu mutación! 🏋️</p>
+                <Link to="/productos" className="btn-regresar" style={{ display: 'inline-block' }}>Ver productos</Link>
             </div>
+
         </div>
+      </div>
+    </>
+  );
+}
 
-        <!-- Estado vacío (oculto por defecto) -->
-        <div id="cart-empty-state" style="display: none; text-align: center; padding: 50px 20px;">
-            <div style="font-size: 64px; margin-bottom: 20px;">🏋️</div>
-            <h3 style="font-size: 24px; color: #00a854; font-family: Montserrat, sans-serif; font-weight: 800; margin-bottom: 15px;">TU CARRITO ESTÁ VACÍO</h3>
-            <p style="font-size: 16px; color: #6c757d; font-family: Roboto, sans-serif; margin-bottom: 30px;">¡Empieza a entrenar tu mutación! 🏋️</p>
-            <a href="prodact-display.html" class="btn-regresar" style="display: inline-block;">Ver productos</a>
-        </div>
-
-    </div>
-
-    <script type="module" src="/src/scripts/pages/cart.ts"></script>
-</body>
-
-</html>
+export default CarritoPage;
