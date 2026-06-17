@@ -1,13 +1,17 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../hooks/useCart';
 
 function CarritoPage() {
-  useEffect(() => {
-    // Cuando la página del carrito carga, le decimos a cart.ts que se renderice
-    if (typeof (window as any).renderCartPage === 'function') {
-      (window as any).renderCartPage();
-    }
-  }, []);
+  const { cart, removeFromCart, updateQuantity, totalPrice } = useCart();
+  const SHIPPING_FEE = 5000;
+
+  const formatCurrency = (value: number) => {
+    return '$' + new Intl.NumberFormat('es-CO', {
+      minimumFractionDigits: 0,
+    }).format(value);
+  };
+
+  const total = totalPrice > 0 ? totalPrice + SHIPPING_FEE : 0;
 
   return (
     <>
@@ -167,36 +171,47 @@ function CarritoPage() {
       `}</style>
       
       <div className="carrito-page-wrapper">
-        
-
         <div className="carrito-container">
 
             <h2>🛒 Tu Carrito</h2>
 
-            {/* Contenido del carrito (se muestra si hay items mediante cart.ts) */}
-            <div id="cart-content-wrapper">
-                <div id="cart-items-list">
-                    {/* Se renderiza dinámicamente con JS (cart.ts) */}
-                </div>
+            {cart.length > 0 ? (
+              <div id="cart-content-wrapper">
+                  <div id="cart-items-list">
+                      {cart.map((item) => (
+                        <div className="item" key={item.id}>
+                          <img src={item.image} className="product-img" alt={item.name} />
+                          <div className="item-info">
+                            <h3>{item.name}</h3>
+                            <div className="cantidad-controls">
+                              <button className="btn-qty-minus" aria-label="Disminuir cantidad" onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
+                              <span className="qty-display">{item.quantity}</span>
+                              <button className="btn-qty-plus" aria-label="Aumentar cantidad" onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
+                            </div>
+                          </div>
+                          <div className="precio">{formatCurrency(item.price * item.quantity)}</div>
+                          <button className="btn-eliminar" aria-label="Eliminar producto de compra" onClick={() => removeFromCart(item.id)}>Eliminar</button>
+                        </div>
+                      ))}
+                  </div>
 
-                {/* RESUMEN */}
-                <div className="resumen" id="cart-summary">
-                    <h3>Resumen del pedido</h3>
-                    <p>Subtotal: <strong id="cart-subtotal">$0</strong></p>
-                    <p>Envío: <strong id="cart-shipping">$5.000</strong></p>
-                    <p>Total: <strong id="cart-total">$0</strong></p>
+                  <div className="resumen" id="cart-summary">
+                      <h3>Resumen del pedido</h3>
+                      <p>Subtotal: <strong id="cart-subtotal">{formatCurrency(totalPrice)}</strong></p>
+                      <p>Envío: <strong id="cart-shipping">{formatCurrency(SHIPPING_FEE)}</strong></p>
+                      <p>Total: <strong id="cart-total">{formatCurrency(total)}</strong></p>
 
-                    <button className="btn-pagar">Proceder al pago</button>
-                </div>
-            </div>
-
-            {/* Estado vacío (oculto por defecto) */}
-            <div id="cart-empty-state" style={{ display: 'none', textAlign: 'center', padding: '50px 20px' }}>
-                <div style={{ fontSize: '64px', marginBottom: '20px' }}>🏋️</div>
-                <h3 style={{ fontSize: '24px', color: '#00a854', fontFamily: 'Montserrat, sans-serif', fontWeight: 800, marginBottom: '15px' }}>TU CARRITO ESTÁ VACÍO</h3>
-                <p style={{ fontSize: '16px', color: '#6c757d', fontFamily: 'Roboto, sans-serif', marginBottom: '30px' }}>¡Empieza a entrenar tu mutación! 🏋️</p>
-                <Link to="/productos" className="btn-regresar" style={{ display: 'inline-block' }}>Ver productos</Link>
-            </div>
+                      <button className="btn-pagar">Proceder al pago</button>
+                  </div>
+              </div>
+            ) : (
+              <div id="cart-empty-state" style={{ textAlign: 'center', padding: '50px 20px' }}>
+                  <div style={{ fontSize: '64px', marginBottom: '20px' }}>🏋️</div>
+                  <h3 style={{ fontSize: '24px', color: '#00a854', fontFamily: 'Montserrat, sans-serif', fontWeight: 800, marginBottom: '15px' }}>TU CARRITO ESTÁ VACÍO</h3>
+                  <p style={{ fontSize: '16px', color: '#6c757d', fontFamily: 'Roboto, sans-serif', marginBottom: '30px' }}>¡Empieza a entrenar tu mutación! 🏋️</p>
+                  <Link to="/productos" className="btn-regresar" style={{ display: 'inline-block' }}>Ver productos</Link>
+              </div>
+            )}
 
         </div>
       </div>

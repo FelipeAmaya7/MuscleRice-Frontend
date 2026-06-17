@@ -1,13 +1,72 @@
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useAuth } from '../../hooks/useAuth';
+import '@/styles/pages/_auth.css';
 
 function RegistroPage() {
+  const { register, loading, error, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const [nameError, setNameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [confirmError, setConfirmError] = useState(false);
+
   useEffect(() => {
-    // The logic from auth.ts handles the registration. We assume it's globally loaded or we can just leave the UI here.
+    document.body.classList.add('auth-page');
+    return () => document.body.classList.remove('auth-page');
   }, []);
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }, [isAuthenticated, navigate]);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    let valid = true;
+    if (!name || name.length < 3) {
+      setNameError(true);
+      valid = false;
+    } else {
+      setNameError(false);
+    }
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setEmailError(true);
+      valid = false;
+    } else {
+      setEmailError(false);
+    }
+
+    if (!password || password.length < 6) {
+      setPasswordError(true);
+      valid = false;
+    } else {
+      setPasswordError(false);
+    }
+
+    if (!confirmPassword || confirmPassword !== password) {
+      setConfirmError(true);
+      valid = false;
+    } else {
+      setConfirmError(false);
+    }
+
+    if (!valid) return;
+
+    await register({ name, email, password });
+  }
+
   return (
-    <div className="auth-page">
+    <>
       <Link to="/" className="auth-back-btn" id="btn-back">
           <i className="fa-solid fa-arrow-left"></i>
           Regresar
@@ -26,7 +85,14 @@ function RegistroPage() {
               Únete a la comunidad MuscleRice y empieza a potenciar tu rendimiento.
           </p>
 
-          <form id="registerForm" noValidate>
+          {error && (
+            <div className="alert alert-danger" style={{ marginBottom: '20px', borderRadius: '8px', padding: '10px 15px', backgroundColor: '#fee2e2', color: '#b91c1c', border: '1px solid #ef4444' }}>
+              <i className="fa-solid fa-circle-exclamation" style={{ marginRight: '8px' }}></i>
+              {error}
+            </div>
+          )}
+
+          <form id="registerForm" noValidate onSubmit={handleSubmit}>
               <div className="auth-field" id="field-name">
                   <input 
                       type="text" 
@@ -35,9 +101,11 @@ function RegistroPage() {
                       placeholder="Tu nombre completo"
                       autoComplete="name"
                       required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                   />
                   <i className="fa-solid fa-user field-icon"></i>
-                  <span className="field-error" id="error-name">Ingresa tu nombre completo (mínimo 3 caracteres)</span>
+                  <span className={`field-error ${nameError ? 'visible' : ''}`} id="error-name">Ingresa tu nombre completo (mínimo 3 caracteres)</span>
               </div>
 
               <div className="auth-field" id="field-email">
@@ -48,9 +116,11 @@ function RegistroPage() {
                       placeholder="tucorreo@ejemplo.com"
                       autoComplete="email"
                       required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                   />
                   <i className="fa-solid fa-envelope field-icon"></i>
-                  <span className="field-error" id="error-email">Ingresa un correo electrónico válido</span>
+                  <span className={`field-error ${emailError ? 'visible' : ''}`} id="error-email">Ingresa un correo electrónico válido</span>
               </div>
 
               <div className="auth-field" id="field-password">
@@ -61,22 +131,12 @@ function RegistroPage() {
                       placeholder="Crea una contraseña segura"
                       autoComplete="new-password"
                       required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                   />
                   <i className="fa-solid fa-lock field-icon"></i>
-                  <button type="button" className="toggle-password" id="toggle-register-pw" aria-label="Mostrar contraseña">
-                      <i className="fa-solid fa-eye"></i>
-                      <i className="fa-solid fa-eye-slash"></i>
-                  </button>
-                  <span className="field-error" id="error-password">La contraseña debe tener al menos 6 caracteres</span>
+                  <span className={`field-error ${passwordError ? 'visible' : ''}`} id="error-password">La contraseña debe tener al menos 6 caracteres</span>
               </div>
-
-              <div className="password-strength" id="password-strength">
-                  <div className="strength-bar"></div>
-                  <div className="strength-bar"></div>
-                  <div className="strength-bar"></div>
-                  <div className="strength-bar"></div>
-              </div>
-              <p className="strength-text" id="strength-text"></p>
 
               <div className="auth-field" id="field-confirm">
                   <input 
@@ -86,19 +146,22 @@ function RegistroPage() {
                       placeholder="Repite tu contraseña"
                       autoComplete="new-password"
                       required
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                   <i className="fa-solid fa-shield-halved field-icon"></i>
-                  <button type="button" className="toggle-password" id="toggle-register-confirm" aria-label="Mostrar contraseña">
-                      <i className="fa-solid fa-eye"></i>
-                      <i className="fa-solid fa-eye-slash"></i>
-                  </button>
-                  <span className="field-error" id="error-confirm">Las contraseñas no coinciden</span>
+                  <span className={`field-error ${confirmError ? 'visible' : ''}`} id="error-confirm">Las contraseñas no coinciden</span>
               </div>
 
-              <button type="submit" className="auth-btn" id="btn-register">
+              <button type="submit" className={`auth-btn ${loading ? 'loading' : ''}`} id="btn-register" disabled={loading}>
+                {loading ? (
+                  <>
+                    <span className="btn-spinner"></span>
+                    <span className="btn-loading-text">Cargando...</span>
+                  </>
+                ) : (
                   <span className="btn-text">Crear Cuenta</span>
-                  <span className="btn-spinner"></span>
-                  <span className="btn-loading-text">Creando tu cuenta...</span>
+                )}
               </button>
           </form>
 
@@ -108,12 +171,7 @@ function RegistroPage() {
               ¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link>
           </p>
       </div>
-
-      <div className="auth-toast" id="auth-toast">
-          <i className="fa-solid fa-circle-check"></i>
-          <span id="toast-message">Cuenta creada exitosamente</span>
-      </div>
-    </div>
+    </>
   );
 }
 

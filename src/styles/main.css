@@ -23,6 +23,7 @@
 @import url('tokens/_tokens.css');
 @import url('base/_variables.css');
 @import url('components/_components.css');
+@import url('components/_product-card.css');
 @import url('layouts/_header.css');
 @import url('layouts/_hero.css');
 @import url('layouts/_products.css');
