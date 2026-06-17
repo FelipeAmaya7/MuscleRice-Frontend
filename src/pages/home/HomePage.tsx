@@ -1,9 +1,36 @@
 // HomePage.tsx — Migración 1:1 de home/index.html
 // Regla: class → className | <img> autocerrados | Estructura DOM idéntica
 
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ProductCard from '../../components/ProductCard';
+import { Product } from '../../types';
+import { useCart } from '../../hooks/useCart';
+import { apiGetProducts } from '../../services/productService';
 
 function HomePage() {
+  const { addToCart } = useCart();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const data = await apiGetProducts();
+        setProducts(data);
+      } catch (err: any) {
+        setError(err.message || 'Error al cargar los productos');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   return (
     <>
       
@@ -294,118 +321,31 @@ function HomePage() {
                  </div>
              </div>
               <div className="row product-grid">
-                  {/* Producto 1: Proteína Whey */}
-                  <div className="col-md-3 col-sm-6 col-xs-12">
-                      <article className="product-card">
-                          <div className="product-image-wrapper">
-                              <img src="/img/whey protein.jpg" alt="Proteína Whey (2 LB)" className="product-image" />
+                  {loading && (
+                      <div className="col-md-12 text-center" style={{ padding: '60px 0' }}>
+                          <div className="spinner-border text-success" role="status" style={{ width: '3rem', height: '3rem', color: '#2ecc71', animationDuration: '1s' }}>
                           </div>
-                          <div className="product-info">
-                              <h3 className="product-title">Proteína Whey (2 LB)</h3>
-                              <p className="product-price">$160.000</p>
-                              <button className="btn-add-cart">Agregar al carrito</button>
+                          <h4 style={{ marginTop: '20px', color: '#2ecc71', fontWeight: 'bold' }}>Cargando suplementos...</h4>
+                      </div>
+                  )}
+
+                  {error && (
+                      <div className="col-md-12 text-center" style={{ padding: '40px 0' }}>
+                          <div className="alert alert-danger" style={{ display: 'inline-block', borderRadius: '8px' }}>
+                              <i className="fa-solid fa-circle-exclamation" style={{ marginRight: '8px' }}></i>
+                              {error}
                           </div>
-                      </article>
-                  </div>
-                  
-                  {/* Producto 2: Creatina */}
-                  <div className="col-md-3 col-sm-6 col-xs-12">
-                      <article className="product-card">
-                          <div className="product-image-wrapper">
-                              <img src="/img/Creatina Monohidratada Creapure (300g).jpg" alt="Creatina Monohidratada Creapure (300g)" className="product-image" />
-                          </div>
-                          <div className="product-info">
-                              <h3 className="product-title">Creatina Monohidratada Creapure (300g)</h3>
-                              <p className="product-price">$95.000</p>
-                              <button className="btn-add-cart">Agregar al carrito</button>
-                          </div>
-                      </article>
-                  </div>
-                  
-                  {/* Producto 3: Colágeno */}
-                  <div className="col-md-3 col-sm-6 col-xs-12">
-                      <article className="product-card">
-                          <div className="product-image-wrapper">
-                              <img src="/img/Colágeno Hidrolizado con Magnesio (300g).jpg" alt="Colágeno Hidrolizado con Magnesio (300g)" className="product-image" />
-                          </div>
-                          <div className="product-info">
-                              <h3 className="product-title">Colágeno Hidrolizado con Magnesio (300g)</h3>
-                              <p className="product-price">$85.000</p>
-                              <button className="btn-add-cart">Agregar al carrito</button>
-                          </div>
-                      </article>
-                  </div>
-                  
-                  {/* Producto 4: Proteína Vegetal */}
-                  <div className="col-md-3 col-sm-6 col-xs-12">
-                      <article className="product-card">
-                          <div className="product-image-wrapper">
-                              <img src="/img/Proteína Vegetal (Orgain o Vega 2lb).jpg" alt="Proteína Vegetal (Orgain o Vega 2 LB)" className="product-image" />
-                          </div>
-                          <div className="product-info">
-                              <h3 className="product-title">Proteína Vegetal (Orgain o Vega 2 LB)</h3>
-                              <p className="product-price">$135.000</p>
-                              <button className="btn-add-cart">Agregar al carrito</button>
-                          </div>
-                      </article>
-                  </div>
-              </div>
-              <div className="row product-grid">
-                  {/* Producto 5: Barra Proteica Quest */}
-                  <div className="col-md-3 col-sm-6 col-xs-12">
-                      <article className="product-card">
-                          <div className="product-image-wrapper">
-                              <img src="/img/Barra Proteica Quest (por unidad) (1).jpg" alt="Barra Proteica Quest (por diez und)" className="product-image" />
-                          </div>
-                          <div className="product-info">
-                              <h3 className="product-title">Barra Proteica Quest (por diez und)</h3>
-                              <p className="product-price">$90.000</p>
-                              <button className="btn-add-cart">Agregar al carrito</button>
-                          </div>
-                      </article>
-                  </div>
-                  
-                  {/* Producto 6: Pre-entreno C4 */}
-                  <div className="col-md-3 col-sm-6 col-xs-12">
-                      <article className="product-card">
-                          <div className="product-image-wrapper">
-                              <img src="/img/Pre-entreno C4 Original (30 servicios).jpg" alt="Pre-entreno C4 Original (30 servicios)" className="product-image" />
-                          </div>
-                          <div className="product-info">
-                              <h3 className="product-title">Pre-entreno C4 Original (30 servicios)</h3>
-                              <p className="product-price">$125.000</p>
-                              <button className="btn-add-cart">Agregar al carrito</button>
-                          </div>
-                      </article>
-                  </div>
-                  
-                  {/* Producto 7: Quemador de Grasa */}
-                  <div className="col-md-3 col-sm-6 col-xs-12">
-                      <article className="product-card">
-                          <div className="product-image-wrapper">
-                              <img src="/img/Quemador de grasa Lipo6 (60 cápsulas).jpg" alt="Quemador de grasa Lipo6 (60 cápsulas)" className="product-image" />
-                          </div>
-                          <div className="product-info">
-                              <h3 className="product-title">Quemador de grasa Lipo6 (60 cápsulas)</h3>
-                              <p className="product-price">$105.000</p>
-                              <button className="btn-add-cart">Agregar al carrito</button>
-                          </div>
-                      </article>
-                  </div>
-                  
-                  {/* Producto 8: Avena + Proteína */}
-                  <div className="col-md-3 col-sm-6 col-xs-12">
-                      <article className="product-card">
-                          <div className="product-image-wrapper">
-                              <img src="/img/Avena + Proteína (mezcla lista 1kg).jpg" alt="Avena + Proteína (mezcla lista 1kg)" className="product-image" />
-                          </div>
-                          <div className="product-info">
-                              <h3 className="product-title">Avena + Proteína (mezcla lista 1kg)</h3>
-                              <p className="product-price">$55.000</p>
-                              <button className="btn-add-cart">Agregar al carrito</button>
-                          </div>
-                      </article>
-                  </div>
+                      </div>
+                  )}
+
+                  {!loading && !error && products.map((product) => (
+                      <div className="col-md-3 col-sm-6 col-xs-12" key={product.id}>
+                          <ProductCard 
+                              product={product} 
+                              onAdd={() => addToCart(product)} 
+                          />
+                      </div>
+                  ))}
               </div>
           </div>
       </section>

@@ -1,6 +1,15 @@
 import { Link } from 'react-router-dom';
+import { useCart } from '../../hooks/useCart';
 
 function Header() {
+  const { totalCount, totalPrice } = useCart();
+
+  // Formatear precio para el Header
+  const formattedPrice = new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0,
+  }).format(totalPrice);
   return (
     <header className="site-header">
       <section className="header-top">
@@ -64,9 +73,9 @@ function Header() {
                 <Link to="/carrito" aria-label="Carrito de compras">
                   <span className="cart-icon-wrap">
                     <i className="fa fa-shopping-bag"></i>
-                    <span className="cart-count">0</span>
+                    <span className="cart-count">{totalCount}</span>
                   </span>
-                  <span className="cart-price">$0.00</span>
+                  <span className="cart-price">{formattedPrice}</span>
                 </Link>
               </div>
             </div>

@@ -8,13 +8,14 @@ import '@/styles/pages/_legacy-elite.css';
 
 // ─── Orquestador principal (Fase de nueva UI - Se activará gradualmente)
 // import '@/styles/main.css';
+import '@/styles/components/_product-card.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { CartProvider } from './hooks/useCart';
+import { AuthProvider } from './hooks/useAuth';
 
-// Importar lógica global del carrito (delegación de eventos)
-import '@/scripts/pages/cart.ts';
 
 const rootElement = document.getElementById('root');
 
@@ -24,6 +25,10 @@ if (!rootElement) {
 
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </AuthProvider>
   </React.StrictMode>,
 );
