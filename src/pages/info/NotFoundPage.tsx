@@ -9,7 +9,7 @@ function NotFoundPage() {
          <div className="container">
              <div className="row">
                  <div className="col-md-4 col-md-offset-4">
-          <img src="/img/404-error.png" alt="404-error" />
+          <img src="/img/404-error.webp" alt="404-error" />
                   </div>
              </div>
              <div className="row">

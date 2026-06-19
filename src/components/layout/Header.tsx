@@ -53,7 +53,7 @@ function Header() {
             <div className="col-md-3 col-sm-12">
               <div className="logo">
                 <Link to="/" className="site-logo">
-                  <img src="/src/assets/images/ui/logo-musclerice..png" alt="MuscleRice" className="site-logo-img" />
+                  <img src="/img/logo-musclerice..webp" alt="MuscleRice" className="site-logo-img" />
                 </Link>
               </div>
             </div>

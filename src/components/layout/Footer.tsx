@@ -38,12 +38,12 @@ function Footer() {
               <p>&copy; 2025 Designed by <span>MuscleRice</span></p>
             </div>
             <div className="payment-logos">
-              <img src="/src/assets/images/brands/fedex." alt="Envío por FedEx" className="payment-logo" />
-              <img src="/src/assets/images/brands/master-card." alt="Pago con Mastercard" className="payment-logo" />
-              <img src="/src/assets/images/brands/paypal." alt="Pago con PayPal" className="payment-logo" />
-              <img src="/src/assets/images/brands/visa." alt="Pago con Visa" className="payment-logo" />
-              <img src="/src/assets/images/brands/american-express." alt="Pago con American Express" className="payment-logo" />
-              <img src="/src/assets/images/brands/dhl." alt="Envío por DHL" className="payment-logo" />
+              <img src="/img/fedex.webp" alt="Envío por FedEx" className="payment-logo" />
+              <img src="/img/master-card.webp" alt="Pago con Mastercard" className="payment-logo" />
+              <img src="/img/paypal.webp" alt="Pago con PayPal" className="payment-logo" />
+              <img src="/img/visa.webp" alt="Pago con Visa" className="payment-logo" />
+              <img src="/img/american-express.webp" alt="Pago con American Express" className="payment-logo" />
+              <img src="/img/dhl.webp" alt="Envío por DHL" className="payment-logo" />
             </div>
           </div>
         </div>

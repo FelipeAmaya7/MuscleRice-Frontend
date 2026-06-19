@@ -7,7 +7,7 @@ function BlogPage() {
       
       <section className="blog_slider">
          <div className="blog_overlay"></div>
-          <img src="/img/blog-slider.jpg" alt="Blog Slider" />
+          <img src="/img/blog-slider.webp" alt="Blog Slider" />
           <h2>BLOG</h2>
       </section>
       
@@ -19,7 +19,7 @@ function BlogPage() {
                      <div className="row">
                           <div className="col-md-5">
                               <div className="b-slide">
-                                  <img src="/img/blog-slide-1.jpg" alt="" />
+                                  <img src="/img/blog-slide-1.webp" alt="" />
                               </div>
                           </div>
                           <div className="col-md-7">
@@ -36,7 +36,7 @@ function BlogPage() {
                      <div className="row">
                           <div className="col-md-5">
                               <div className="b-slide">
-                                  <img src="/img/blog-slide-2.jpg" alt="" />
+                                  <img src="/img/blog-slide-2.webp" alt="" />
                               </div>
                           </div>
                           <div className="col-md-7">
@@ -53,7 +53,7 @@ function BlogPage() {
                      <div className="row">
                           <div className="col-md-5">
                               <div className="b-slide">
-                                  <img src="/img/blog-slide-3.jpg" alt="" />
+                                  <img src="/img/blog-slide-3.webp" alt="" />
                               </div>
                           </div>
                           <div className="col-md-7">
@@ -70,7 +70,7 @@ function BlogPage() {
                      <div className="row">
                           <div className="col-md-5">
                               <div className="b-slide">
-                                  <img src="/img/blog-slide-4.jpg" alt="" />
+                                  <img src="/img/blog-slide-4.webp" alt="" />
                               </div>
                           </div>
                           <div className="col-md-7">
@@ -92,7 +92,7 @@ function BlogPage() {
                                   <div className="resent-post-single">
                                       <div className="row">
                                           <div className="col-md-12">
-                                              <img src="/img/man.jpg" alt="" />
+                                              <img src="/img/man.webp" alt="" />
                                               <div className="text">
                                                   <h3>Is simply dummy text</h3>
                                                   <p>September 6, 2016</p>
@@ -103,7 +103,7 @@ function BlogPage() {
                                   <div className="resent-post-single">
                                       <div className="row">
                                           <div className="col-md-12">
-                                              <img src="/img/man.jpg" alt="" />
+                                              <img src="/img/man.webp" alt="" />
                                               <div className="text">
                                                   <h3>Is simply dummy text</h3>
                                                   <p>September 6, 2016</p>
@@ -114,7 +114,7 @@ function BlogPage() {
                                   <div className="resent-post-single">
                                       <div className="row">
                                           <div className="col-md-12">
-                                              <img src="/img/man.jpg" alt="" />
+                                              <img src="/img/man.webp" alt="" />
                                               <div className="text">
                                                   <h3>Is simply dummy text</h3>
                                                   <p>September 6, 2016</p>

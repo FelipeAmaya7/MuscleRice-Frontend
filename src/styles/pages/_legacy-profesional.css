@@ -1092,11 +1092,11 @@ body {
 }
 
 .footer-profesional .payment-logos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
 }
 
 .footer-profesional .payment-logo {

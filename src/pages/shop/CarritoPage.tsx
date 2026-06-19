@@ -205,11 +205,11 @@ function CarritoPage() {
                   </div>
               </div>
             ) : (
-              <div id="cart-empty-state" style={{ textAlign: 'center', padding: '50px 20px' }}>
-                  <div style={{ fontSize: '64px', marginBottom: '20px' }}>🏋️</div>
-                  <h3 style={{ fontSize: '24px', color: '#00a854', fontFamily: 'Montserrat, sans-serif', fontWeight: 800, marginBottom: '15px' }}>TU CARRITO ESTÁ VACÍO</h3>
-                  <p style={{ fontSize: '16px', color: '#6c757d', fontFamily: 'Roboto, sans-serif', marginBottom: '30px' }}>¡Empieza a entrenar tu mutación! 🏋️</p>
-                  <Link to="/productos" className="btn-regresar" style={{ display: 'inline-block' }}>Ver productos</Link>
+              <div id="cart-empty-state" className="empty-state text-center">
+                  <div className="empty-state-icon">🏋️</div>
+                  <h3>TU CARRITO ESTÁ VACÍO</h3>
+                  <p>¡Empieza a entrenar tu mutación! 🏋️</p>
+                  <Link to="/productos" className="btn-regresar d-inline-block">Ver productos</Link>
               </div>
             )}
 

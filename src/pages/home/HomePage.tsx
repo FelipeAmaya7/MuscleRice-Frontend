@@ -104,7 +104,7 @@ function HomePage() {
                       <p className="elite-cat-desc">Whey, Caseína, Vegetal. Alimenta tu músculo con la mejor proteína.</p>
                       <span className="elite-cat-count">4+ Productos</span>
                       <div className="elite-cat-img-wrap">
-                          <img src="/img/whey protein.jpg" alt="Proteínas MuscleRice" className="elite-cat-img" loading="lazy" />
+                          <img src="/img/whey protein.webp" alt="Proteínas MuscleRice" className="elite-cat-img" loading="lazy" />
                       </div>
                       <span className="elite-cat-cta">
                           Explorar
@@ -119,7 +119,7 @@ function HomePage() {
                       <p className="elite-cat-desc">Orgánico y saludable. Proteína vegetal, avena + proteína, colágeno.</p>
                       <span className="elite-cat-count">3+ Productos</span>
                       <div className="elite-cat-img-wrap">
-                          <img src="/img/Proteína Vegetal (Orgain o Vega 2lb).jpg" alt="Limpias Organic" className="elite-cat-img" loading="lazy" />
+                          <img src="/img/Proteína Vegetal (Orgain o Vega 2lb).webp" alt="Limpias Organic" className="elite-cat-img" loading="lazy" />
                       </div>
                       <span className="elite-cat-cta">
                           Explorar
@@ -134,7 +134,7 @@ function HomePage() {
                       <p className="elite-cat-desc">Quemadores y lipotrópicos. Lipo6, termogénicos y fórmulas de corte.</p>
                       <span className="elite-cat-count">2+ Productos</span>
                       <div className="elite-cat-img-wrap">
-                          <img src="/img/Quemador de grasa Lipo6 (60 cápsulas).jpg" alt="Definición Quemadores" className="elite-cat-img" loading="lazy" />
+                          <img src="/img/Quemador de grasa Lipo6 (60 cápsulas).webp" alt="Definición Quemadores" className="elite-cat-img" loading="lazy" />
                       </div>
                       <span className="elite-cat-cta">
                           Explorar
@@ -149,7 +149,7 @@ function HomePage() {
                       <p className="elite-cat-desc">Pre-entrenos, C4 Original y fórmulas de energía explosiva.</p>
                       <span className="elite-cat-count">3+ Productos</span>
                       <div className="elite-cat-img-wrap">
-                          <img src="/img/Pre-entreno C4 Original (30 servicios).jpg" alt="Energy Pre-Entrenos" className="elite-cat-img" loading="lazy" />
+                          <img src="/img/Pre-entreno C4 Original (30 servicios).webp" alt="Energy Pre-Entrenos" className="elite-cat-img" loading="lazy" />
                       </div>
                       <span className="elite-cat-cta">
                           Explorar
@@ -252,7 +252,7 @@ function HomePage() {
                       <article className="card" id="card-whey">
                           <div className="card-img-wrapper">
                               <span className="card-badge">Más Vendido</span>
-                              <img src="/img/Avena + Proteína (mezcla lista 1kg).jpg" alt="Whey Protein" className="card-img" />
+                              <img src="/img/Avena + Proteína (mezcla lista 1kg).webp" alt="Whey Protein" className="card-img" />
                               <div className="card-img-overlay"></div>
                           </div>
                           <div className="card-body">
@@ -272,7 +272,7 @@ function HomePage() {
                       <article className="card" id="card-creatina">
                           <div className="card-img-wrapper">
                               <span className="card-badge card-badge--green">Top Fuerza</span>
-                              <img src="/img/Creatina Monohidratada Creapure (300g).jpg" alt="Creatina Monohidratada" className="card-img" />
+                              <img src="/img/Creatina Monohidratada Creapure (300g).webp" alt="Creatina Monohidratada" className="card-img" />
                               <div className="card-img-overlay"></div>
                           </div>
                           <div className="card-body">
@@ -292,7 +292,7 @@ function HomePage() {
                       <article className="card" id="card-pre">
                           <div className="card-img-wrapper">
                               <span className="card-badge card-badge--orange">Energía Total</span>
-                              <img src="/img/Pre-entreno C4 Original (30 servicios).jpg" alt="Pre-Entreno C4" className="card-img" />
+                              <img src="/img/Pre-entreno C4 Original (30 servicios).webp" alt="Pre-Entreno C4" className="card-img" />
                               <div className="card-img-overlay"></div>
                           </div>
                           <div className="card-body">
@@ -322,17 +322,17 @@ function HomePage() {
              </div>
               <div className="row product-grid">
                   {loading && (
-                      <div className="col-md-12 text-center" style={{ padding: '60px 0' }}>
-                          <div className="spinner-border text-success" role="status" style={{ width: '3rem', height: '3rem', color: '#2ecc71', animationDuration: '1s' }}>
+                      <div className="col-md-12 text-center">
+                          <div className="spinner-border text-success" role="status">
                           </div>
-                          <h4 style={{ marginTop: '20px', color: '#2ecc71', fontWeight: 'bold' }}>Cargando suplementos...</h4>
+                          <h4>Cargando suplementos...</h4>
                       </div>
                   )}
 
                   {error && (
-                      <div className="col-md-12 text-center" style={{ padding: '40px 0' }}>
-                          <div className="alert alert-danger" style={{ display: 'inline-block', borderRadius: '8px' }}>
-                              <i className="fa-solid fa-circle-exclamation" style={{ marginRight: '8px' }}></i>
+                      <div className="col-md-12 text-center">
+                          <div className="alert alert-danger">
+                              <i className="fa-solid fa-circle-exclamation"></i>
                               {error}
                           </div>
                       </div>

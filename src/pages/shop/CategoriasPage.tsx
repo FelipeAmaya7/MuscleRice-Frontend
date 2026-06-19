@@ -39,7 +39,7 @@ function CategoriasPage() {
                           <p className="elite-cat-desc">Whey, Caseína, Vegetal. Alimenta tu músculo con la mejor proteína del mercado.</p>
                           <span className="elite-cat-count">4+ Productos</span>
                           <div className="elite-cat-img-wrap">
-                              <img src="/img/whey protein.jpg" alt="Proteínas MuscleRice" className="elite-cat-img" loading="lazy" />
+                              <img src="/img/whey protein.webp" alt="Proteínas MuscleRice" className="elite-cat-img" loading="lazy" />
                           </div>
                           <span className="elite-cat-cta">
                               Explorar
@@ -54,7 +54,7 @@ function CategoriasPage() {
                           <p className="elite-cat-desc">Orgánico y saludable. Proteína vegetal, avena + proteína, colágeno natural.</p>
                           <span className="elite-cat-count">3+ Productos</span>
                           <div className="elite-cat-img-wrap">
-                              <img src="/img/Proteína Vegetal (Orgain o Vega 2lb).jpg" alt="Limpias Organic MuscleRice" className="elite-cat-img" loading="lazy" />
+                              <img src="/img/Proteína Vegetal (Orgain o Vega 2lb).webp" alt="Limpias Organic MuscleRice" className="elite-cat-img" loading="lazy" />
                           </div>
                           <span className="elite-cat-cta">
                               Explorar
@@ -69,7 +69,7 @@ function CategoriasPage() {
                           <p className="elite-cat-desc">Quemadores y lipotrópicos. Lipo6, termogénicos y fórmulas de corte muscular.</p>
                           <span className="elite-cat-count">2+ Productos</span>
                           <div className="elite-cat-img-wrap">
-                              <img src="/img/Quemador de grasa Lipo6 (60 cápsulas).jpg" alt="Definición Quemadores MuscleRice" className="elite-cat-img" loading="lazy" />
+                              <img src="/img/Quemador de grasa Lipo6 (60 cápsulas).webp" alt="Definición Quemadores MuscleRice" className="elite-cat-img" loading="lazy" />
                           </div>
                           <span className="elite-cat-cta">
                               Explorar
@@ -84,7 +84,7 @@ function CategoriasPage() {
                           <p className="elite-cat-desc">Pre-entrenos, C4 Original y fórmulas de energía explosiva para tu workout.</p>
                           <span className="elite-cat-count">3+ Productos</span>
                           <div className="elite-cat-img-wrap">
-                              <img src="/img/Pre-entreno C4 Original (30 servicios).jpg" alt="Energy Pre-Entrenos MuscleRice" className="elite-cat-img" loading="lazy" />
+                              <img src="/img/Pre-entreno C4 Original (30 servicios).webp" alt="Energy Pre-Entrenos MuscleRice" className="elite-cat-img" loading="lazy" />
                           </div>
                           <span className="elite-cat-cta">
                               Explorar

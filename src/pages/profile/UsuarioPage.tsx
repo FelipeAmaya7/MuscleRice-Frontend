@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '@/styles/pages/_profile.css';
 
 function UsuarioPage() {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ function UsuarioPage() {
       <div className="perfil-container">
         <div className="perfil-card">
           <div className="perfil-header">
-            <div className="avatar">
+            <div className="perfil-avatar">
               <i className="fa-solid fa-user"></i>
             </div>
             <h2 id="nombreUsuario">{nombre}</h2>
@@ -52,15 +53,15 @@ function UsuarioPage() {
           </div>
 
           <div className="perfil-opciones">
-            <button className="btn verde">
+            <button className="btn-perfil btn-perfil-success">
               <i className="fa-solid fa-box"></i> Mis pedidos
             </button>
 
-            <button className="btn azul">
+            <button className="btn-perfil btn-perfil-primary">
               <i className="fa-solid fa-gear"></i> Configuración
             </button>
 
-            <button className="btn rojo" id="btnCerrar" onClick={handleCerrarSesion}>
+            <button className="btn-perfil btn-perfil-danger" id="btnCerrar" onClick={handleCerrarSesion}>
               <i className="fa-solid fa-right-from-bracket"></i> Cerrar sesión
             </button>
           </div>

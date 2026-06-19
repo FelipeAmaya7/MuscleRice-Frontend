@@ -1,27 +1,12 @@
-/* RESET GENERAL */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-/* FONDO GENERAL */
-body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
 /* CONTENEDOR */
 .perfil-container {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
 
 /* TARJETA */
@@ -32,6 +17,7 @@ body {
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 /* HEADER */
@@ -43,7 +29,7 @@ body {
 }
 
 /* AVATAR */
-.avatar {
+.perfil-avatar {
   width: 90px;
   height: 90px;
   background: #2ecc71;
@@ -76,7 +62,7 @@ body {
 }
 
 /* BOTONES */
-.btn {
+.btn-perfil {
   padding: 15px;
   border: none;
   border-radius: 12px;
@@ -85,31 +71,43 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.btn i {
+.btn-perfil i {
   font-size: 16px;
 }
 
-.btn:hover {
+.btn-perfil:hover {
   transform: scale(1.04);
   opacity: 0.9;
+  text-decoration: none;
 }
 
 /* COLORES */
-.verde {
+.btn-perfil-success {
   background: #2ecc71;
   color: #000;
 }
+.btn-perfil-success:hover {
+  color: #000;
+}
 
-.azul {
+.btn-perfil-primary {
   background: #3498db;
   color: #fff;
 }
+.btn-perfil-primary:hover {
+  color: #fff;
+}
 
-.rojo {
+.btn-perfil-danger {
   background: #e74c3c;
+  color: #fff;
+}
+.btn-perfil-danger:hover {
   color: #fff;
 }

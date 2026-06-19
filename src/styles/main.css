@@ -24,14 +24,15 @@
 @import url('base/_variables.css');
 @import url('components/_components.css');
 @import url('components/_product-card.css');
-@import url('layouts/_header.css');
+/* @import url('layouts/_header.css'); */
 @import url('layouts/_hero.css');
 @import url('layouts/_products.css');
 
 /* ==========================================================================
-   1. RESET GLOBAL
+   1. RESET GLOBAL (DESACTIVADO PARA EVITAR COLISIÓN CON LEGACY)
    ========================================================================== */
 
+/* 
 * {
     margin: 0;
     padding: 0;
@@ -52,6 +53,7 @@ body {
     padding: 0;
     overflow-x: hidden;
 }
+*/
 
 img {
     max-width: 100%;
@@ -236,9 +238,10 @@ p { font-size: clamp(var(--mr-text-sm), 1.5vw, var(--mr-text-base)); }
 }
 
 /* ==========================================================================
-   6. OVERRIDES PARA COMPATIBILIDAD CON BOOTSTRAP
+   6. OVERRIDES PARA COMPATIBILIDAD CON BOOTSTRAP (DESACTIVADOS)
    ========================================================================== */
 
+/*
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -259,3 +262,4 @@ p { font-size: clamp(var(--mr-text-sm), 1.5vw, var(--mr-text-base)); }
         max-width: 25%;
     }
 }
+*/

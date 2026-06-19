@@ -74,7 +74,7 @@ function RegistroPage() {
 
       <div className="auth-card" id="register-card">
           <img 
-              src="/img/logo-musclerice..png" 
+              src="/img/logo-musclerice..webp" 
               alt="MuscleRice Logo" 
               className="auth-logo"
               id="auth-logo"
@@ -86,7 +86,7 @@ function RegistroPage() {
           </p>
 
           {error && (
-            <div className="alert alert-danger" style={{ marginBottom: '20px', borderRadius: '8px', padding: '10px 15px', backgroundColor: '#fee2e2', color: '#b91c1c', border: '1px solid #ef4444' }}>
+            <div className="alert alert-danger">
               <i className="fa-solid fa-circle-exclamation" style={{ marginRight: '8px' }}></i>
               {error}
             </div>

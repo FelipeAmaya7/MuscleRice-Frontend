@@ -10,12 +10,12 @@ function SingleProductPage() {
               <div className="row">
                   <div className="col-md-5">
                       <div className="single-product-slider">
-                          <img src="/img/single-product-slider.jpg" alt="" />
+                          <img src="/img/single-product-slider.webp" alt="" />
                       </div>
                       <div className="small-slider">
-                          <img src="/img/small-slider.jpg" alt="" />
-                          <img src="/img/small-slider.jpg" alt="" />
-                          <img src="/img/small-slider.jpg" alt="" />
+                          <img src="/img/small-slider.webp" alt="" />
+                          <img src="/img/small-slider.webp" alt="" />
+                          <img src="/img/small-slider.webp" alt="" />
                       </div>
                   </div>
                   <div className="col-md-7">
@@ -67,7 +67,7 @@ function SingleProductPage() {
                       <div className="col-md-12">
                           <div className="bar">
                               <h2>Related Products</h2>
-                              <img src="/src/assets/images/ui/bar.jpg" alt="" />
+                              <img src="/src/assets/images/ui/bar.webp" alt="" />
                           </div>
                       </div>
                   </div>
@@ -75,7 +75,7 @@ function SingleProductPage() {
                       <div className="row">
                           <div className="col-md-3">
                               <div className="s_product">
-                                  <img src="/img/t-shart.jpg" alt="" />
+                                  <img src="/img/t-shart.webp" alt="" />
                                   <div className="s_overlay"></div>
                                   <h2>SALE!</h2>
                                   <h3>T-SHIRT</h3>
@@ -93,7 +93,7 @@ function SingleProductPage() {
                           </div>
                           <div className="col-md-3">
                               <div className="s_product">
-                                  <img src="/img/t-shart1.jpg" alt="" />
+                                  <img src="/img/t-shart1.webp" alt="" />
                                   <div className="s_overlay"></div>
                                   <h3>T-SHIRT</h3>
                                   <h4><i className="fa fa-cart-arrow-down" aria-hidden="true"></i>ADD TO CART</h4>
@@ -110,7 +110,7 @@ function SingleProductPage() {
                           </div>
                           <div className="col-md-3">
                               <div className="s_product">
-                                  <img src="/img/t-shart2.jpg" alt="" />
+                                  <img src="/img/t-shart2.webp" alt="" />
                                   <div className="s_overlay"></div>
                                   <h3>T-SHIRT</h3>
                                   <h4><i className="fa fa-cart-arrow-down" aria-hidden="true"></i>ADD TO CART</h4>
@@ -127,7 +127,7 @@ function SingleProductPage() {
                           </div>
                           <div className="col-md-3">
                               <div className="s_product">
-                                  <img src="/img/t-shart3.jpg" alt="" />
+                                  <img src="/img/t-shart3.webp" alt="" />
                                   <div className="s_overlay"></div>
                                   <h2>NEW!</h2>
                                   <h3>JACKET</h3>
