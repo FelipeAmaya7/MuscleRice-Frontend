@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿/* ===== MEJORAS RESPONSIVAS Y MODERNAS PARA MUSCLERICE ===== */
+﻿﻿﻿﻿﻿/* ===== MEJORAS RESPONSIVAS Y MODERNAS PARA MUSCLERICE ===== */
 
 /* CorrecciÃ³n de errores de sintaxis existentes */
 a {
@@ -397,17 +397,6 @@ textarea:focus {
     animation: fadeInUp 0.6s ease forwards;
 }
 
-/* ===== NUEVA ESTRUCTURA DE PRODUCTOS MODERNA ===== */
-
-/* Contenedor principal de productos */
-.product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  margin: 0 -10px;
-}
-
 
 /* ===== MEJORAS PARA SECCIÃ“N DE CARACTERÃSTICAS ===== */
 
@@ -647,18 +636,7 @@ textarea:focus {
   }
 }
 
-.product-card {
-  animation: fadeInUp 0.6s ease forwards;
-}
 
-.product-card:nth-child(1) { animation-delay: 0.1s; }
-.product-card:nth-child(2) { animation-delay: 0.2s; }
-.product-card:nth-child(3) { animation-delay: 0.3s; }
-.product-card:nth-child(4) { animation-delay: 0.4s; }
-.product-card:nth-child(5) { animation-delay: 0.5s; }
-.product-card:nth-child(6) { animation-delay: 0.6s; }
-.product-card:nth-child(7) { animation-delay: 0.7s; }
-.product-card:nth-child(8) { animation-delay: 0.8s; }
 
 /* Mejoras para el header */
 .header-top {

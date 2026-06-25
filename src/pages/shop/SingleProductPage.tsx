@@ -1,6 +1,14 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function SingleProductPage() {
+  const images = [
+    '/img/single-product-slider.webp',
+    '/img/whey protein.webp',
+    '/img/Creatina Monohidratada Creapure (300g).webp'
+  ];
+  const [activeImage, setActiveImage] = useState(images[0]);
+
   return (
     <>
       
@@ -10,12 +18,26 @@ function SingleProductPage() {
               <div className="row">
                   <div className="col-md-5">
                       <div className="single-product-slider">
-                          <img src="/img/single-product-slider.webp" alt="" />
+                          <img src={activeImage} alt="Producto" style={{ width: '100%', height: 'auto', borderRadius: '12px', border: '1px solid #eee' }} />
                       </div>
-                      <div className="small-slider">
-                          <img src="/img/small-slider.webp" alt="" />
-                          <img src="/img/small-slider.webp" alt="" />
-                          <img src="/img/small-slider.webp" alt="" />
+                      <div className="small-slider" style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+                          {images.map((img, idx) => (
+                              <img 
+                                  key={idx}
+                                  src={img} 
+                                  alt={`Miniatura ${idx + 1}`} 
+                                  onClick={() => setActiveImage(img)}
+                                  style={{
+                                      width: '80px',
+                                      height: '80px',
+                                      objectFit: 'cover',
+                                      borderRadius: '8px',
+                                      border: activeImage === img ? '2px solid #2ecc71' : '2px solid #ddd',
+                                      cursor: 'pointer',
+                                      transition: 'all 0.2s ease'
+                                  }}
+                              />
+                          ))}
                       </div>
                   </div>
                   <div className="col-md-7">

@@ -6,8 +6,8 @@ import '@/styles/pages/_legacy-mejoras.css';
 import '@/styles/pages/_legacy-profesional.css';
 import '@/styles/pages/_legacy-elite.css';
 
-// ─── Orquestador principal (Fase de nueva UI - Se activará gradualmente)
-import '@/styles/components/_product-card.css';
+// ─── Orquestador principal (tokens + componentes + layout)
+// _product-card.css ya está incluido dentro de main.css
 import '@/styles/main.css';
 
 import React from 'react';

@@ -24,9 +24,10 @@
 @import url('base/_variables.css');
 @import url('components/_components.css');
 @import url('components/_product-card.css');
-/* @import url('layouts/_header.css'); */
+@import url('layouts/_header.css');
 @import url('layouts/_hero.css');
 @import url('layouts/_products.css');
+@import url('layouts/_footer.css');
 
 /* ==========================================================================
    1. RESET GLOBAL (DESACTIVADO PARA EVITAR COLISIÓN CON LEGACY)
@@ -219,7 +220,8 @@ p { font-size: clamp(var(--mr-text-sm), 1.5vw, var(--mr-text-base)); }
    5. UTILITIES RESPONSIVE
    ========================================================================== */
 
-@media (max-width: var(--mr-bp-md)) {
+/* --mr-bp-md = 768px */
+@media (max-width: 768px) {
     .d-md-none { display: none; }
     .d-md-block { display: block; }
     .d-md-flex { display: flex; }
@@ -228,7 +230,8 @@ p { font-size: clamp(var(--mr-text-sm), 1.5vw, var(--mr-text-base)); }
     .align-items-md-center { align-items: center; }
 }
 
-@media (max-width: var(--mr-bp-sm)) {
+/* --mr-bp-sm = 576px */
+@media (max-width: 576px) {
     .d-sm-none { display: none; }
     .d-sm-block { display: block; }
     .d-sm-flex { display: flex; }

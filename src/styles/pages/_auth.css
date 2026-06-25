@@ -3,48 +3,52 @@
    
    Arquitectura:
    - Mobile-first (diseñado para atletas que compran desde el celular)
-   - Variables CSS para consistencia con el brand MuscleRice
+   - Variables propias con prefijo --auth-* para NO contaminar los tokens globales
    - Micro-animaciones: shake, fade-in, pulse, spinner
    - Floating labels para inputs modernos
    ================================================================= */
 
-/* --- 1. TOKENS DE DISEÑO (Variables CSS) --- */
+/* --- 1. TOKENS LOCALES DE AUTH (prefijo --auth-* para no pisar los globales --mr-*) --- */
+.auth-page,
+.auth-page * {
+  /* Se scopean al componente auth, sin afectar el :root global */
+}
+
 :root {
-  /* Brand */
-  --mr-primary: #2ecc71;
-  --mr-primary-dark: #27ae60;
-  --mr-primary-light: #1fa85c;
-  --mr-primary-glow: rgba(46, 204, 113, 0.18);
-  
-  /* Fondos — Tema claro/blanco */
-  --mr-bg-page: #ffffff;
-  --mr-bg-card: #ffffff;
-  --mr-bg-input: #f5f7fa;
-  
-  /* Textos — Oscuros para contraste sobre fondo blanco */
-  --mr-text-primary: #1a1a2e;
-  --mr-text-secondary: #6b7280;
-  --mr-text-placeholder: #9ca3af;
-  
-  /* Estados */
-  --mr-error: #ef4444;
-  --mr-error-bg: rgba(239, 68, 68, 0.08);
-  --mr-success: #2ecc71;
-  --mr-success-bg: rgba(46, 204, 113, 0.08);
-  
-  /* Bordes y sombras — Sutiles para tema claro */
-  --mr-border: #e5e7eb;
-  --mr-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-  --mr-shadow-glow: 0 0 30px rgba(46, 204, 113, 0.1);
-  
-  /* Transiciones */
-  --mr-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --mr-transition-fast: 0.15s ease;
-  
-  /* Radios */
-  --mr-radius-sm: 8px;
-  --mr-radius-md: 12px;
-  --mr-radius-lg: 20px;
+  /* Brand Auth — verde diferente al del main para la sección de login */
+  --auth-primary: #2ecc71;
+  --auth-primary-dark: #27ae60;
+  --auth-primary-light: #1fa85c;
+  --auth-primary-glow: rgba(46, 204, 113, 0.18);
+
+  /* Fondos auth — Tema claro/blanco */
+  --auth-bg-page: #ffffff;
+  --auth-bg-input: #f5f7fa;
+
+  /* Textos auth — Oscuros para contraste sobre fondo blanco */
+  --auth-text-primary: #1a1a2e;
+  --auth-text-secondary: #6b7280;
+  --auth-text-placeholder: #9ca3af;
+
+  /* Estados auth */
+  --auth-error: #ef4444;
+  --auth-error-bg: rgba(239, 68, 68, 0.08);
+  --auth-success: #2ecc71;
+  --auth-success-bg: rgba(46, 204, 113, 0.08);
+
+  /* Bordes y sombras auth — Sutiles para tema claro */
+  --auth-border: #e5e7eb;
+  --auth-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  --auth-shadow-glow: 0 0 30px rgba(46, 204, 113, 0.1);
+
+  /* Transiciones auth */
+  --auth-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --auth-transition-fast: 0.15s ease;
+
+  /* Radios auth — distintos a los globales, específicos para este diseño */
+  --auth-radius-sm: 8px;
+  --auth-radius-md: 12px;
+  --auth-radius-lg: 20px;
 }
 
 /* --- 2. RESET & BASE --- */
@@ -52,9 +56,9 @@
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: var(--mr-bg-page);
+  background: var(--auth-bg-page);
   font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-  color: var(--mr-text-primary);
+  color: var(--auth-text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,24 +105,24 @@
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 50px;
-  color: var(--mr-text-secondary);
+  color: var(--auth-text-secondary);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  transition: var(--mr-transition);
+  transition: var(--auth-transition);
   z-index: 10;
 }
 
 .auth-back-btn:hover {
   background: rgba(46, 204, 113, 0.08);
-  color: var(--mr-primary-dark);
+  color: var(--auth-primary-dark);
   border-color: rgba(46, 204, 113, 0.3);
   transform: translateX(-3px);
 }
 
 .auth-back-btn i {
   font-size: 12px;
-  transition: transform var(--mr-transition);
+  transition: transform var(--auth-transition);
 }
 
 .auth-back-btn:hover i {
@@ -132,10 +136,10 @@
   width: 92%;
   max-width: 440px;
   background: var(--mr-bg-card);
-  border: 1px solid var(--mr-border);
-  border-radius: var(--mr-radius-lg);  
+  border: 1px solid var(--auth-border);
+  border-radius: var(--auth-radius-lg);
   padding: 40px 32px;
-  box-shadow: var(--mr-shadow);
+  box-shadow: var(--auth-shadow);
   animation: authFadeIn 0.6s ease-out;
 }
 
@@ -147,7 +151,7 @@
   left: 32px;
   right: 32px;
   height: 3px;
-  background: linear-gradient(90deg, transparent, var(--mr-primary), transparent);
+  background: linear-gradient(90deg, transparent, var(--auth-primary), transparent);
   border-radius: 0 0 4px 4px;
 }
 
@@ -156,7 +160,7 @@
   width: 120px;
   height: auto;
   object-fit: contain;
-  border-radius: var(--mr-radius-md);
+  border-radius: var(--auth-radius-md);
   background: transparent;
   padding: 0;
   margin-bottom: 20px;
@@ -165,14 +169,14 @@
 .auth-title {
   font-size: 28px;
   font-weight: 700;
-  color: var(--mr-text-primary);
+  color: var(--auth-text-primary);
   margin: 0 0 6px 0;
   letter-spacing: -0.5px;
 }
 
 .auth-subtitle {
   font-size: 15px;
-  color: var(--mr-text-secondary);
+  color: var(--auth-text-secondary);
   margin: 0 0 28px 0;
   line-height: 1.5;
 }
@@ -186,20 +190,20 @@
 .auth-field input {
   width: 100%;
   padding: 16px 16px 16px 44px;
-  background: var(--mr-bg-input);
-  border: 1.5px solid var(--mr-border);
-  border-radius: var(--mr-radius-md);
-  color: var(--mr-text-primary);
+  background: var(--auth-bg-input);
+  border: 1.5px solid var(--auth-border);
+  border-radius: var(--auth-radius-md);
+  color: var(--auth-text-primary);
   font-size: 15px;
   font-family: inherit;
   outline: none;
-  transition: var(--mr-transition);
+  transition: var(--auth-transition);
   box-sizing: border-box;
 }
 
 .auth-field input::placeholder {
-  color: var(--mr-text-placeholder);
-  transition: var(--mr-transition);
+  color: var(--auth-text-placeholder);
+  transition: var(--auth-transition);
 }
 
 /* Icono a la izquierda */
@@ -208,42 +212,42 @@
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--mr-text-placeholder);
+  color: var(--auth-text-placeholder);
   font-size: 16px;
-  transition: color var(--mr-transition);
+  transition: color var(--auth-transition);
   pointer-events: none;
 }
 
 /* Estado: focus */
 .auth-field input:focus {
-  border-color: var(--mr-primary);  
-  box-shadow: 0 0 0 3px var(--mr-primary-glow);
+  border-color: var(--auth-primary);
+  box-shadow: 0 0 0 3px var(--auth-primary-glow);
   background: #fff;
 }
 
 .auth-field input:focus + .field-icon,
 .auth-field input:focus ~ .field-icon {
-  color: var(--mr-primary);
+  color: var(--auth-primary);
 }
 
 /* Estado: error */
 .auth-field.has-error input {
-  border-color: var(--mr-error);
-  box-shadow: 0 0 0 3px var(--mr-error-bg);
+  border-color: var(--auth-error);
+  box-shadow: 0 0 0 3px var(--auth-error-bg);
 }
 
 .auth-field.has-error .field-icon {
-  color: var(--mr-error);
+  color: var(--auth-error);
 }
 
 /* Estado: válido */
 .auth-field.is-valid input {
-  border-color: var(--mr-success);
-  box-shadow: 0 0 0 3px var(--mr-success-bg);
+  border-color: var(--auth-success);
+  box-shadow: 0 0 0 3px var(--auth-success-bg);
 }
 
 .auth-field.is-valid .field-icon {
-  color: var(--mr-success);
+  color: var(--auth-success);
 }
 
 /* --- 7. TOGGLE DE CONTRASEÑA (OJO) --- */
@@ -254,18 +258,18 @@
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: var(--mr-text-placeholder);
+  color: var(--auth-text-placeholder);
   cursor: pointer;
   padding: 4px;
   font-size: 16px;
-  transition: color var(--mr-transition);
+  transition: color var(--auth-transition);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .auth-field .toggle-password:hover {
-  color: var(--mr-primary);
+  color: var(--auth-primary);
 }
 
 .auth-field input[type="password"] ~ .toggle-password .fa-eye {
@@ -288,12 +292,12 @@
 .field-error {
   display: block;
   font-size: 13px;
-  color: var(--mr-error);
+  color: var(--auth-error);
   margin-top: 6px;
   padding-left: 4px;
   opacity: 0;
   transform: translateY(-4px);
-  transition: var(--mr-transition);
+  transition: var(--auth-transition);
   height: 0;
   overflow: hidden;
 }
@@ -316,13 +320,13 @@
 .password-strength .strength-bar {
   flex: 1;
   height: 3px;
-  background: var(--mr-border);
+  background: var(--auth-border);
   border-radius: 2px;
-  transition: background var(--mr-transition);
+  transition: background var(--auth-transition);
 }
 
 .password-strength.strength-1 .strength-bar:nth-child(1) {
-  background: var(--mr-error);
+  background: var(--auth-error);
 }
 
 .password-strength.strength-2 .strength-bar:nth-child(-n+2) {
@@ -334,31 +338,31 @@
 }
 
 .password-strength.strength-4 .strength-bar {
-  background: var(--mr-success);
+  background: var(--auth-success);
 }
 
 .strength-text {
   font-size: 12px;
-  color: var(--mr-text-secondary);
+  color: var(--auth-text-secondary);
   margin-top: 4px;
-  transition: color var(--mr-transition);
+  transition: color var(--auth-transition);
 }
 
 /* --- 10. BOTÓN PRINCIPAL (SUBMIT) --- */
 .auth-btn {
   width: 100%;
   padding: 16px 24px;
-  background: linear-gradient(135deg, var(--mr-primary), var(--mr-primary-dark));
-  color: #fff;  
+  background: linear-gradient(135deg, var(--auth-primary), var(--auth-primary-dark));
+  color: #fff;
   font-size: 16px;
   font-weight: 600;
   font-family: inherit;
   border: none;
-  border-radius: var(--mr-radius-md);
+  border-radius: var(--auth-radius-md);
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: var(--mr-transition);
+  transition: var(--auth-transition);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -383,7 +387,7 @@
 }
 
 .auth-btn .btn-text {
-  transition: var(--mr-transition);
+  transition: var(--auth-transition);
 }
 
 .auth-btn .btn-spinner {
@@ -420,7 +424,7 @@
   align-items: center;
   gap: 16px;
   margin: 24px 0;
-  color: var(--mr-text-secondary);
+  color: var(--auth-text-secondary);
   font-size: 13px;
 }
 
@@ -429,7 +433,7 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--mr-border);
+  background: var(--auth-border);
 }
 
 /* --- 12. ENLACE ALTERNATIVO (¿Ya tienes cuenta? / ¿No tienes?) --- */
@@ -437,18 +441,18 @@
   text-align: center;
   margin-top: 24px;
   font-size: 14px;
-  color: var(--mr-text-secondary);
+  color: var(--auth-text-secondary);
 }
 
 .auth-switch a {
-  color: var(--mr-primary);
+  color: var(--auth-primary);
   text-decoration: none;
   font-weight: 600;
-  transition: var(--mr-transition);
+  transition: var(--auth-transition);
 }
 
 .auth-switch a:hover {
-  color: var(--mr-primary-light);
+  color: var(--auth-primary-light);
   text-decoration: underline;
 }
 
@@ -458,7 +462,7 @@
   top: 24px;
   right: 24px;
   padding: 14px 20px;
-  border-radius: var(--mr-radius-md);
+  border-radius: var(--auth-radius-md);
   font-size: 14px;
   font-weight: 500;
   display: flex;
@@ -475,15 +479,15 @@
 }
 
 .auth-toast.toast-success {
-  background: var(--mr-success-bg);
+  background: var(--auth-success-bg);
   border: 1px solid rgba(46, 204, 113, 0.3);
-  color: var(--mr-success);
+  color: var(--auth-success);
 }
 
 .auth-toast.toast-error {
-  background: var(--mr-error-bg);
+  background: var(--auth-error-bg);
   border: 1px solid rgba(255, 71, 87, 0.3);
-  color: var(--mr-error);
+  color: var(--auth-error);
 }
 
 /* --- 14. ANIMACIONES KEYFRAMES --- */
@@ -532,13 +536,13 @@
   .auth-card {
     padding: 32px 24px;
     max-width: 100%;
-    border-radius: var(--mr-radius-md);
+    border-radius: var(--auth-radius-md);
   }
-  
+
   .auth-title {
     font-size: 24px;
   }
-  
+
   .auth-back-btn {
     top: 16px;
     left: 16px;
@@ -554,29 +558,29 @@
     align-items: flex-start;
     padding-top: 70px;
   }
-  
+
   .auth-card {
     padding: 28px 20px;
-    border-radius: var(--mr-radius-md);
+    border-radius: var(--auth-radius-md);
   }
-  
+
   .auth-title {
     font-size: 22px;
   }
-  
+
   .auth-subtitle {
     font-size: 14px;
   }
-  
+
   .auth-field input {
     padding: 14px 14px 14px 40px;
     font-size: 16px; /* Evita zoom en iOS */
   }
-  
+
   .auth-btn {
     padding: 14px 20px;
   }
-  
+
   .auth-toast {
     left: 16px;
     right: 16px;

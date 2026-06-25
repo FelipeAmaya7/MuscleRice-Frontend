@@ -25,13 +25,10 @@ export default defineConfig({
     port: 5173,
     strictPort: true,
     proxy: {
-      '/registro': { target: 'http://localhost:3000', bypass: (req) => req.url?.includes('.') ? req.url : undefined },
-      '/login':    { target: 'http://localhost:3000', bypass: (req) => req.url?.includes('.') ? req.url : undefined },
-      '/usuario':  { target: 'http://localhost:3000', bypass: (req) => req.url?.includes('.') ? req.url : undefined },
-      '/productos':{ target: 'http://localhost:3000', bypass: (req) => req.url?.includes('.') ? req.url : undefined },
-      '/pedidos':  { target: 'http://localhost:3000', bypass: (req) => req.url?.includes('.') ? req.url : undefined },
-      '/detalle-pedido': { target: 'http://localhost:3000', bypass: (req) => req.url?.includes('.') ? req.url : undefined },
-      '/pagos':    { target: 'http://localhost:3000', bypass: (req) => req.url?.includes('.') ? req.url : undefined },
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
     },
   },
 });

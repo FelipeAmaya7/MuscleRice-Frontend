@@ -1,6 +1,26 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function SingleBlogPage() {
+  const slides = [
+    {
+      image: "/img/single-blog-page.webp",
+      paragraphs: [
+        "Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      ]
+    },
+    {
+      image: "/img/single-blog-page.webp",
+      paragraphs: [
+        "Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+        "not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged..."
+      ]
+    }
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   return (
     <>
       
@@ -9,16 +29,51 @@ function SingleBlogPage() {
           <div className="container">
               <div className="row">
                   <div className="col-md-9">
-                      <div className="owl-carousel">
-                        <div className="one">
-                            <img src="/img/single-blog-page.webp" alt="" />
-                            <p>Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            <p>not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                      <div className="owl-carousel owl-loaded owl-drag">
+                        <div className="owl-stage-outer">
+                          <div 
+                            className="owl-stage" 
+                            style={{ 
+                              display: 'flex', 
+                              width: `${slides.length * 100}%`,
+                              transform: `translate3d(-${currentSlide * (100 / slides.length)}%, 0px, 0px)`, 
+                              transition: 'transform 0.5s ease-in-out' 
+                            }}
+                          >
+                            {slides.map((slide, idx) => (
+                              <div 
+                                className="one" 
+                                key={idx} 
+                                style={{ 
+                                  width: `${100 / slides.length}%`, 
+                                  flexShrink: 0 
+                                }}
+                              >
+                                  <img src={slide.image} alt="" />
+                                  {slide.paragraphs.map((p, pIdx) => (
+                                    <p key={pIdx}>{p}</p>
+                                  ))}
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                        <div className="one">
-                            <img src="/img/single-blog-page.webp" alt="" />
-                            <p>Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
-                            <p>not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged...</p>
+                        <div className="owl-nav" style={{ marginTop: '20px' }}>
+                          <button 
+                            type="button"
+                            className="owl-prev" 
+                            onClick={() => setCurrentSlide(prev => (prev === 0 ? slides.length - 1 : prev - 1))}
+                            style={{ background: 'none', border: '1px solid #bfb6b6', cursor: 'pointer' }}
+                          >
+                            prev
+                          </button>
+                          <button 
+                            type="button"
+                            className="owl-next" 
+                            onClick={() => setCurrentSlide(prev => (prev === slides.length - 1 ? 0 : prev + 1))}
+                            style={{ background: 'none', border: '1px solid #bfb6b6', cursor: 'pointer' }}
+                          >
+                            next
+                          </button>
                         </div>
                       </div>
                       <div className="shere">
