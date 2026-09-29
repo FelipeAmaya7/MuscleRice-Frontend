@@ -1,0 +1,182 @@
+/**
+ * _not-found.css — Página 404
+ * Usa los tokens de tokens/_tokens.css (colores, espaciados, radios).
+ */
+
+.nf-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: var(--mr-space-10) var(--mr-space-4);
+  background: var(--mr-bg-muted);
+}
+
+.nf-card {
+  width: 100%;
+  max-width: 560px;
+  padding: var(--mr-space-8) var(--mr-space-6);
+  text-align: center;
+  background: var(--mr-bg-card);
+  border-radius: var(--mr-radius-2xl);
+  box-shadow: var(--mr-shadow-card);
+}
+
+.nf-code {
+  margin: 0;
+  font-family: var(--mr-font-secondary);
+  font-size: 6rem;
+  font-weight: var(--mr-font-extrabold);
+  line-height: 1;
+  color: var(--mr-color-primary);
+}
+
+.nf-title {
+  margin: var(--mr-space-4) 0 var(--mr-space-3);
+  font-family: var(--mr-font-secondary);
+  font-size: var(--mr-text-2xl);
+  font-weight: var(--mr-font-bold);
+  color: #222;
+}
+
+.nf-text {
+  margin: 0 0 var(--mr-space-6);
+  font-size: var(--mr-text-base);
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Buscador */
+.nf-search {
+  display: flex;
+  margin-bottom: var(--mr-space-5);
+  border: 2px solid #e2e2e2;
+  border-radius: var(--mr-radius-full);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.nf-search:focus-within {
+  border-color: var(--mr-color-primary);
+}
+
+.nf-search input {
+  flex: 1;
+  min-width: 0;
+  padding: var(--mr-space-3) var(--mr-space-5);
+  font-size: var(--mr-text-base);
+  border: none;
+  outline: none;
+}
+
+.nf-search button {
+  padding: 0 var(--mr-space-5);
+  font-size: var(--mr-text-lg);
+  color: #fff;
+  background: var(--mr-color-primary);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nf-search button:hover {
+  background: var(--mr-color-primary-hover);
+}
+
+/* Botones */
+.nf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--mr-space-3);
+  margin-bottom: var(--mr-space-6);
+}
+
+.nf-btn {
+  padding: var(--mr-space-3) var(--mr-space-6);
+  font-family: var(--mr-font-secondary);
+  font-weight: var(--mr-font-semibold);
+  border-radius: var(--mr-radius-full);
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.nf-btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.nf-btn--primary {
+  color: #fff;
+  background: var(--mr-color-primary);
+}
+
+.nf-btn--primary:hover {
+  color: #fff;
+  background: var(--mr-color-primary-hover);
+}
+
+.nf-btn--ghost {
+  color: var(--mr-color-primary-active);
+  border: 2px solid var(--mr-color-primary);
+}
+
+.nf-btn--ghost:hover {
+  color: #fff;
+  background: var(--mr-color-primary);
+}
+
+/* Categorías */
+.nf-categories span {
+  display: block;
+  margin-bottom: var(--mr-space-2);
+  font-size: var(--mr-text-sm);
+  color: #777;
+}
+
+.nf-categories ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--mr-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nf-categories a {
+  display: inline-block;
+  padding: var(--mr-space-1) var(--mr-space-3);
+  font-size: var(--mr-text-sm);
+  color: #444;
+  background: var(--mr-bg-muted);
+  border-radius: var(--mr-radius-full);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nf-categories a:hover {
+  color: #fff;
+  background: var(--mr-color-accent);
+  text-decoration: none;
+}
+
+/* Texto solo para lectores de pantalla */
+.nf-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .nf-code {
+    font-size: 4.5rem;
+  }
+
+  .nf-card {
+    padding: var(--mr-space-6) var(--mr-space-4);
+  }
+}

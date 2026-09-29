@@ -41,6 +41,9 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/single" element={<SingleBlogPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+
+          {/* 404: dentro del layout para que el usuario conserve el menú */}
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
 
         {/* Rutas sin Header ni Footer */}
@@ -48,8 +51,6 @@ function App() {
 
         {/* /registro redirige a /login (ya no existe como página separada) */}
         <Route path="/registro" element={<Navigate to="/login" replace />} />
-
-        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
