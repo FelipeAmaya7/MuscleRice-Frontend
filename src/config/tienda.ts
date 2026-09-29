@@ -10,9 +10,8 @@
 export const TIENDA = {
   nombre: 'MuscleRice',
 
-  // WhatsApp en formato internacional: 57 (Colombia) + número, sin "+" ni espacios
-  whatsapp: '573124567890',
-  telefonoVisible: '+57 312 456 7890',
+  // ✏️ Solo el celular de 10 dígitos, sin espacios (ej: 3124567890)
+  celular: '3124567890',
 
   email: 'MuscleRice@gmail.com',
 
@@ -28,10 +27,16 @@ export const TIENDA = {
   },
 };
 
-// Arma el enlace de WhatsApp con un mensaje ya escrito
+// ─── Todo lo de abajo se calcula solo a partir de los datos de arriba ───
+
+// "3124567890" → "+57 312 456 7890" (para mostrar en pantalla)
+const c = TIENDA.celular;
+export const TELEFONO_VISIBLE = `+57 ${c.slice(0, 3)} ${c.slice(3, 6)} ${c.slice(6)}`;
+
+// Arma el enlace de WhatsApp (57 = código de Colombia) con un mensaje ya escrito
 export function whatsappUrl(mensaje = ''): string {
   const texto = mensaje ? `?text=${encodeURIComponent(mensaje)}` : '';
-  return `https://wa.me/${TIENDA.whatsapp}${texto}`;
+  return `https://wa.me/57${TIENDA.celular}${texto}`;
 }
 
 // Redes con enlace (las vacías se filtran) + su ícono de Font Awesome 4.7

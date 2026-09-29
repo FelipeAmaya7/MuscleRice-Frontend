@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { TIENDA, whatsappUrl } from '@/config/tienda';
+import { TIENDA, TELEFONO_VISIBLE, whatsappUrl } from '@/config/tienda';
 import '@/styles/pages/_contacto.css';
 
 const ASUNTOS = [
@@ -82,7 +82,7 @@ function ContactoPage() {
             <span className="ct-card-icon"><i className="fa fa-whatsapp" aria-hidden="true"></i></span>
             <span>
               <strong>WhatsApp</strong>
-              <span className="ct-card-value">{TIENDA.telefonoVisible}</span>
+              <span className="ct-card-value">{TELEFONO_VISIBLE}</span>
               <span className="ct-card-hint">La forma más rápida de hablar con nosotros</span>
             </span>
           </a>

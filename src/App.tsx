@@ -9,8 +9,6 @@ import SingleProductPage from './pages/shop/SingleProductPage';
 import CarritoPage from './pages/shop/CarritoPage';
 import LoginPage from './pages/auth/LoginPage';
 import ContactoPage from './pages/contacto/ContactoPage';
-import BlogPage from './pages/blog/BlogPage';
-import SingleBlogPage from './pages/blog/SingleBlogPage';
 import ProfilePage from './pages/profile/ProfilePage';
 import FaqPage from './pages/info/FaqPage';
 import NotFoundPage from './pages/info/NotFoundPage';
@@ -38,8 +36,6 @@ function App() {
           <Route path="/carrito" element={<CarritoPage />} />
           <Route path="/contacto" element={<ContactoPage />} />
           <Route path="/faq" element={<FaqPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/single" element={<SingleBlogPage />} />
           <Route path="/profile" element={<ProfilePage />} />
 
           {/* 404: dentro del layout para que el usuario conserve el menú */}

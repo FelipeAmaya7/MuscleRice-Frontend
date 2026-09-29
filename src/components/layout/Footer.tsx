@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TIENDA, whatsappUrl } from '@/config/tienda';
+import { TIENDA, TELEFONO_VISIBLE, whatsappUrl } from '@/config/tienda';
 
 function Footer() {
   return (
@@ -27,7 +27,7 @@ function Footer() {
               <h3>☎️ Contáctanos</h3>
               <ul className="contact-info">
                 <li><Link to="/contacto"><i className="fa fa-map-marker" aria-hidden="true"></i>{TIENDA.ciudad}</Link></li>
-                <li><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer"><i className="fa fa-whatsapp" aria-hidden="true"></i>{TIENDA.telefonoVisible}</a></li>
+                <li><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer"><i className="fa fa-whatsapp" aria-hidden="true"></i>{TELEFONO_VISIBLE}</a></li>
                 <li><a href={`mailto:${TIENDA.email}`}><i className="fa fa-envelope" aria-hidden="true"></i>{TIENDA.email}</a></li>
               </ul>
             </div>
