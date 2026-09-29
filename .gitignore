@@ -10,8 +10,6 @@ yarn-error.log*
 # Build y dist
 dist/
 build/
-*.min.css
-*.min.js
 
 # Logs
 *.log
