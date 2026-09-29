@@ -39,9 +39,7 @@ function ProductosPage() {
     const params = new URLSearchParams(location.search);
     const cat = params.get('cat');
     const brand = params.get('brand');
-    const q = params.get('q');
     if (cat) setFilter(cat);
-    if (q) setSearchQuery(q);
     if (brand !== null) setBrandFilter(brand);
     else setBrandFilter('');
   }, [location.search]);
