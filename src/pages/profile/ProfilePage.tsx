@@ -43,7 +43,7 @@ function AddressForm({ onSave, onCancel }: AddressFormProps) {
         <div className="modal-header">
           <h3>Agregar dirección</h3>
           <button type="button" className="modal-close" onClick={onCancel} aria-label="Cerrar">
-            <i className="fa-solid fa-xmark"></i>
+            <i className="fa fa-times"></i>
           </button>
         </div>
 
@@ -182,7 +182,7 @@ function ProfilePage() {
             <p className="profile-email">{user.email}</p>
           </div>
           <button className="btn-logout" onClick={handleLogout} id="btn-logout">
-            <i className="fa-solid fa-right-from-bracket"></i>
+            <i className="fa fa-sign-out"></i>
             Cerrar sesión
           </button>
         </div>
@@ -194,7 +194,7 @@ function ProfilePage() {
             onClick={() => setActiveTab('orders')}
             id="tab-orders"
           >
-            <i className="fa-solid fa-box"></i>
+            <i className="fa fa-archive"></i>
             Órdenes
           </button>
           <button
@@ -202,7 +202,7 @@ function ProfilePage() {
             onClick={() => setActiveTab('profile')}
             id="tab-profile"
           >
-            <i className="fa-solid fa-user"></i>
+            <i className="fa fa-user"></i>
             Perfil
           </button>
         </div>
@@ -214,7 +214,7 @@ function ProfilePage() {
             <div className="tab-panel" key="orders">
               <div className="empty-state">
                 <div className="empty-icon">
-                  <i className="fa-solid fa-bag-shopping"></i>
+                  <i className="fa fa-shopping-bag"></i>
                 </div>
                 <h3>Aún no tienes órdenes</h3>
                 <p>Cuando realices tu primera compra, aparecerá aquí.</p>
@@ -254,14 +254,14 @@ function ProfilePage() {
                     onClick={() => setShowAddressForm(true)}
                     id="btn-add-address"
                   >
-                    <i className="fa-solid fa-plus"></i>
+                    <i className="fa fa-plus"></i>
                     Agregar
                   </button>
                 </div>
 
                 {addresses.length === 0 ? (
                   <div className="empty-inline">
-                    <i className="fa-solid fa-location-dot"></i>
+                    <i className="fa fa-map-marker"></i>
                     <p>No tienes direcciones guardadas</p>
                   </div>
                 ) : (
@@ -279,7 +279,7 @@ function ProfilePage() {
                           onClick={() => handleDeleteAddress(addr.id)}
                           aria-label="Eliminar dirección"
                         >
-                          <i className="fa-solid fa-trash-can"></i>
+                          <i className="fa fa-trash"></i>
                         </button>
                       </div>
                     ))}

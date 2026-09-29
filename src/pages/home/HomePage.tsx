@@ -332,7 +332,7 @@ function HomePage() {
                   {error && (
                       <div className="col-md-12 text-center">
                           <div className="alert alert-danger">
-                              <i className="fa-solid fa-circle-exclamation"></i>
+                              <i className="fa fa-exclamation-circle"></i>
                               {error}
                           </div>
                       </div>

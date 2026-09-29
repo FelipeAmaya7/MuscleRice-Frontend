@@ -201,7 +201,7 @@ function LoginPage() {
   return (
     <>
       <Link to="/" className="auth-back-btn" id="btn-back">
-        <i className="fa-solid fa-arrow-left"></i>
+        <i className="fa fa-arrow-left"></i>
         Regresar
       </Link>
 
@@ -223,7 +223,7 @@ function LoginPage() {
 
             {error && (
               <div className="alert alert-danger">
-                <i className="fa-solid fa-circle-exclamation" style={{ marginRight: '8px' }}></i>
+                <i className="fa fa-exclamation-circle" style={{ marginRight: '8px' }}></i>
                 {error}
               </div>
             )}
@@ -241,7 +241,7 @@ function LoginPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   autoFocus
                 />
-                <i className="fa-solid fa-envelope field-icon"></i>
+                <i className="fa fa-envelope field-icon"></i>
                 <span
                   className={`field-error ${emailError ? 'visible' : ''}`}
                   id="error-email"
@@ -274,7 +274,7 @@ function LoginPage() {
           <div className="auth-step" key="step-otp">
             <div className="otp-header">
               <div className="otp-icon-wrap" aria-hidden="true">
-                <i className="fa-solid fa-envelope-circle-check"></i>
+                <i className="fa fa-envelope-open"></i>
               </div>
               <h1 className="auth-title">Verifica tu correo</h1>
               <p className="auth-subtitle">
@@ -285,7 +285,7 @@ function LoginPage() {
 
             {error && (
               <div className="alert alert-danger">
-                <i className="fa-solid fa-circle-exclamation" style={{ marginRight: '8px' }}></i>
+                <i className="fa fa-exclamation-circle" style={{ marginRight: '8px' }}></i>
                 {error}
               </div>
             )}
@@ -329,7 +329,7 @@ function LoginPage() {
                 onClick={handleBackToEmail}
                 id="btn-back-email"
               >
-                <i className="fa-solid fa-arrow-left"></i>
+                <i className="fa fa-arrow-left"></i>
                 Usar otro correo
               </button>
             </div>
