@@ -1,112 +1,204 @@
-# 🌐 WebsiteMuscleRice — Frontend
+# 🌐 MuscleRice — Frontend
 
-Sitio web del proyecto **MuscleRice**, una tienda de suplementos deportivos. Construido con **TypeScript**, **Vite** y **CSS Vanilla**, siguiendo una arquitectura de componentes modular.
+Sitio web de **MuscleRice**, tienda online de suplementos deportivos en Colombia.
+Construido con **React + TypeScript + Vite** como una SPA (Single Page Application).
 
----
-
-## 🧱 Stack Tecnológico
-
-| Tecnología | Versión | Uso |
-|---|---|---|
-| TypeScript | ^6.0 | Lenguaje |
-| Vite | ^5.0 | Bundler y dev server |
-| CSS Vanilla | — | Estilos personalizados |
-| jQuery (types) | ^4.0 | Tipado para jQuery |
+> 🔗 Backend: [MuscleRice-Backend](https://github.com/FelipeAmaya7/MuscleRice-Backend)
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📑 Índice
+1. [¿Qué hace el frontend?](#-qué-hace-el-frontend)
+2. [Stack tecnológico](#-stack-tecnológico)
+3. [Estructura del proyecto](#-estructura-del-proyecto)
+4. [Conceptos clave de la arquitectura](#-conceptos-clave-de-la-arquitectura)
+5. [Páginas y rutas](#-páginas-y-rutas)
+6. [Conexión con el backend](#-conexión-con-el-backend)
+7. [Instalación y ejecución](#-instalación-y-ejecución)
+8. [Estado actual y pendientes](#-estado-actual-y-pendientes)
+
+---
+
+## 🎯 ¿Qué hace el frontend?
+
+Es todo lo que el cliente **ve y toca** en el navegador:
+
+- Página de inicio con categorías y productos destacados
+- Catálogo con **búsqueda, filtros por categoría/marca y ordenamiento**
+- **Carrito** persistente (sobrevive al cerrar la pestaña) con cálculo de envío gratis
+- Inicio de sesión y panel de perfil (órdenes y direcciones)
+
+---
+
+## 🧱 Stack tecnológico
+
+| Tecnología | Uso |
+|---|---|
+| **React 19** | Interfaz construida con componentes |
+| **TypeScript** | Tipos para detectar errores antes de ejecutar |
+| **Vite 5** | Servidor de desarrollo y build de producción |
+| **React Router 7** | Navegación entre páginas sin recargar |
+| **CSS** propio + tokens | Estilos por capas (`tokens → components → layouts → pages`) |
+| **Bootstrap 3** (legacy) | Grilla heredada de la plantilla original (`public/vendor`) |
+| **Font Awesome 4.7** | Íconos |
+
+---
+
+## 📁 Estructura del proyecto
 
 ```
 WebsiteMuscleRice/
-├── src/
-│   ├── assets/          # Recursos estáticos del código fuente
-│   ├── components/      # Componentes reutilizables (navbar, footer, etc.)
-│   ├── hooks/           # Lógica reutilizable (comportamientos custom)
-│   ├── pages/           # Páginas principales de la app
-│   │   ├── auth/        # Login y registro
-│   │   ├── blog/        # Blog de nutrición y fitness
-│   │   ├── cart/        # Carrito de compras
-│   │   ├── home/        # Página principal
-│   │   ├── info/        # Información / Sobre nosotros
-│   │   ├── profile/     # Perfil del usuario
-│   │   └── shop/        # Tienda / Catálogo de productos
-│   ├── scripts/         # Scripts globales de la aplicación
-│   ├── services/        # Llamadas a la API del backend
-│   ├── styles/          # Estilos globales y variables CSS
-│   └── types/           # Definición de tipos TypeScript
-├── public/              # Archivos públicos estáticos
-├── img/                 # Imágenes del catálogo y UI
-├── vendor/              # Librerías de terceros
-├── dist/                # Build de producción (generado)
-├── index.html           # HTML principal (entry point)
-├── 404.html             # Página de error 404
-├── vite.config.ts       # Configuración de Vite
-└── tsconfig.json        # Configuración de TypeScript
+├── index.html              # HTML base: React se monta en <div id="root">
+├── vite.config.ts          # Alias @ → src, proxy /api → localhost:3000
+├── public/
+│   ├── img/                # Imágenes de productos, logos, marcas (.webp)
+│   └── vendor/             # Bootstrap, Font Awesome, jQuery (legacy)
+├── scripts/                # Utilidades: convertir imágenes a WebP
+└── src/
+    ├── main.tsx            # Arranca React y envuelve la app en los Providers
+    ├── App.tsx             # Tabla de rutas (qué página va en cada URL)
+    ├── types/
+    │   └── index.ts        # Tipos: Product, CartItem, User, Address
+    ├── services/           # Funciones que hablan con el backend
+    │   ├── productService.ts
+    │   ├── authService.ts
+    │   └── supabaseClient.ts   # Placeholder (no se usa aún)
+    ├── hooks/              # Estado global con Context API
+    │   ├── useCart.tsx     # Carrito → localStorage ('mr-cart')
+    │   └── useAuth.tsx     # Usuario → localStorage ('mr-auth')
+    ├── components/
+    │   ├── ProductCard.tsx
+    │   └── layout/
+    │       ├── Header.tsx
+    │       └── Footer.tsx
+    ├── pages/
+    │   ├── home/           # HomePage
+    │   ├── shop/           # Categorías, Productos, Producto, Carrito
+    │   ├── auth/           # LoginPage
+    │   ├── profile/        # ProfilePage
+    │   ├── contacto/       # ContactoPage
+    │   ├── info/           # FaqPage, NotFoundPage
+    │   └── blog/           # BlogPage, SingleBlogPage
+    ├── styles/
+    │   ├── main.css        # Orquestador: importa todas las capas
+    │   ├── tokens/         # Colores, espaciados, tipografía
+    │   ├── base/ components/ layouts/ pages/
+    │   └── pages/_legacy-*.css   # Estilos heredados de la plantilla
+    └── assets/             # Fuentes e imágenes procesadas por Vite
 ```
 
 ---
 
-## 🛍️ Páginas del Sitio
+## 🧠 Conceptos clave de la arquitectura
 
-| Ruta | Descripción |
-|---|---|
-| `/` | **Home** — Landing page principal |
-| `/shop` | **Tienda** — Catálogo de suplementos |
-| `/cart` | **Carrito** — Gestión del carrito de compras |
-| `/auth` | **Autenticación** — Login y registro de usuarios |
-| `/profile` | **Perfil** — Datos y pedidos del usuario |
-| `/blog` | **Blog** — Artículos de nutrición y fitness |
-| `/info` | **Información** — Sobre nosotros y contacto |
+### 1. Capas: página → hook/servicio → backend
+```
+ProductosPage.tsx   (muestra datos y maneja la interacción)
+      │ usa
+      ▼
+productService.ts   (sabe cómo pedir los datos: fetch a /api/productos)
+      │ HTTP
+      ▼
+Backend Express     (consulta MongoDB y responde JSON)
+```
+Las páginas **no** hacen `fetch` directamente: se lo piden a un *service*. Si mañana cambia la API, solo se toca el service.
+
+### 2. Estado global con Context (`hooks/`)
+El carrito y el usuario se necesitan en muchas páginas (Header, Carrito, Perfil…).
+En lugar de pasarlos de componente en componente, `main.tsx` envuelve la app:
+
+```tsx
+<AuthProvider>
+  <CartProvider>
+    <App />
+  </CartProvider>
+</AuthProvider>
+```
+Cualquier componente puede usar `const { cart, addToCart } = useCart()`.
+
+### 3. Persistencia con `localStorage`
+`useCart` guarda el carrito en el navegador cada vez que cambia, y lo lee al arrancar. Por eso el carrito sigue ahí si cierras la pestaña.
+
+### 4. Fallback si el backend no responde
+Si `/api/productos` falla, `productService.ts` devuelve una lista de respaldo (`mockProducts`) para que la tienda no quede vacía.
+
+### 5. SPA + React Router
+Todo el sitio es un solo `index.html`. React Router cambia la "página" sin recargar el navegador. Por eso los enlaces internos deben ser `<Link to="...">` y no `<a href="...">`.
 
 ---
 
-## 🚀 Instalación y Ejecución
+## 🗺️ Páginas y rutas
 
-### Prerrequisitos
+| Ruta | Página | Estado |
+|---|---|---|
+| `/` | Inicio | ✅ |
+| `/categorias` | Categorías | ✅ |
+| `/productos` | Catálogo (búsqueda, filtros `?cat=` y `?brand=`, orden) | ✅ |
+| `/producto/single` | Ficha de producto | 🔴 contenido de plantilla |
+| `/carrito` | Carrito | ✅ (falta checkout) |
+| `/login` | Login en 2 pasos (correo → código) | 🟡 simulado |
+| `/registro` | Redirige a `/login` | ✅ |
+| `/profile` | Perfil: órdenes y direcciones | 🟡 sin datos reales |
+| `/contacto` | Contacto | 🔴 contenido de plantilla |
+| `/faq` | Preguntas frecuentes | 🔴 contenido de plantilla |
+| `/blog`, `/blog/single` | Blog | 🔴 contenido de plantilla |
+| `*` | Página 404 | 🔴 en inglés |
 
+---
+
+## 🔌 Conexión con el backend
+
+- En desarrollo, Vite redirige todo lo que empieza por **`/api`** a `http://localhost:3000` (ver `server.proxy` en `vite.config.ts`). Así no hay problemas de CORS.
+- Opcionalmente se puede definir `VITE_API_URL` en un `.env` para apuntar a otro servidor.
+
+| Service | Endpoint | Estado |
+|---|---|---|
+| `apiGetProducts()` | `GET /api/productos` | ✅ conectado |
+| `sendOtp()` / `verifyOtp()` | — | 🟡 **mock**: el código siempre es `123456` |
+
+---
+
+## 🚀 Instalación y ejecución
+
+### Requisitos
 - Node.js 18+
-- Backend [`ServiceMuscleRice`](../ServiceMuscleRice/README.md) corriendo en `http://localhost:3000`
+- [Backend](https://github.com/FelipeAmaya7/MuscleRice-Backend) corriendo en `http://localhost:3000` (si no está, se usan productos de respaldo)
 
 ### Pasos
-
 ```bash
-# 1. Instalar dependencias
 npm install
-
-# 2. Iniciar servidor de desarrollo
-npm run dev
+npm run dev        # → http://localhost:5173
 ```
 
-El sitio estará disponible en `http://localhost:5173`
-
-### Build para producción
-
+### Producción
 ```bash
-npm run build    # Genera la carpeta dist/
-npm run preview  # Vista previa del build de producción
+npm run build      # genera dist/
+npm run preview    # prueba local del build
 ```
+
+### Login de prueba
+Mientras la autenticación sea simulada: ingresa cualquier correo y usa el código **`123456`**.
 
 ---
 
-## 🎨 Diseño y Estilos
+## 📌 Estado actual y pendientes
 
-- Estilos con **CSS Vanilla** puro, sin frameworks como Bootstrap o Tailwind
-- Variables CSS globales definidas en `src/styles/`
-- Diseño responsive para desktop y móvil
-- Paleta de colores enfocada en fitness y suplementación deportiva
+### ✅ Hecho
+- Migración de HTML estático + jQuery a **React + TypeScript**
+- Catálogo conectado a la API con búsqueda, filtros y orden
+- Carrito completo con persistencia y envío gratis desde $150.000
+- Flujo de login en 2 pasos y panel de perfil con pestañas
+- Imágenes optimizadas en WebP
 
----
-
-## 🔌 Conexión con el Backend
-
-Los servicios de API se encuentran en `src/services/` y se conectan al backend en:
-
-```
-http://localhost:3000/api
-```
-
-Asegúrate de que [`ServiceMuscleRice`](../ServiceMuscleRice/README.md) esté corriendo antes de usar el frontend.
+### 🛠️ Pendiente
+- [ ] Contenido real en Contacto, FAQ y 404 (hoy es texto de plantilla)
+- [ ] Arreglar enlaces rotos (Ofertas, Sale, redes, footer) e íconos `fa-solid` (requieren Font Awesome 6)
+- [ ] Ficha de producto real en `/producto/:id`
+- [ ] Login real contra el backend (JWT) y Header que muestre la sesión
+- [ ] Checkout y pedidos reales; órdenes visibles en el perfil
+- [ ] Menú móvil, buscador en el header, botón de WhatsApp
+- [ ] Páginas legales (privacidad, términos, devoluciones)
+- [ ] Limpiar CSS legacy y retirar Bootstrap 3 / jQuery
 
 ---
 
