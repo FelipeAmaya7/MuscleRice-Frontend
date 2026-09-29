@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import { useCart } from '../../hooks/useCart';
+import { REDES_ACTIVAS, whatsappUrl } from '@/config/tienda';
 
 // Brands list — adjust logos/slugs as your catalog grows
 const BRANDS = [
@@ -52,18 +53,19 @@ function Header() {
             <div className="col-md-5">
               <nav aria-label="Enlaces superiores">
                 <ul className="top-links">
-                  <li><a href="#contacto"><i className="fa fa-headphones"></i> Servicio al cliente</a></li>
-                  <li><a href="#contacto"><i className="fa fa-envelope-open"></i> Buzón de mensajes</a></li>
+                  <li><Link to="/contacto"><i className="fa fa-headphones"></i> Servicio al cliente</Link></li>
+                  <li><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer"><i className="fa fa-whatsapp"></i> WhatsApp</a></li>
                 </ul>
               </nav>
             </div>
             <div className="col-md-3">
+              {/* Solo se muestran las redes configuradas en config/tienda.ts */}
               <div className="icon social-list">
-                <a href="#" aria-label="Facebook"><i className="fa fa-facebook"></i></a>
-                <a href="#" aria-label="Twitter"><i className="fa fa-twitter"></i></a>
-                <a href="#" aria-label="Google Plus"><i className="fa fa-google-plus"></i></a>
-                <a href="#" aria-label="Linkedin"><i className="fa fa-linkedin"></i></a>
-                <a href="#" aria-label="Blog"><i className="fa fa-rss"></i></a>
+                {REDES_ACTIVAS.map((red) => (
+                  <a key={red.nombre} href={red.url} target="_blank" rel="noopener noreferrer" aria-label={red.nombre}>
+                    <i className={`fa ${red.icono}`}></i>
+                  </a>
+                ))}
               </div>
             </div>
             <div className="col-md-4">

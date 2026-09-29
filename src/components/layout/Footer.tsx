@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import { TIENDA, whatsappUrl } from '@/config/tienda';
+
 function Footer() {
   return (
     <footer className="footer-profesional" id="contacto">
@@ -23,9 +26,9 @@ function Footer() {
             <div className="footer-column">
               <h3>☎️ Contáctanos</h3>
               <ul className="contact-info">
-                <li><a href="#"><i className="fa fa-map-marker" aria-hidden="true"></i>Colombia, Boyacá</a></li>
-                <li><a href="tel:+573124567890"><i className="fa fa-phone" aria-hidden="true"></i>+57 3124567890</a></li>
-                <li><a href="mailto:MuscleRice@gmail.com"><i className="fa fa-envelope" aria-hidden="true"></i>MuscleRice@gmail.com</a></li>
+                <li><Link to="/contacto"><i className="fa fa-map-marker" aria-hidden="true"></i>{TIENDA.ciudad}</Link></li>
+                <li><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer"><i className="fa fa-whatsapp" aria-hidden="true"></i>{TIENDA.telefonoVisible}</a></li>
+                <li><a href={`mailto:${TIENDA.email}`}><i className="fa fa-envelope" aria-hidden="true"></i>{TIENDA.email}</a></li>
               </ul>
             </div>
           </div>
